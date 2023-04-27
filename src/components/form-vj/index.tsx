@@ -8,9 +8,11 @@ export const dlgBottomButtonClasses = "px-4 py-2 hover:bg-primary-700 border-pri
 
 function Caption() {
     return (
-        <div className="px-2 py-1.5 flex items-center justify-between">
-            <div className="text-xl">Caption</div>
-            <button className="p-1 w-7 h-7 ">
+        <div className="pl-4 pr-2 py-2 flex items-center justify-between bg-primary-950">
+            <div className="text-xl">
+                valtio <span className="saturate-0 opacity-50">🤝</span> jotai
+            </div>
+            <button className="p-1 w-7 h-7 hover:bg-primary-700 active:scale-[.97] rounded">
                 <IconClose />
             </button>
         </div>
@@ -20,8 +22,10 @@ function Caption() {
 function Body() {
     return (
         <div className="p-4">
-            Body
-            <Input />
+            <label className="">
+                Body
+                <Input />
+            </label>
         </div>
     );
 }
@@ -43,13 +47,15 @@ export function BottomButton({ className, children, ...rest }: ButtonHTMLAttribu
 export function FormValtioJotai() {
     return (
         <div className="h-full grid place-items-center">
-            <div className="w-[30rem] min-h-[40rem] border-slate-600 border rounded grid grid-rows-[auto_1fr_auto]">
-                <Caption />
-                <Body />
+            <div className="border-slate-600 border rounded overflow-hidden">
+                <div className="w-[30rem] min-h-[40rem] grid grid-rows-[auto_1fr_auto]">
+                    <Caption />
+                    <Body />
 
-                <div className="p-4 flex items-center justify-end gap-x-2">
-                    <BottomButton>OK</BottomButton>
-                    <BottomButton>Cancel</BottomButton>
+                    <div className="p-4 flex items-center justify-end gap-x-2">
+                        <BottomButton>OK</BottomButton>
+                        <BottomButton>Cancel</BottomButton>
+                    </div>
                 </div>
             </div>
         </div>
