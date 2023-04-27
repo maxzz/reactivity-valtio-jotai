@@ -6,10 +6,29 @@
     <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valtio + Jotai</title>
+    <style>
+        html {
+            background-color: #485167;
+        }
+        body {
+            animation: fadein 12.5s;
+            width: 100%;
+            height: 100vh;
+        }
+        @keyframes fadein {
+            from {
+                background-color: red;
+            }
+            to {
+                background-color: green;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div id="root"></div>
+    <div id="portal" class="z-50"></div>
     <script type="module" src="/src/main.tsx"></script>
 </body>
 
