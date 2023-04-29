@@ -1,6 +1,5 @@
-import { useSnapshot } from "valtio";
 import { BottomButton, Caption, Input } from "./ui-controls";
-import { appUi } from "@/store";
+import { appUi, useSnapshot } from "@/store";
 import { atomWithProxy } from "jotai-valtio";
 import { Fragment, useState } from "react";
 import { Row } from "./ui-grid-row";
