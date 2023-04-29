@@ -7,7 +7,7 @@ import { Row } from "./ui-grid-row";
 import { MenuState } from "./ui-grid-row-menu";
 
 function ItemsArray() {
-    const state = useSnapshot(appUi.formVjInputs);
+    const snap = useSnapshot(appUi.formVjInputs);
 
     const menuState: MenuState = {
         onDelete: (event: React.MouseEvent) => {},
@@ -18,8 +18,8 @@ function ItemsArray() {
     };
     
     return (
-        <div className="text-xs">
-            {state.items.map((item, idx) => (
+        <div className="text-xs grid gap-y-1">
+            {snap.items.map((item, idx) => (
                 <Fragment key={item.uuid}>
                     {/* <div className="">{item.uuid} {item.dispname}</div> */}
                     <Row item={item} idx={idx} menuState={menuState} key={item.uuid} />

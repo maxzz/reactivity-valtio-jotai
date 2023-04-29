@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
 import { IconMenu } from "../ui/icons";
-import { MenuButtons, MenuState } from "./ui-grid-row-menu";
+import { MenuButtons, MenuState, openButtonClasses } from "./ui-grid-row-menu";
 import { useClickAway } from "react-use";
 import { turnOffAutoComplete } from "@/utils";
 import { CatalogItem } from "@/store/form-vj-types";
 
 function RowItem() {
     return (
-        <input className="px-2 py-1 w-full text-sm rounded" {...turnOffAutoComplete} />
+        <input className="px-2 py-1 w-full text-sm text-primary-300 bg-primary-700 rounded" {...turnOffAutoComplete} />
     );
 }
 
@@ -31,9 +31,10 @@ export function Row({ item, idx, menuState }: RowParams) {
 
             <button ref={btnRef} className="relative">
                 <IconMenu
-                    className="p-1 w-5 h-5 hover:text-white hover:bg-yellow-500 rounded"
+                    className={openButtonClasses}
                     onClick={(event) => { event.preventDefault(); setMenuOpen(v => !v); }}
                 />
+
                 {menuOpen &&
                     <MenuButtons onClose={onClose} {...menuState} />
                 }
