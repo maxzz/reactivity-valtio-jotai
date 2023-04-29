@@ -8,22 +8,22 @@ import { MenuState } from "./ui-grid-row-menu";
 function ItemsArray() {
     const snap = useSnapshot(appUi.formVjInputs);
 
-    const menuState: MenuState = {
-        onDelete: (event: React.MouseEvent) => {},
-        onUp: (event: React.MouseEvent) => {},
-        onDn: (event: React.MouseEvent) => {},
-        hasUp: false,
-        hasDn: false,
-    };
-    
     return (
         <div className="text-xs grid gap-y-1">
-            {snap.items.map((item, idx) => (
-                <Fragment key={item.uuid}>
-                    {/* <div className="">{item.uuid} {item.dispname}</div> */}
-                    <Row item={appUi.formVjInputs.items[idx]} idx={idx} menuState={menuState} key={item.uuid} />
-                </Fragment>
-            ))}
+            {snap.items.map((item, idx) => {
+                const menuState: MenuState = {
+                    onDelete: (event: React.MouseEvent) => { },
+                    onUp: (event: React.MouseEvent) => { },
+                    onDn: (event: React.MouseEvent) => { },
+                    hasUp: idx > 0,
+                    hasDn: idx < snap.items.length - 1,
+                };
+                return (
+                    <Fragment key={item.uuid}>
+                        <Row item={appUi.formVjInputs.items[idx]} idx={idx} menuState={menuState} key={item.uuid} />
+                    </Fragment>
+                );
+            })}
         </div>
     );
 }

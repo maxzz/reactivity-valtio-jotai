@@ -11,12 +11,12 @@ import { useAtom } from "jotai";
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
 function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
-    const snap = useSnapshot(item);
+    const snap = useSnapshot(item, { sync: true });
     const snapAtom = useState(atomWithProxy(item))[0];
     // const snap = useState(atomWithProxy(item))[0];
 
-    console.log('row', {'item': item, 'snap': snap});
-    
+    console.log('row', { 'item': item, 'snap': snap });
+
     return (
         <input
             className="px-2 py-1 w-full text-xs text-primary-300 bg-primary-700 rounded" {...turnOffAutoComplete} {...rest}
@@ -28,14 +28,14 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
 function RowItem2({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
     const snap = useSnapshot(item);
     const snapAtom = useState(atomWithProxy(item))[0];
-    const [snapAtomAccess, setSnapAtomAccess] = useAtom(snapAtom)
+    const [snapAtomAccess, setSnapAtomAccess] = useAtom(snapAtom);
 
-    console.log('row', {'item': item, 'snap': snap});
-    
+    console.log('row', { 'item': item, 'snap': snap });
+
     return (
         <input
             className="px-2 py-1 w-full text-xs text-primary-300 bg-primary-700 rounded" {...turnOffAutoComplete} {...rest}
-            value={snapAtomAccess.dispname} onChange={(e) => { setSnapAtomAccess((v)=>({...v, [name]: e.target.value})) }}
+            value={snapAtomAccess.dispname} onChange={(e) => { setSnapAtomAccess((v) => ({ ...v, [name]: e.target.value })); }}
         />
     );
 }
