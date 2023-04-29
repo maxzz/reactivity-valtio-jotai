@@ -6,16 +6,36 @@ import { IconMenu } from "../ui/icons";
 import { useClickAway } from "react-use";
 import { turnOffAutoComplete } from "@/utils";
 import { atomWithProxy } from "jotai-valtio";
+import { useAtom } from "jotai";
 
-type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>
+type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
-function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey } & InputHTMLAttributes<HTMLInputElement>) {
-    // const snap = useState(atomWithProxy(item))[0];
+function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
     const snap = useSnapshot(item);
+    const snapAtom = useState(atomWithProxy(item))[0];
+    // const snap = useState(atomWithProxy(item))[0];
+
+    console.log('row', {'item': item, 'snap': snap});
+    
     return (
         <input
             className="px-2 py-1 w-full text-xs text-primary-300 bg-primary-700 rounded" {...turnOffAutoComplete} {...rest}
             value={snap[name]} onChange={(e) => { item[name] = e.target.value; }}
+        />
+    );
+}
+
+function RowItem2({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
+    const snap = useSnapshot(item);
+    const snapAtom = useState(atomWithProxy(item))[0];
+    const [snapAtomAccess, setSnapAtomAccess] = useAtom(snapAtom)
+
+    console.log('row', {'item': item, 'snap': snap});
+    
+    return (
+        <input
+            className="px-2 py-1 w-full text-xs text-primary-300 bg-primary-700 rounded" {...turnOffAutoComplete} {...rest}
+            value={snapAtomAccess.dispname} onChange={(e) => { setSnapAtomAccess((v)=>({...v, [name]: e.target.value})) }}
         />
     );
 }
@@ -38,14 +58,10 @@ export function Row({ item, idx, menuState }: RowParams) {
     return (
         <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-x-1">
 
+            {/* <div className="">type {snap.password?'psw':'txt'}</div> */}
+            <RowItem2 item={item} name="dispname" />
             <RowItem item={item} name="dispname" />
-            {/* <RowItem item={item} value={snap.dispname} onChange={(e) => { item.dispname = e.target.value; }} /> */}
-            {/* <RowItem item={item} value={snap.dispname} onChange={(e) => { item.dispname = e.target.value; }} /> */}
-            {/* <div className=""></div> */}
-
             <RowItem item={item} name="dbname" />
-            {/* <RowItem item={item} />
-            <RowItem item={item} /> */}
 
             <button ref={btnRef} className="relative">
                 <IconMenu
