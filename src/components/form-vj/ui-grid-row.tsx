@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { InputHTMLAttributes, useRef, useState } from "react";
 import { useSnapshot } from "@/store";
 import { IconMenu } from "../ui/icons";
 import { MenuButtons, MenuState, openButtonClasses } from "./ui-grid-row-menu";
@@ -7,10 +7,10 @@ import { turnOffAutoComplete } from "@/utils";
 import { CatalogItem } from "@/store/form-vj-types";
 import { atomWithProxy } from "jotai-valtio";
 
-function RowItem({ item }: { item: CatalogItem; }) {
+function RowItem({ item, ...rest }: { item: CatalogItem; } & InputHTMLAttributes<HTMLInputElement>) {
     // const snap = useState(atomWithProxy(item))[0];
     return (
-        <input className="px-2 py-1 w-full text-sm text-primary-300 bg-primary-700 rounded" {...turnOffAutoComplete} />
+        <input className="px-2 py-1 w-full text-sm text-primary-300 bg-primary-700 rounded" {...turnOffAutoComplete} {...rest} />
     );
 }
 
@@ -25,10 +25,16 @@ export function Row({ item, idx, menuState }: RowParams) {
     const onClose = (event: React.MouseEvent) => { event.preventDefault(); setMenuOpen(v => !v); };
     const btnRef = useRef(null);
     useClickAway(btnRef, () => { setMenuOpen(false); });
+
+    console.log('item', item);
+    
+    const snap = useSnapshot(item);
     return (
         <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-x-1">
 
-            <RowItem item={item} />
+            {/* <RowItem item={item} value={snap.dispname} onChange={(e) => { item.dispname = e.target.value; }} /> */}
+            <div className=""></div>
+
             <RowItem item={item} />
             <RowItem item={item} />
 
