@@ -1,24 +1,23 @@
 import { useRef, useState } from "react";
 import { IconMenu } from "../ui/icons";
-import { MenuButtons } from "./ui-row-menu";
+import { MenuButtons, MenuState } from "./ui-row-menu";
 import { useClickAway } from "react-use";
+import { turnOffAutoComplete } from "@/utils";
+import { CatalogItem } from "@/store/form-vj-types";
 
-function RowItem({ registered, errors, control }: { registered: UseFormRegisterReturn; errors: FieldErrors<Form2Inputs>; control: Control<Form2Inputs, any>; }) {
+function RowItem() {
     return (
-        <input className="px-2 py-1 w-full text-sm rounded" autoComplete="off" list="autocompleteOff" spellCheck="false" {...registered} />
+        <input className="px-2 py-1 w-full text-sm rounded" {...turnOffAutoComplete} />
     );
 }
 
 type RowParams = {
-    field: FieldArrayWithId<Form2Inputs, "fields", "id">;
+    item: CatalogItem;
     idx: number;
     menuState: MenuState;
-    register: UseFormRegister<Form2Inputs>;
-    errors: FieldErrors<Form2Inputs>;
-    control: Control<Form2Inputs, any>;
 };
 
-function Row({ field, idx, menuState, register, errors, control }: RowParams) {
+function Row({ item: field, idx, menuState }: RowParams) {
     const [menuOpen, setMenuOpen] = useState(false);
     const onClose = (event: React.MouseEvent) => { event.preventDefault(); setMenuOpen(v => !v); };
     const btnRef = useRef(null);
@@ -26,9 +25,9 @@ function Row({ field, idx, menuState, register, errors, control }: RowParams) {
     return (
         <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-x-1">
 
-            <RowItem registered={register(`fields.${idx}.disp`)} errors={errors} control={control} />
-            <RowItem registered={register(`fields.${idx}.value`)} errors={errors} control={control} />
-            <RowItem registered={register(`fields.${idx}.type`)} errors={errors} control={control} />
+            <RowItem  />
+            <RowItem  />
+            <RowItem  />
 
             <button ref={btnRef} className="relative">
                 <IconMenu
