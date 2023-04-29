@@ -15,13 +15,12 @@ function RowItem({ item, ...rest }: { item: CatalogItem; } & InputHTMLAttributes
 }
 
 type RowParams = {
-    itemSnap: CatalogItem;
     item: CatalogItem;
     idx: number;
     menuState: MenuState;
 };
 
-export function Row({ itemSnap, item, idx, menuState }: RowParams) {
+export function Row({ item, idx, menuState }: RowParams) {
     const [menuOpen, setMenuOpen] = useState(false);
     const onClose = (event: React.MouseEvent) => { event.preventDefault(); setMenuOpen(v => !v); };
     const btnRef = useRef(null);
@@ -29,11 +28,11 @@ export function Row({ itemSnap, item, idx, menuState }: RowParams) {
 
     console.log('item', item);
     
-    //const snap = useSnapshot(item);
+    const snap = useSnapshot(item);
     return (
         <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-x-1">
 
-            <RowItem item={item} value={itemSnap.dispname} onChange={(e) => { item.dispname = e.target.value; }} />
+            <RowItem item={item} value={snap.dispname} onChange={(e) => { item.dispname = e.target.value; }} />
             {/* <RowItem item={item} value={snap.dispname} onChange={(e) => { item.dispname = e.target.value; }} /> */}
             {/* <div className=""></div> */}
 

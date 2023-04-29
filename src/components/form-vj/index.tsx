@@ -21,7 +21,7 @@ function ItemsArray() {
             {snap.items.map((item, idx) => (
                 <Fragment key={item.uuid}>
                     {/* <div className="">{item.uuid} {item.dispname}</div> */}
-                    <Row itemSnap={item} item={appUi.formVjInputs.items[idx]} idx={idx} menuState={menuState} key={item.uuid} />
+                    <Row item={appUi.formVjInputs.items[idx]} idx={idx} menuState={menuState} key={item.uuid} />
                 </Fragment>
             ))}
         </div>
