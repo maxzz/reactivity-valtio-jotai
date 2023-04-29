@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { IconMenu } from "../ui/icons";
-import { MenuButtons, MenuState } from "./ui-row-menu";
+import { MenuButtons, MenuState } from "./ui-grid-row-menu";
 import { useClickAway } from "react-use";
 import { turnOffAutoComplete } from "@/utils";
 import { CatalogItem } from "@/store/form-vj-types";
@@ -17,7 +17,7 @@ type RowParams = {
     menuState: MenuState;
 };
 
-function Row({ item: field, idx, menuState }: RowParams) {
+function Row({ item, idx, menuState }: RowParams) {
     const [menuOpen, setMenuOpen] = useState(false);
     const onClose = (event: React.MouseEvent) => { event.preventDefault(); setMenuOpen(v => !v); };
     const btnRef = useRef(null);
