@@ -7,7 +7,9 @@ import { useClickAway } from "react-use";
 import { turnOffAutoComplete } from "@/utils";
 import { atomWithProxy } from "jotai-valtio";
 
-function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: keyof CatalogItem } & InputHTMLAttributes<HTMLInputElement>) {
+type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>
+
+function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey } & InputHTMLAttributes<HTMLInputElement>) {
     // const snap = useState(atomWithProxy(item))[0];
     const snap = useSnapshot(item);
     return (
