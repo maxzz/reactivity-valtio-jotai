@@ -1,54 +1,46 @@
-import { ButtonHTMLAttributes, InputHTMLAttributes } from "react";
-import { IconClose } from "../ui/icons";
-import { classNames } from "@/utils";
+import { useSnapshot } from "valtio";
+import { BottomButton, Caption, Input } from "./ui-controls";
+import { appUi } from "@/store";
+import { Display } from "./ui-display";
+import { atomWithProxy } from "jotai-valtio";
+import { Fragment, useState } from "react";
 
-const inputClasses = "px-2 py-1.5 w-full text-primary-300 bg-primary-700 rounded";
-const inputFocusClasses = "focus:outline-none focus:ring-1 focus:ring-primary-400  focus:ring-offset-1 focus:ring-offset-primary-800";
-export const dlgBottomButtonClasses = "px-4 py-2 hover:bg-primary-700 border-primary-500 active:scale-[.97] border rounded select-none disabled:opacity-25";
-
-function Caption() {
+function ItemsArray() {
+    const state = useSnapshot(appUi.formVjInputs);
     return (
-        <div className="pl-4 pr-2 py-2 flex items-center justify-between bg-primary-950">
-            <div className="text-xl">
-                valtio <span className="saturate-0 opacity-50">🤝</span> jotai
-            </div>
-            <button className="p-1 w-7 h-7 hover:bg-primary-700 active:scale-[.97] rounded">
-                <IconClose />
-            </button>
+        <div className="text-xs">
+            {state.items.map((item) => (
+                <Fragment key={item.uuid}>
+                    <div className="">{item.uuid} {item.dispname}</div>
+                </Fragment>
+            ))}
         </div>
     );
 }
 
 function Body() {
     return (
-        <div className="p-4">
-            <label className="">
+        <div className="p-4 space-y-4">
+            <label className="inline-block">
                 Body
                 <Input />
+            </label>
+
+            <label className="inline-block">
+                Items
+                <ItemsArray />
             </label>
         </div>
     );
 }
 
-export function Input({ className, ...rest }: InputHTMLAttributes<HTMLInputElement>) {
-    return (
-        <input className={classNames(inputClasses, inputFocusClasses, className,)} {...rest} />
-    );
-}
-
-export function BottomButton({ className, children, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
-    return (
-        <button className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)} {...rest}>
-            {children}
-        </button>
-    );
-}
-
 export function FormValtioJotai() {
+    const [showDlg, setShowDlg] = useState(atomWithProxy(appUi));
     return (
-        <div className="h-full grid place-items-center">
-            <div className="border-slate-600 border rounded overflow-hidden">
-                <div className="w-[30rem] min-h-[40rem] grid grid-rows-[auto_1fr_auto]">
+        <div className="mx-auto p-4 max-w-7xl h-full grid grid-cols-2 gap-x-4">
+
+            <div className="self-center border-slate-600 border rounded overflow-hidden">
+                <div className="min-h-[40rem] grid grid-rows-[auto_1fr_auto]">
                     <Caption />
                     <Body />
 
@@ -57,6 +49,10 @@ export function FormValtioJotai() {
                         <BottomButton>Cancel</BottomButton>
                     </div>
                 </div>
+            </div>
+
+            <div className="w-full h-full border-slate-600 border rounded overflow-hidden">
+                <Display />
             </div>
         </div>
     );
