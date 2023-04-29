@@ -17,7 +17,7 @@ type RowParams = {
     menuState: MenuState;
 };
 
-function Row({ item, idx, menuState }: RowParams) {
+export function Row({ item, idx, menuState }: RowParams) {
     const [menuOpen, setMenuOpen] = useState(false);
     const onClose = (event: React.MouseEvent) => { event.preventDefault(); setMenuOpen(v => !v); };
     const btnRef = useRef(null);

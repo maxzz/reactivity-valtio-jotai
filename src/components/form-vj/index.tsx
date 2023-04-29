@@ -3,14 +3,26 @@ import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi } from "@/store";
 import { atomWithProxy } from "jotai-valtio";
 import { Fragment, useState } from "react";
+import { Row } from "./ui-grid-row";
+import { MenuState } from "./ui-grid-row-menu";
 
 function ItemsArray() {
     const state = useSnapshot(appUi.formVjInputs);
+
+    const menuState: MenuState = {
+        onDelete: (event: React.MouseEvent) => {},
+        onUp: (event: React.MouseEvent) => {},
+        onDn: (event: React.MouseEvent) => {},
+        hasUp: false,
+        hasDn: false,
+    };
+    
     return (
         <div className="text-xs">
-            {state.items.map((item) => (
+            {state.items.map((item, idx) => (
                 <Fragment key={item.uuid}>
-                    <div className="">{item.uuid} {item.dispname}</div>
+                    {/* <div className="">{item.uuid} {item.dispname}</div> */}
+                    <Row item={item} idx={idx} menuState={menuState} key={item.uuid} />
                 </Fragment>
             ))}
         </div>
