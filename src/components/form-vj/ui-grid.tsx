@@ -25,13 +25,24 @@ type RowParams = {
     menuState: MenuState;
 };
 
-export function Row({ item, idx, menuState }: RowParams) {
+function RowPopupMenu({ menuState }: { menuState: MenuState; }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const onClose = () => setMenuOpen(v => !v);
     const btnRef = useRef(null);
     useClickAway(btnRef, () => setMenuOpen(false));
+    return (
+        <div ref={btnRef} className="relative">
+            <IconMenu className={openButtonClasses} onClick={() => setMenuOpen(v => !v)} />
 
-    const { password: isPsw = false } = useSnapshot(item);
+            {menuOpen &&
+                <MenuButtons onClose={onClose} {...menuState} />
+            }
+        </div>
+    );
+}
+
+export function Row({ item, idx, menuState }: RowParams) {
+    const { password: isPsw = false } = useSnapshot(item, { sync: true });
     return (
         <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-x-1">
 
@@ -39,13 +50,7 @@ export function Row({ item, idx, menuState }: RowParams) {
             <RowItem item={item} name="dispname" />
             <RowItem item={item} name="dbname" />
 
-            <button ref={btnRef} className="relative">
-                <IconMenu className={openButtonClasses} onClick={() => { setMenuOpen(v => !v); }} />
-
-                {menuOpen &&
-                    <MenuButtons onClose={onClose} {...menuState} />
-                }
-            </button>
+            <RowPopupMenu menuState={menuState} />
         </div>
     );
 }
