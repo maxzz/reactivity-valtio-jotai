@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { atomWithProxy } from "jotai-valtio";
 import { appUi, useSnapshot } from "@/store";
-import { ItemsArray, Row } from "./ui-grid-row";
+import { ItemsArray, Row } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 
 function Body() {
