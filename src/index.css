@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animate-row-menu-left {
+    transform-origin: center 97%;
+    animation: scale-left 150ms ease-out;
+}
+@keyframes scale-left {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}

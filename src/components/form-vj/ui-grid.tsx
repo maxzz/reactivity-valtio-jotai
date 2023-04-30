@@ -1,11 +1,9 @@
-import { Fragment, InputHTMLAttributes, useRef, useState } from "react";
+import { Fragment, InputHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
-import { MenuButtons, MenuState, openButtonClasses } from "./ui-grid-row-menu";
-import { IconMenu } from "../ui/icons";
-import { useClickAway } from "react-use";
 import { classNames, swap, turnOffAutoComplete } from "@/utils";
-import { inputClasses, inputFocusClasses } from "./ui-controls";
+import { inputFocusClasses } from "./ui-controls";
+import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
@@ -19,22 +17,6 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
             value={snap[name]}
             onChange={(e) => { item[name] = e.target.value; }}
         />
-    );
-}
-
-function RowPopupMenu({ menuState }: { menuState: MenuState; }) {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const onClose = () => setMenuOpen(v => !v);
-    const btnRef = useRef(null);
-    useClickAway(btnRef, () => setMenuOpen(false));
-    return (
-        <div ref={btnRef} className="relative">
-            <IconMenu className={openButtonClasses} onClick={() => setMenuOpen(v => !v)} />
-
-            {menuOpen &&
-                <MenuButtons onClose={onClose} {...menuState} />
-            }
-        </div>
     );
 }
 
