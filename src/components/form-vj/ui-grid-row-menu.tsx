@@ -9,9 +9,9 @@ export type MenuState = {
     hasDn: boolean;
 };
 
-const containerClasses = "absolute -right-[9px] -top-[5px] px-2 py-1 bg-primary-900 border-gray-900/20 border shadow rounded-sm flex";
+const containerClasses = "absolute -right-[9px] -top-[5px] px-2 py-1 bg-primary-900 border-gray-500/50 border shadow rounded flex";
 export const openButtonClasses = "p-1 w-5 h-5 hover:text-white hover:bg-primary-500 rounded";
-const buttonClasses = "p-1 w-5 h-5 hover:text-primary-200 hover:bg-primary-500 rounded";
+const buttonClasses = "p-1 w-5 h-5 hover:text-primary-200 hover:bg-primary-500 rounded cursor-pointer";
 
 export function MenuButtons({ onClose, onDelete, onUp, onDn, hasUp, hasDn }: { onClose: (event: React.MouseEvent) => void; } & MenuState) {
     return (
