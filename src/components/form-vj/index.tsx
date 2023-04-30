@@ -1,32 +1,8 @@
-import { BottomButton, Caption, Input } from "./ui-controls";
-import { appUi, useSnapshot } from "@/store";
+import { useState } from "react";
 import { atomWithProxy } from "jotai-valtio";
-import { Fragment, useState } from "react";
-import { Row } from "./ui-grid-row";
-import { MenuState } from "./ui-grid-row-menu";
-
-function ItemsArray() {
-    const snap = useSnapshot(appUi.formVjInputs);
-
-    return (
-        <div className="text-xs grid gap-y-1">
-            {snap.items.map((item, idx) => {
-                const menuState: MenuState = {
-                    onDelete: (event: React.MouseEvent) => { },
-                    onUp: (event: React.MouseEvent) => { },
-                    onDn: (event: React.MouseEvent) => { },
-                    hasUp: idx > 0,
-                    hasDn: idx < snap.items.length - 1,
-                };
-                return (
-                    <Fragment key={item.uuid}>
-                        <Row item={appUi.formVjInputs.items[idx]} idx={idx} menuState={menuState} key={item.uuid} />
-                    </Fragment>
-                );
-            })}
-        </div>
-    );
-}
+import { appUi, useSnapshot } from "@/store";
+import { ItemsArray, Row } from "./ui-grid-row";
+import { BottomButton, Caption, Input } from "./ui-controls";
 
 function Body() {
     return (

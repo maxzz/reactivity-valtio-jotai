@@ -1,5 +1,5 @@
-import { InputHTMLAttributes, useRef, useState } from "react";
-import { useSnapshot } from "@/store";
+import { Fragment, InputHTMLAttributes, useRef, useState } from "react";
+import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
 import { MenuButtons, MenuState, openButtonClasses } from "./ui-grid-row-menu";
 import { IconMenu } from "../ui/icons";
@@ -73,6 +73,29 @@ export function Row({ item, idx, menuState }: RowParams) {
                     <MenuButtons onClose={onClose} {...menuState} />
                 }
             </button>
+        </div>
+    );
+}
+
+export function ItemsArray() {
+    const snap = useSnapshot(appUi.formVjInputs);
+
+    return (
+        <div className="text-xs grid gap-y-1">
+            {snap.items.map((item, idx) => {
+                const menuState: MenuState = {
+                    onDelete: (event: React.MouseEvent) => { },
+                    onUp: (event: React.MouseEvent) => { },
+                    onDn: (event: React.MouseEvent) => { },
+                    hasUp: idx > 0,
+                    hasDn: idx < snap.items.length - 1,
+                };
+                return (
+                    <Fragment key={item.uuid}>
+                        <Row item={appUi.formVjInputs.items[idx]} idx={idx} menuState={menuState} key={item.uuid} />
+                    </Fragment>
+                );
+            })}
         </div>
     );
 }
