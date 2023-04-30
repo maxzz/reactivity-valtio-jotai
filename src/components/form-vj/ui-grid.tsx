@@ -4,7 +4,7 @@ import { CatalogItem } from "@/store/form-vj-types";
 import { MenuButtons, MenuState, openButtonClasses } from "./ui-grid-row-menu";
 import { IconMenu } from "../ui/icons";
 import { useClickAway } from "react-use";
-import { turnOffAutoComplete } from "@/utils";
+import { remove, swap, turnOffAutoComplete } from "@/utils";
 import { atomWithProxy } from "jotai-valtio";
 import { useAtom } from "jotai";
 
@@ -75,14 +75,6 @@ export function Row({ item, idx, menuState }: RowParams) {
             </button>
         </div>
     );
-}
-
-function remove<T>(data: T[], index: number): T[] {
-    return data.filter((item, idx) => idx !== index);
-}
-
-function swap<T>(data: T[], indexA: number, indexB: number): void {
-    data[indexA] = [data[indexB], (data[indexB] = data[indexA])][0];
 }
 
 export function ItemsArray() {
