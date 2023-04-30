@@ -12,7 +12,7 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
     const snap = useSnapshot(item, { sync: true });
     return (
         <input
-            className="px-2 py-1 w-full text-xs text-primary-300 bg-primary-700 rounded"
+            className="px-2 py-1 w-full text-primary-300 bg-primary-700 rounded"
             {...turnOffAutoComplete}
             {...rest}
             value={snap[name]}
@@ -20,12 +20,6 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
         />
     );
 }
-
-type RowParams = {
-    item: CatalogItem;
-    idx: number;
-    menuState: MenuState;
-};
 
 function RowPopupMenu({ menuState }: { menuState: MenuState; }) {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -43,12 +37,12 @@ function RowPopupMenu({ menuState }: { menuState: MenuState; }) {
     );
 }
 
-export function Row({ item, idx, menuState }: RowParams) {
+export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
     const { password: isPsw = false } = useSnapshot(item, { sync: true });
     return (
-        <div className="grid grid-cols-[1fr_1fr_1fr_auto] gap-x-1">
+        <div className="grid grid-cols-[1fr_1fr_1fr_auto] items-center gap-x-1">
 
-            <div className="">type {isPsw ? 'psw' : 'txt'}</div>
+            <div className="select-none">type {isPsw ? 'psw' : 'txt'}</div>
             <RowItem item={item} name="dispname" />
             <RowItem item={item} name="dbname" />
 
@@ -65,9 +59,9 @@ export function ItemsArray() {
         <div className="text-xs grid gap-y-1">
             {snap.items.map((item, idx) => {
                 const menuState: MenuState = {
-                    onDelete: (event: React.MouseEvent) => { event.preventDefault(); form.items.splice(idx, 1); },
-                    onUp: (event: React.MouseEvent) => { event.preventDefault(); idx > 0 && swap(items, idx - 1, idx); },
-                    onDn: (event: React.MouseEvent) => { event.preventDefault(); idx < items.length - 1 && swap(items, idx, idx + 1); },
+                    onDelete: () => { form.items.splice(idx, 1); },
+                    onUp: () => { idx > 0 && swap(items, idx - 1, idx); },
+                    onDn: () => { idx < items.length - 1 && swap(items, idx, idx + 1); },
                     hasUp: idx > 0,
                     hasDn: idx < snap.items.length - 1,
                 };
