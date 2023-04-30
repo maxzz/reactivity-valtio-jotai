@@ -77,6 +77,14 @@ export function Row({ item, idx, menuState }: RowParams) {
     );
 }
 
+function remove<T>(data: T[], index: number): T[] {
+    return data.filter((item, idx) => idx !== index);
+}
+
+function swap<T>(data: T[], indexA: number, indexB: number): void {
+    data[indexA] = [data[indexB], (data[indexB] = data[indexA])][0];
+}
+
 export function ItemsArray() {
     const snap = useSnapshot(appUi.formVjInputs);
 
@@ -84,9 +92,9 @@ export function ItemsArray() {
         <div className="text-xs grid gap-y-1">
             {snap.items.map((item, idx) => {
                 const menuState: MenuState = {
-                    onDelete: (event: React.MouseEvent) => { },
-                    onUp: (event: React.MouseEvent) => { },
-                    onDn: (event: React.MouseEvent) => { },
+                    onDelete: (event: React.MouseEvent) => { event.preventDefault(); appUi.formVjInputs.items = remove(appUi.formVjInputs.items, idx); },
+                    onUp: (event: React.MouseEvent) => { event.preventDefault(); idx > 0 && swap(appUi.formVjInputs.items, idx - 1, idx); },
+                    onDn: (event: React.MouseEvent) => { event.preventDefault(); idx < appUi.formVjInputs.items.length - 1 && swap(appUi.formVjInputs.items, idx, idx + 1); },
                     hasUp: idx > 0,
                     hasDn: idx < snap.items.length - 1,
                 };
