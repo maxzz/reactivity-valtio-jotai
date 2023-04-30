@@ -12,10 +12,10 @@ function Body() {
                 <Input />
             </label>
 
-            <label className="inline-block">
+            <div className="">
                 Items
                 <ItemsArray />
-            </label>
+            </div>
         </div>
     );
 }
