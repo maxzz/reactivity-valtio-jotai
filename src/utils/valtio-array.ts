@@ -1,4 +1,4 @@
-export function remove<T>(data: T[], index: number): T[] {
+export function removeImm<T>(data: T[], index: number): T[] { // remove() immutable version
     return data.filter((item, idx) => idx !== index);
 }
 
