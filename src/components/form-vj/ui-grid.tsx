@@ -4,7 +4,8 @@ import { CatalogItem } from "@/store/form-vj-types";
 import { MenuButtons, MenuState, openButtonClasses } from "./ui-grid-row-menu";
 import { IconMenu } from "../ui/icons";
 import { useClickAway } from "react-use";
-import { swap, turnOffAutoComplete } from "@/utils";
+import { classNames, swap, turnOffAutoComplete } from "@/utils";
+import { inputClasses, inputFocusClasses } from "./ui-controls";
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
@@ -12,7 +13,7 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
     const snap = useSnapshot(item, { sync: true });
     return (
         <input
-            className="px-2 py-1 w-full text-primary-300 bg-primary-700 rounded"
+            className={classNames("px-2 py-1 w-full text-primary-300 bg-primary-700 rounded-sm", inputFocusClasses)}
             {...turnOffAutoComplete}
             {...rest}
             value={snap[name]}
