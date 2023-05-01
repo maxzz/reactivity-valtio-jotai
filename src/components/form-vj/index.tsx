@@ -8,14 +8,13 @@ function Body() {
     return (
         <div className="p-4 space-y-4">
             <label className="inline-block">
-                Body
+                Name
                 <Input />
             </label>
-
-            <div className="">
-                Items
+            <fieldset className="p-2 border-primary-500 border rounded">
+                <legend className="mx-0.5 px-2">Catalog Items</legend>
                 <ItemsArray />
-            </div>
+            </fieldset>
         </div>
     );
 }
