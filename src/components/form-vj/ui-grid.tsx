@@ -4,6 +4,7 @@ import { CatalogItem } from "@/store/form-vj-types";
 import { classNames, swap, turnOffAutoComplete } from "@/utils";
 import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
+import { IconAdd } from "../ui/icons";
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
@@ -60,6 +61,8 @@ export function ItemsArray() {
 
 export function ItemsArrayAddButton() {
     return (
-        <button className={classNames("px-4", dlgBottomButtonClasses)}>+</button>
+        <button className={classNames("p-1", dlgBottomButtonClasses)}>
+            <IconAdd className="w-4 h-4" />
+        </button>
     )
 }
