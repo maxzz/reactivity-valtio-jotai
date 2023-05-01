@@ -1,4 +1,4 @@
-import { Fragment, InputHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, Fragment, InputHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
 import { classNames, swap, turnOffAutoComplete } from "@/utils";
@@ -59,9 +59,9 @@ export function ItemsArray() {
     );
 }
 
-export function ItemsArrayAddButton() {
+export function ItemsArrayAddButton({className, ...rest}: ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
-        <button className={classNames("p-1", dlgBottomButtonClasses)}>
+        <button className={classNames("p-1", dlgBottomButtonClasses, className)} {...rest}>
             <IconAdd className="w-4 h-4" />
         </button>
     )
