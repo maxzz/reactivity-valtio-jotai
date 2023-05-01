@@ -2,7 +2,7 @@ import { Fragment, InputHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
 import { classNames, swap, turnOffAutoComplete } from "@/utils";
-import { inputFocusClasses } from "./ui-controls";
+import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
@@ -56,4 +56,10 @@ export function ItemsArray() {
             })}
         </div>
     );
+}
+
+export function ItemsArrayAddButton() {
+    return (
+        <button className={classNames("px-4", dlgBottomButtonClasses)}>+</button>
+    )
 }

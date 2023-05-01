@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { atomWithProxy } from "jotai-valtio";
 import { appUi, useSnapshot } from "@/store";
-import { ItemsArray, Row } from "./ui-grid";
+import { ItemsArray, ItemsArrayAddButton } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 
 function Body() {
@@ -14,6 +14,7 @@ function Body() {
             <fieldset className="p-2 border-primary-500 border rounded">
                 <legend className="mx-0.5 px-2">Catalog Items</legend>
                 <ItemsArray />
+                <ItemsArrayAddButton />
             </fieldset>
         </div>
     );
