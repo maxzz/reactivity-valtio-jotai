@@ -22,7 +22,7 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
 }
 
 export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
-    const { password: isPsw = false } = useSnapshot(item, { sync: true });
+    const { password: isPsw = false } = useSnapshot(item);
     return (
         <div className="grid grid-cols-[1fr_1fr_1fr_auto] items-center gap-x-1">
 
@@ -38,7 +38,7 @@ export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; 
 export function ItemsArray() {
     const form = appUi.formVjInputs;
     const items = form.items;
-    const snap = useSnapshot(form, { sync: true });
+    const snap = useSnapshot(form);
     return (
         <div className="text-xs grid gap-y-1">
             {snap.items.map((item, idx) => {
@@ -61,7 +61,13 @@ export function ItemsArray() {
 
 export function ItemsArrayAddButton({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
-        <button className={classNames(dlgBottomButtonClasses, className)} {...rest}>
+        <button
+            className={classNames(dlgBottomButtonClasses, className)}
+            onClick={() => {
+                console.log('aaa');
+            }}
+            {...rest}
+        >
             <IconAdd />
         </button>
     );
@@ -72,12 +78,7 @@ export function ItemsArrayWithAdd() {
         <fieldset className="relative p-2 border-primary-500 border rounded">
             <legend className="mx-0.5 px-2">Catalog Items</legend>
             <ItemsArray />
-            <ItemsArrayAddButton
-                className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700"
-                onClick={() => {
-                    console.log('aaa');
-                }}
-            />
+            <ItemsArrayAddButton className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700"/>
         </fieldset>
     );
 }
