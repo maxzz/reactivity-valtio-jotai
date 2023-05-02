@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, Fragment, InputHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
-import { classNames, swap, turnOffAutoComplete } from "@/utils";
+import { classNames, swap, turnOffAutoComplete, uuid } from "@/utils";
 import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
@@ -60,11 +60,21 @@ export function ItemsArray() {
 }
 
 export function ItemsArrayAddButton({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
+    const form = appUi.formVjInputs;
+    const items = form.items;
+    const snap = useSnapshot(form);
     return (
         <button
             className={classNames(dlgBottomButtonClasses, className)}
             onClick={() => {
-                console.log('aaa');
+                const now = uuid.asRelativeNumber();
+                items.push({
+                    dispname: 'name',
+                    dbname: 'id',
+                    index: snap.items.length,
+                    uuid: now,
+                    mru: now,
+                })
             }}
             {...rest}
         >
