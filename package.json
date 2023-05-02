@@ -12,6 +12,7 @@
         "deploy": "gh-pages -d dist"
     },
     "dependencies": {
+        "guid-factory": "^1.2.0",
         "jotai": "^2.0.4",
         "jotai-valtio": "^0.3.0",
         "react": "^18.2.0",
