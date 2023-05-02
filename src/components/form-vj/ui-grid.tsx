@@ -5,7 +5,6 @@ import { classNames, swap, turnOffAutoComplete, uuid } from "@/utils";
 import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
-import { Guid } from "guid-factory";
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
@@ -69,7 +68,7 @@ export function ItemsArrayAddButton({ className, ...rest }: ButtonHTMLAttributes
             className={classNames(dlgBottomButtonClasses, className)}
             onClick={() => {
                 const now = uuid.asRelativeNumber();
-                const guid = Guid.newGuid();
+                const guid = 'id';
                 items.push({
                     dispname: 'name',
                     dbname: `${guid}`,
