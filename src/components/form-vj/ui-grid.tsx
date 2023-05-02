@@ -7,7 +7,7 @@ import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
 import { v4 } from "uuid";
 
-const gridContainerClasses = "grid grid-cols-[3rem_1fr_1fr_20px] items-center gap-x-1";
+const gridContainerClasses = "grid @[300px]:grid-cols-[3rem_1fr_1fr_20px] grid-cols-1 items-center gap-x-1";
 const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-500 border-b select-none";
 const gridHeaderLastColumnClasses = "border-b-0";
 
@@ -63,7 +63,7 @@ export function ItemsArray() {
     const items = form.items;
     const snap = useSnapshot(form);
     return (
-        <div className="pl-2 text-xs grid gap-y-1">
+        <div className="@container pl-2 text-xs grid gap-y-1">
             <TableHeader />
             {snap.items.map((item, idx) => {
                 const menuState: MenuState = {
