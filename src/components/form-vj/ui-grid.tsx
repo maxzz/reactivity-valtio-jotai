@@ -7,9 +7,9 @@ import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
 import { v4 } from "uuid";
 
-const gridContainerClasses = "grid @[300px]:grid-cols-[3rem_1fr_1fr_20px] grid-cols-1 items-center gap-x-1";
-const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-500 border-b select-none";
-const gridHeaderLastColumnClasses = "border-b-0";
+const gridRowClasses = "grid grid-cols-1 @[300px]:grid-cols-[3rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
+const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-500 border-b hidden @[300px]:block";
+const gridHeaderLastColumnClasses = " border-b-0";
 
 const rowColumns = [
     ['Type',                /**/ 'Type of field'],
@@ -20,9 +20,9 @@ const rowColumns = [
 
 function TableHeader() {
     return (
-        <div className={gridContainerClasses}>
+        <div className={gridRowClasses}>
             {rowColumns.map(([title, hint, classes = ''], idx) => (
-                <div className={`${gridHeaderClasses} ${classes}`} title={hint} key={idx}>
+                <div className={`${gridHeaderClasses}${classes}`} title={hint} key={idx}>
                     {title}
                 </div>
             ))}
@@ -48,8 +48,8 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
 export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
     const { password: isPsw = false } = useSnapshot(item);
     return (
-        <div className={gridContainerClasses}>
-            <div className="text-[0.65rem] select-none">{isPsw ? 'password' : 'text'}</div>
+        <div className={gridRowClasses}>
+            <div className="text-[0.65rem]">{isPsw ? 'password' : 'text'}</div>
             <RowItem item={item} name="dispname" />
             <RowItem item={item} name="dbname" />
 
@@ -111,7 +111,7 @@ export function ItemsArrayAddButton({ className, ...rest }: ButtonHTMLAttributes
 export function ItemsArrayWithAdd() {
     return (
         <fieldset className="relative p-2 border-primary-500 border rounded">
-            <legend className="mx-0.5 px-2">Catalog Items</legend>
+            <legend className="mx-0.5 px-2 select-none">Catalog Items</legend>
             <ItemsArray />
             <ItemsArrayAddButton className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700" />
         </fieldset>
