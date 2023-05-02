@@ -7,21 +7,22 @@ import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
 import { v4 } from "uuid";
 
-const lastColumnClasses = "border-b-0";
 const gridContainerClasses = "grid grid-cols-[3rem_1fr_1fr_20px] items-center gap-x-1";
+const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-500 border-b select-none";
+const gridHeaderLastColumnClasses = "border-b-0";
 
 const rowColumns = [
     ['Type',                /**/ 'Type of field'],
     ['Label',               /**/ 'display name'],
     ['Value',               /**/ 'id'],
-    ['',                    /**/ '', lastColumnClasses],
+    ['',                    /**/ '', gridHeaderLastColumnClasses],
 ];
 
 function TableHeader() {
     return (
         <div className={gridContainerClasses}>
             {rowColumns.map(([title, hint, classes = ''], idx) => (
-                <div className={`mb-2 px-1 text-[.65rem] text-primary-400 border-primary-100 border-b select-none ${classes}`} title={hint} key={idx}>
+                <div className={`${gridHeaderClasses} ${classes}`} title={hint} key={idx}>
                     {title}
                 </div>
             ))}
@@ -62,7 +63,7 @@ export function ItemsArray() {
     const items = form.items;
     const snap = useSnapshot(form);
     return (
-        <div className="text-xs grid gap-y-1">
+        <div className="pl-2 text-xs grid gap-y-1">
             <TableHeader />
             {snap.items.map((item, idx) => {
                 const menuState: MenuState = {
