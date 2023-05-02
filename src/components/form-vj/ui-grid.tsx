@@ -49,7 +49,7 @@ export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; 
     const { password: isPsw = false } = useSnapshot(item);
     return (
         <div className={gridContainerClasses}>
-            <div className="select-none">type {isPsw ? 'psw' : 'txt'}</div>
+            <div className="text-[0.65rem] select-none">{isPsw ? 'password' : 'text'}</div>
             <RowItem item={item} name="dispname" />
             <RowItem item={item} name="dbname" />
 
