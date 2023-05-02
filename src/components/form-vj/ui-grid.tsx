@@ -61,8 +61,8 @@ export function ItemsArray() {
 
 export function ItemsArrayAddButton({className, ...rest}: ButtonHTMLAttributes<HTMLButtonElement>) {
     return (
-        <button className={classNames("p-1", dlgBottomButtonClasses, className)} {...rest}>
-            <IconAdd className="w-4 h-4" />
+        <button className={classNames(dlgBottomButtonClasses, className)} {...rest}>
+            <IconAdd />
         </button>
     )
 }
