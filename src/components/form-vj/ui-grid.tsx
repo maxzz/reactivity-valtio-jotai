@@ -1,10 +1,11 @@
 import { ButtonHTMLAttributes, Fragment, InputHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
-import { classNames, swap, turnOffAutoComplete, uuid } from "@/utils";
+import { classNames, swap, turnOffAutoComplete, uuid as uuidShort } from "@/utils";
 import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
+import { v4 } from "uuid";
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
@@ -67,11 +68,11 @@ export function ItemsArrayAddButton({ className, ...rest }: ButtonHTMLAttributes
         <button
             className={classNames(dlgBottomButtonClasses, className)}
             onClick={() => {
-                const now = uuid.asRelativeNumber();
-                const guid = 'id';
+                const now = uuidShort.asRelativeNumber();
+                const guid = v4();
                 items.push({
                     dispname: 'name',
-                    dbname: `${guid}`,
+                    dbname: `{${guid}}`,
                     index: snap.items.length,
                     uuid: now,
                     mru: now,
