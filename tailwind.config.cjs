@@ -52,5 +52,7 @@ module.exports = {
         require('./tailwind/tailwind-plugin-data-state'),
         require('tailwindcss-radix')(),
         require('@tailwindcss/forms')({ strategy: 'class' }),
+
+        require('@tailwindcss/container-queries'),
     ],
 };
