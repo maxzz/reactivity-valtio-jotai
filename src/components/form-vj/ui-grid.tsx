@@ -7,6 +7,28 @@ import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
 import { v4 } from "uuid";
 
+const lastColumnClasses = "border-b-0";
+const gridContainerClasses = "grid grid-cols-[3rem_1fr_1fr_20px] items-center gap-x-1";
+
+const rowColumns = [
+    ['Type',                /**/ 'Type of field'],
+    ['Label',               /**/ 'display name'],
+    ['Value',               /**/ 'id'],
+    ['',                    /**/ '', lastColumnClasses],
+];
+
+function TableHeader() {
+    return (
+        <div className={gridContainerClasses}>
+            {rowColumns.map(([title, hint, classes = ''], idx) => (
+                <div className={`mb-2 px-1 text-[.65rem] text-primary-400 border-primary-100 border-b select-none ${classes}`} title={hint} key={idx}>
+                    {title}
+                </div>
+            ))}
+        </div>
+    );
+}
+
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
 function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
@@ -25,8 +47,7 @@ function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name
 export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
     const { password: isPsw = false } = useSnapshot(item);
     return (
-        <div className="grid grid-cols-[1fr_1fr_1fr_auto] items-center gap-x-1">
-
+        <div className={gridContainerClasses}>
             <div className="select-none">type {isPsw ? 'psw' : 'txt'}</div>
             <RowItem item={item} name="dispname" />
             <RowItem item={item} name="dbname" />
@@ -42,6 +63,7 @@ export function ItemsArray() {
     const snap = useSnapshot(form);
     return (
         <div className="text-xs grid gap-y-1">
+            <TableHeader />
             {snap.items.map((item, idx) => {
                 const menuState: MenuState = {
                     onDelete: () => { form.items.splice(idx, 1); },
@@ -76,7 +98,7 @@ export function ItemsArrayAddButton({ className, ...rest }: ButtonHTMLAttributes
                     index: snap.items.length,
                     uuid: now,
                     mru: now,
-                })
+                });
             }}
             {...rest}
         >
@@ -90,7 +112,7 @@ export function ItemsArrayWithAdd() {
         <fieldset className="relative p-2 border-primary-500 border rounded">
             <legend className="mx-0.5 px-2">Catalog Items</legend>
             <ItemsArray />
-            <ItemsArrayAddButton className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700"/>
+            <ItemsArrayAddButton className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700" />
         </fieldset>
     );
 }
