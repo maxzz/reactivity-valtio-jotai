@@ -1,10 +1,5 @@
 import { Section2_Main } from "./components/section2-main";
-
-function Footer() {
-    return (
-        <div className="px-2 py-4 bg-primary-900">footer</div>
-    );
-}
+import { Section3_Footer } from "./components/section3-footer";
 
 export function App() {
     return (<>
@@ -12,7 +7,7 @@ export function App() {
 
         <div className="h-screen bg-slate-800 text-slate-400 text-sm grid grid-rows-[1fr,auto]">
             <Section2_Main />
-            <Footer />
+            <Section3_Footer />
         </div>
     </>);
 }
