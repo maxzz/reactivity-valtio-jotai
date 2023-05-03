@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, Fragment, InputHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, Fragment, HTMLAttributes, InputHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
 import { classNames, swap, turnOffAutoComplete, uuid as uuidShort } from "@/utils";
@@ -46,10 +46,10 @@ function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: String
     );
 }
 
-function RowItemType({ item, ...rest }: { item: CatalogItem; } & InputHTMLAttributes<HTMLInputElement>) {
+function RowItemType({ item, ...rest }: { item: CatalogItem; } & HTMLAttributes<HTMLDivElement>) {
     const { password: isPsw = false } = useSnapshot(item);
     return (
-        <div className="w-6 h-6 text-[0.65rem] cursor-pointer" onClick={() => item.password = !isPsw}>
+        <div className="w-6 h-6 text-[0.65rem] cursor-pointer" onClick={() => isPsw ? delete item.password : item.password = true}>
             {isPsw ? <IconFieldPassword title="password" /> : <IconFieldText title="text" />}
         </div>
     );
@@ -57,10 +57,8 @@ function RowItemType({ item, ...rest }: { item: CatalogItem; } & InputHTMLAttrib
 }
 
 export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
-    // const { password: isPsw = false } = useSnapshot(item);
     return (
         <div className={gridRowClasses}>
-            {/* <div className="w-6 h-6 text-[0.65rem]">{isPsw ? <IconFieldPassword title="password" /> : <IconFieldText title="password" />}</div> */}
             <RowItemType item={item} />
             <RowItemInput item={item} name="dispname" />
             <RowItemInput item={item} name="dbname" />
