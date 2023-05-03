@@ -12,17 +12,21 @@ export const enum ActivePage {
 }
 
 type AppUi = {
-    darkMode: boolean;
-    activePage: ActivePage;
-    pageVjDlgOpen: boolean;
+    uiState: {
+        darkMode: boolean;
+        activePage: ActivePage;
+        pageVjDlgOpen: boolean;
+    },
 
     formVjInputs: FormVjInputs;
 };
 
 const initialAppUi: AppUi = {
-    darkMode: false,
-    activePage: ActivePage.pageVj,
-    pageVjDlgOpen: true,
+    uiState: {
+        darkMode: false,
+        activePage: ActivePage.pageVj,
+        pageVjDlgOpen: true,
+    },
 
     formVjInputs: formVjDefaultValues,
 };
@@ -45,6 +49,6 @@ function loadStorageAppUi(): AppUi {
 
 subscribe(appUi, () => {
     console.log('store', appUi.formVjInputs);
-    
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ [STORAGE_VER]: appUi }));
 });

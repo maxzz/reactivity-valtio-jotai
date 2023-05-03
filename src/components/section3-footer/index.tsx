@@ -2,10 +2,19 @@ import { appUi, useSnapshot } from "@/store";
 import { DarkLightSwitch } from "../ui";
 import { IconFieldPassword, IconFieldText, IconSunnyvale } from "../ui/icons";
 
-function ColorModeSwitch() {
-    const { darkMode } = useSnapshot(appUi);
+function ShowVjButton() {
+    const snap = useSnapshot(appUi.uiState);
     return (
-        <DarkLightSwitch className="absolute right-3 w-4 h-4 cursor-pointer" isDark={darkMode} onClick={() => { appUi.darkMode = !darkMode; }} />
+        <button onClick={() => { appUi.uiState.pageVjDlgOpen = !snap.pageVjDlgOpen; }}>
+            Open
+        </button>
+    );
+}
+
+function ColorModeSwitch() {
+    const { darkMode } = useSnapshot(appUi.uiState);
+    return (
+        <DarkLightSwitch className="absolute right-3 w-4 h-4 cursor-pointer" isDark={darkMode} onClick={() => { appUi.uiState.darkMode = !darkMode; }} />
     );
 }
 
@@ -17,6 +26,7 @@ export function Section3_Footer() {
 
             <IconFieldText className="w-6 h-6 text-red-500" />
             <IconFieldPassword className="w-6 h-6 text-red-500" />
+            <ShowVjButton />
 
             <ColorModeSwitch />
         </div>

@@ -46,7 +46,7 @@ function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: String
     );
 }
 
-function RowItemType({ item, ...rest }: { item: CatalogItem; } & HTMLAttributes<HTMLDivElement>) {
+function RowItemType({ item }: { item: CatalogItem; }) {
     const { password: isPsw = false } = useSnapshot(item);
     return (
         <div className="w-6 h-6 text-[0.65rem] cursor-pointer" onClick={() => isPsw ? delete item.password : item.password = true}>
