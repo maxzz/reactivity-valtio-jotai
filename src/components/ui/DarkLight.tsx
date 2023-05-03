@@ -19,11 +19,11 @@ function IconDark({ className, title, ...rest }: HTMLAttributes<SVGSVGElement>) 
     );
 }
 
-export function DarkLightSwitch({ className, isDark, ...rest }: { isDark: boolean; } & HTMLAttributes<SVGSVGElement>) {
+export function DarkLightSwitch({ isDark, ...rest }: { isDark: boolean; } & HTMLAttributes<SVGSVGElement>) {
     return (<>
         {isDark
-            ? <IconDark className={classNames("w-4 h-4", className)} {...rest} />
-            : <IconLight className={classNames("w-4 h-4", className)} {...rest} />
+            ? <IconDark {...rest} />
+            : <IconLight {...rest} />
         }
     </>);
 }

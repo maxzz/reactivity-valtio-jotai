@@ -11,9 +11,9 @@ function ColorModeSwitch() {
 
 export function Section3_Footer() {
     return (
-        <div className="px-2 py-2 text-primary-500 bg-primary-900 select-none flex items-center justify-center relative">
+        <div className="px-2 py-2 text-primary-500 bg-primary-900 select-none flex items-center justify-center space-x-2 relative">
             <div className="text-xs">footer</div>
-            <IconSunnyvale className="w-5 h-5 pt-1 text-primary-600" />
+            <IconSunnyvale className="w-4 h-4 text-primary-600" />
 
             <ColorModeSwitch />
         </div>
