@@ -7,7 +7,7 @@ import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconAdd } from "../ui/icons";
 import { v4 } from "uuid";
 
-const gridRowClasses = "grid grid-cols-1 @[300px]:grid-cols-[3rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
+const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[3rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
 const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-500 border-b hidden @[300px]:block";
 const gridHeaderLastColumnClasses = " border-b-0";
 
@@ -32,11 +32,11 @@ function TableHeader() {
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
-function RowItem({ item, name = 'dispname', ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
+function RowItem({ item, name, ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
     const snap = useSnapshot(item, { sync: true });
     return (
         <input
-            className={classNames("px-2 py-1 w-full text-primary-300 bg-primary-700 rounded-sm", inputFocusClasses)}
+            className={classNames("px-2 py-1 w-full text-primary-300 bg-primary-700 rounded-sm @[300px]:col-span-1 col-span-full", inputFocusClasses)}
             {...turnOffAutoComplete}
             {...rest}
             value={snap[name]}

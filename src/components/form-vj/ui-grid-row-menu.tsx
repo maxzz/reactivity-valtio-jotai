@@ -18,8 +18,8 @@ const buttonClasses = "p-1 w-5 h-5 hover:text-primary-200 hover:bg-primary-500 r
 function MenuButtons({ onClose, onDelete, onUp, onDn, hasUp, hasDn }: { onClose: (event: React.MouseEvent) => void; } & MenuState) {
     return (
         <div className={containerClasses}>
-            <IconArrowUp className={classNames(buttonClasses, !hasUp && "invisible")} title="Move field up" onClick={onUp} />
-            <IconArrowDown className={classNames(buttonClasses, !hasDn && "invisible")} title="Move field down" onClick={onDn} />
+            <IconArrowUp className={classNames(buttonClasses, !hasUp && "opacity-30 pointer-events-none")} title="Move field up" onClick={onUp} />
+            <IconArrowDown className={classNames(buttonClasses, !hasDn && "opacity-30 pointer-events-none")} title="Move field down" onClick={onDn} />
             <IconTrash className="p-1 w-5 h-5 hover:text-white hover:bg-red-600 rounded" title="Delete field" onClick={onDelete} />
             <IconClose className={buttonClasses} onClick={onClose} />
         </div>
