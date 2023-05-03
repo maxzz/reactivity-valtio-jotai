@@ -1,6 +1,8 @@
 import { HTMLAttributes, SVGAttributes } from 'react';
 import { classNames } from '@/utils';
 
+export * from './ui-fields';
+
 export function IconStar({ title, ...rest }: HTMLAttributes<SVGSVGElement>) {
     return (
         <svg viewBox="0 0 24 24" {...rest}>
