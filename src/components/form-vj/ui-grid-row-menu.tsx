@@ -32,7 +32,7 @@ export function RowPopupMenu({ menuState }: { menuState: MenuState; }) {
     const btnRef = useRef(null);
     useClickAway(btnRef, () => setMenuOpen(false));
     return (
-        <div ref={btnRef} className="relative">
+        <div ref={btnRef} className="relative col-start-2 place-self-end @[300px]:col-start-auto @[300px]:place-self-auto">
             <IconMenu className={openButtonClasses} onClick={() => setMenuOpen(v => !v)} />
 
             {menuOpen &&

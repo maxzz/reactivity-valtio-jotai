@@ -1,4 +1,4 @@
-import { Section2_Main } from "./components/main";
+import { Section2_Main } from "./components/section2-main";
 
 export function App() {
     return (<>

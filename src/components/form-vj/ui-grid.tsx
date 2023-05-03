@@ -36,7 +36,7 @@ function RowItem({ item, name, ...rest }: { item: CatalogItem; name: StringRowKe
     const snap = useSnapshot(item, { sync: true });
     return (
         <input
-            className={classNames("px-2 py-1 w-full text-primary-300 bg-primary-700 rounded-sm @[300px]:col-span-1 col-span-full", inputFocusClasses)}
+            className={classNames("px-2 py-1 w-full text-primary-300 bg-primary-700 rounded-sm col-span-full @[300px]:col-span-1", inputFocusClasses)}
             {...turnOffAutoComplete}
             {...rest}
             value={snap[name]}
@@ -59,19 +59,18 @@ export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; 
 }
 
 export function ItemsArray() {
-    const form = appUi.formVjInputs;
-    const items = form.items;
-    const snap = useSnapshot(form);
+    const items = appUi.formVjInputs.items;
+    const snap = useSnapshot(items);
     return (
         <div className="@container pl-2 text-xs grid gap-y-1">
             <TableHeader />
-            {snap.items.map((item, idx) => {
+            {snap.map((item, idx) => {
                 const menuState: MenuState = {
-                    onDelete: () => { form.items.splice(idx, 1); },
+                    onDelete: () => { items.splice(idx, 1); },
                     onUp: () => { idx > 0 && swap(items, idx - 1, idx); },
                     onDn: () => { idx < items.length - 1 && swap(items, idx, idx + 1); },
                     hasUp: idx > 0,
-                    hasDn: idx < snap.items.length - 1,
+                    hasDn: idx < snap.length - 1,
                 };
                 return (
                     <Fragment key={item.uuid}>
@@ -83,29 +82,30 @@ export function ItemsArray() {
     );
 }
 
-export function ItemsArrayAddButton({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
-    const form = appUi.formVjInputs;
-    const items = form.items;
-    const snap = useSnapshot(form);
+export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
+    const items = appUi.formVjInputs.items;
+    const snap = useSnapshot(items);
     return (
         <button
             className={classNames(dlgBottomButtonClasses, className)}
-            onClick={() => {
-                const now = uuidShort.asRelativeNumber();
-                const guid = v4();
-                items.push({
-                    dispname: 'name',
-                    dbname: `{${guid}}`,
-                    index: snap.items.length,
-                    uuid: now,
-                    mru: now,
-                });
-            }}
+            onClick={() => items.push(generateNewItem(snap.length))}
             {...rest}
         >
             <IconAdd />
         </button>
     );
+
+    function generateNewItem(index: number) {
+        const guid = v4();
+        const now = uuidShort.asRelativeNumber();
+        return {
+            dispname: 'name',
+            dbname: `{${guid}}`,
+            index,
+            uuid: now,
+            mru: now,
+        };
+    }
 }
 
 export function ItemsArrayWithAdd() {
@@ -113,7 +113,7 @@ export function ItemsArrayWithAdd() {
         <fieldset className="relative p-2 border-primary-500 border rounded">
             <legend className="mx-0.5 px-2 select-none">Catalog Items</legend>
             <ItemsArray />
-            <ItemsArrayAddButton className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700" />
+            <ButtonAdd className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700" />
         </fieldset>
     );
 }
