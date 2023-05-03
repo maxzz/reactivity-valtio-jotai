@@ -12,6 +12,7 @@ export const enum ActivePage {
 }
 
 type AppUi = {
+    darkMode: boolean;
     activePage: ActivePage;
     pageVjDlgOpen: boolean;
 
@@ -19,6 +20,7 @@ type AppUi = {
 };
 
 const initialAppUi: AppUi = {
+    darkMode: false,
     activePage: ActivePage.pageVj,
     pageVjDlgOpen: true,
 
