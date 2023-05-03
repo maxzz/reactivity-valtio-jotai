@@ -33,7 +33,7 @@ function TableHeader() {
 
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
-function RowItem({ item, name, ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
+function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
     const snap = useSnapshot(item, { sync: true });
     return (
         <input
@@ -46,15 +46,24 @@ function RowItem({ item, name, ...rest }: { item: CatalogItem; name: StringRowKe
     );
 }
 
-export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
+function RowItemType({ item, ...rest }: { item: CatalogItem; } & InputHTMLAttributes<HTMLInputElement>) {
     const { password: isPsw = false } = useSnapshot(item);
     return (
+        <div className="w-6 h-6 text-[0.65rem] cursor-pointer" onClick={() => item.password = !isPsw}>
+            {isPsw ? <IconFieldPassword title="password" /> : <IconFieldText title="text" />}
+        </div>
+    );
+
+}
+
+export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
+    // const { password: isPsw = false } = useSnapshot(item);
+    return (
         <div className={gridRowClasses}>
-            <div className="w-6 h-6 text-[0.65rem]">{isPsw ? <IconFieldPassword title="password" /> : <IconFieldText title="password" />}</div>
-
-            <RowItem item={item} name="dispname" />
-            <RowItem item={item} name="dbname" />
-
+            {/* <div className="w-6 h-6 text-[0.65rem]">{isPsw ? <IconFieldPassword title="password" /> : <IconFieldText title="password" />}</div> */}
+            <RowItemType item={item} />
+            <RowItemInput item={item} name="dispname" />
+            <RowItemInput item={item} name="dbname" />
             <RowPopupMenu menuState={menuState} />
         </div>
     );
