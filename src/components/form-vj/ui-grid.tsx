@@ -4,15 +4,16 @@ import { CatalogItem } from "@/store/form-vj-types";
 import { classNames, swap, turnOffAutoComplete, uuid as uuidShort } from "@/utils";
 import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
-import { IconAdd } from "../ui/icons";
+import { IconAdd, IconFieldPassword, IconFieldText } from "../ui/icons";
 import { v4 } from "uuid";
 
-const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[3rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
+const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
 const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-500 border-b hidden @[300px]:block";
+const gridHeaderFirstColumnClasses = " px-0 text-center";
 const gridHeaderLastColumnClasses = " border-b-0";
 
 const rowColumns = [
-    ['Type',                /**/ 'Type of field'],
+    ['Type',                /**/ 'Type of field', gridHeaderFirstColumnClasses],
     ['Label',               /**/ 'display name'],
     ['Value',               /**/ 'id'],
     ['',                    /**/ '', gridHeaderLastColumnClasses],
@@ -49,7 +50,8 @@ export function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; 
     const { password: isPsw = false } = useSnapshot(item);
     return (
         <div className={gridRowClasses}>
-            <div className="text-[0.65rem]">{isPsw ? 'password' : 'text'}</div>
+            <div className="w-6 h-6 text-[0.65rem]">{isPsw ? <IconFieldPassword title="password" /> : <IconFieldText title="password" />}</div>
+
             <RowItem item={item} name="dispname" />
             <RowItem item={item} name="dbname" />
 
