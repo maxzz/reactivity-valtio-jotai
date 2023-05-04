@@ -3,8 +3,8 @@ export { useSnapshot } from 'valtio';
 import { mergeDefaultAndLoaded } from '@/utils';
 import { FormVjInputs, formVjDefaultValues } from './form-vj-types';
 
-const STORAGE_UI_KEY = 'reactivity-valtio-jotai-ui';
-const STORAGE_DATA_KEY = 'reactivity-valtio-jotai-data';
+const STORAGE_UI_KEY = 'reactivity-valtio-jotai:ui';
+const STORAGE_DATA_KEY = 'reactivity-valtio-jotai:data';
 const STORAGE_UI_VER = 'v1';
 const STORAGE_DATA_VER = 'v1';
 
