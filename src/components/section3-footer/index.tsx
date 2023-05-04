@@ -3,10 +3,10 @@ import { DarkLightSwitch } from "../ui";
 import { IconFieldPassword, IconFieldText, IconSunnyvale } from "../ui/icons";
 
 function ShowVjButton() {
-    const snap = useSnapshot(appUi.uiState);
+    const { pageVjDlgOpen } = useSnapshot(appUi.uiState);
     return (
-        <button onClick={() => { appUi.uiState.pageVjDlgOpen = !snap.pageVjDlgOpen; }}>
-            Open
+        <button className="px-2 py-0.5 text-xs border-primary-600 border rounded" onClick={() => { appUi.uiState.pageVjDlgOpen = !pageVjDlgOpen; }}>
+            {pageVjDlgOpen ? 'Close' : 'Open'}
         </button>
     );
 }
@@ -21,12 +21,11 @@ function ColorModeSwitch() {
 export function Section3_Footer() {
     return (
         <div className="px-2 py-2 text-primary-500 bg-primary-900 select-none flex items-center justify-center space-x-2 relative">
-            <div className="text-xs">footer</div>
+            <ShowVjButton />
             <IconSunnyvale className="w-4 h-4 text-primary-600" />
 
             <IconFieldText className="w-6 h-6 text-red-500" />
             <IconFieldPassword className="w-6 h-6 text-red-500" />
-            <ShowVjButton />
 
             <ColorModeSwitch />
         </div>

@@ -3,8 +3,10 @@ export { useSnapshot } from 'valtio';
 import { mergeDefaultAndLoaded } from '@/utils';
 import { FormVjInputs, formVjDefaultValues } from './form-vj-types';
 
-const STORAGE_KEY = 'reactivity-valtio-jotai';
-const STORAGE_VER = 'v1';
+const STORAGE_UI_KEY = 'reactivity-valtio-jotai-ui';
+const STORAGE_DATA_KEY = 'reactivity-valtio-jotai-data';
+const STORAGE_UI_VER = 'v1';
+const STORAGE_DATA_VER = 'v1';
 
 export const enum ActivePage {
     none,
@@ -36,19 +38,35 @@ export const appUi = proxy<AppUi>(loadStorageAppUi());
 // Local storage
 
 function loadStorageAppUi(): AppUi {
-    const storage = localStorage.getItem(STORAGE_KEY);
-    if (storage) {
+    const storeState = {} as AppUi;
+
+    const storageUi = localStorage.getItem(STORAGE_UI_KEY);
+    if (storageUi) {
         try {
-            const state = mergeDefaultAndLoaded(JSON.parse(storage)?.[STORAGE_VER], initialAppUi);
-            return state;
+            storeState.uiState = JSON.parse(storageUi)?.[STORAGE_UI_VER];
         } catch (error) {
         }
     }
-    return initialAppUi;
+
+    const storageData = localStorage.getItem(STORAGE_DATA_KEY);
+    if (storageData) {
+        try {
+            storeState.formVjInputs = JSON.parse(storageData)?.[STORAGE_DATA_VER];
+        } catch (error) {
+        }
+    }
+
+    return mergeDefaultAndLoaded(storeState, initialAppUi);
 }
 
-subscribe(appUi, () => {
-    console.log('store', appUi.formVjInputs);
+subscribe(appUi.uiState, () => {
+    console.log('store ui  ', appUi.uiState);
 
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ [STORAGE_VER]: appUi }));
+    localStorage.setItem(STORAGE_UI_KEY, JSON.stringify({ [STORAGE_UI_VER]: appUi.uiState }));
+});
+
+subscribe(appUi.formVjInputs, () => {
+    console.log('store data', appUi.formVjInputs);
+
+    localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify({ [STORAGE_DATA_VER]: appUi.formVjInputs }));
 });
