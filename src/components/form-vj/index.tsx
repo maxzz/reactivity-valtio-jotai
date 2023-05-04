@@ -17,7 +17,7 @@ function NameInput() {
 
 function Body() {
     return (
-        <div className="p-4 space-y-4">
+        <div className="p-4 grid grid-rows-[auto_1fr] gap-4">
             <NameInput />
             <ItemsArrayWithAdd />
         </div>
