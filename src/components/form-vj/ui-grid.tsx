@@ -40,9 +40,6 @@ export function ItemsArrayWithAdd() {
             <Scroller className="px-2 max-h-[40vh]">
                 <ItemsArray />
             </Scroller>
-            {/* <div className="max-h-[40vh] overflow-auto">
-                <ItemsArray />
-            </div> */}
             <ButtonAdd className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700" />
         </fieldset>
     );
