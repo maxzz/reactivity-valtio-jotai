@@ -27,7 +27,7 @@ function Body() {
 export function FormValtioJotai() {
     //const [showDlg, setShowDlg] = useState(atomWithProxy(appUi));
     return (
-        <div className="self-center border-slate-600 border rounded debug-grid debug">
+        <div className="self-center border-slate-600 border rounded debug1">
             <div className="min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]">
                 <Caption />
                 <Body />

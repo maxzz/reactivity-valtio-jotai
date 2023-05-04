@@ -13,38 +13,40 @@ export function Scroller2({ children }: { children: ReactNode; }) {
             <ScrollArea.Scrollbar
                 orientation="vertical"
                 className="
-                p-0.5 
+                p-0.5
 
-                bg-red-800
-                hover:bg-green-700/50
-                transition-colors 
-                duration-[160ms] 
-                ease-out 
+                bg-primary1-800
+                hover:bg-primary-700/50
+                transition-colors
+                duration-[160ms]
+                ease-out
 
-                data-[orientation=vertical]:w-2.5 
-                data-[orientation=horizontal]:flex-col 
-                data-[orientation=horizontal]:h-2.5
+                data-[orientation=vertical]:w-2
+                data-[orientation=horizontal]:flex-col
+                data-[orientation=horizontal]:h-2
 
-                select-none 
-                touch-none 
-                flex 
+                select-none
+                touch-none
+                flex
                 "
             >
                 <ScrollArea.Thumb className="
-                flex-1 
-                relative before:content-[''] 
+                flex-1
+                relative
+                before:content-['']
+                
                 bg-primary-500/50
-                rounded-[10px] 
+                rounded-[10px]
 
-                before:absolute 
-                before:top-1/2 
-                before:left-1/2 
-                before:-translate-x-1/2 
-                before:-translate-y-1/2 
-                before:w-full 
-                before:h-full 
-                before:min-w-[24px] 
-                before:min-h-[24px]
+                before:absolute
+                before:top-1/2
+                before:left-1/2
+                before:-translate-x-1/2
+                before:-translate-y-1/2
+                before:w-full
+                before:h-full
+                before:min-w-[14px]
+                before:min-h-[14px]
                 "
                 />
             </ScrollArea.Scrollbar>
