@@ -5,6 +5,7 @@ import { dlgBottomButtonClasses } from "./ui-controls";
 import { IconAdd } from "../ui/icons";
 import { v4 } from "uuid";
 import { ItemsArray } from "./ui-grid-array";
+import { Scroller } from "../ui/UISemiScrollbar";
 
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
     const items = appUi.formVjInputs.items;
@@ -36,9 +37,12 @@ export function ItemsArrayWithAdd() {
     return (
         <fieldset className="relative p-2 border-primary-500 border rounded">
             <legend className="mx-0.5 px-2 select-none">Catalog Items</legend>
-            <div className="max-h-[40vh] overflow-auto">
+            <Scroller className="px-2 max-h-[40vh]">
                 <ItemsArray />
-            </div>
+            </Scroller>
+            {/* <div className="max-h-[40vh] overflow-auto">
+                <ItemsArray />
+            </div> */}
             <ButtonAdd className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700" />
         </fieldset>
     );

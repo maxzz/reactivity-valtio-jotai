@@ -7,7 +7,7 @@ export const UISemiScrollbar = SimpleBar;
 
 export function Scroller({ className, children, ...rest }: HTMLAttributes<HTMLDivElement>) {
     return (
-        <UISemiScrollbar className={classNames("px-2 pt-1 pb-4 overflow-auto w-full h-full", className)} {...rest}>
+        <UISemiScrollbar className={classNames("w-full h-full overflow-auto", className)} {...rest}>
             {children}
         </UISemiScrollbar>
     );
