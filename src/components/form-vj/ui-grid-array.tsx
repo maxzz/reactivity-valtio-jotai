@@ -71,7 +71,7 @@ export function ItemsArray() {
     const items = appUi.formVjInputs.items;
     const snap = useSnapshot(items);
     return (
-        <div className="@container pl-2 text-xs grid gap-y-1">
+        <div className="h-full @container pl-2 pr-2 text-xs grid gap-y-1">
             <TableHeader />
             {snap.map((item, idx) => {
                 const menuState: MenuState = {

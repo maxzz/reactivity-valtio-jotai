@@ -3,9 +3,9 @@ import { appUi, useSnapshot } from "@/store";
 import { Scroller } from "../ui/UISemiScrollbar";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 
-function Scroller2({ children }: { children: ReactNode; }) {
+export function Scroller2({ children }: { children: ReactNode; }) {
     return (
-        <ScrollArea.Root className=" h-full rounded overflow-hidden">
+        <ScrollArea.Root className="qq h-full overflow-hidden">
             <ScrollArea.Viewport className="w-full h-full">
                 {children}
             </ScrollArea.Viewport>
@@ -13,25 +13,29 @@ function Scroller2({ children }: { children: ReactNode; }) {
             <ScrollArea.Scrollbar
                 orientation="vertical"
                 className="
-                flex 
-                select-none 
-                touch-none 
                 p-0.5 
-                bg-green-900
+
+                bg-primary-800
+                hover:bg-primary-700/50
                 transition-colors 
                 duration-[160ms] 
                 ease-out 
-                hover:bg-blackA8 
+
                 data-[orientation=vertical]:w-2.5 
                 data-[orientation=horizontal]:flex-col 
                 data-[orientation=horizontal]:h-2.5
+
+                select-none 
+                touch-none 
+                flex 
                 "
             >
                 <ScrollArea.Thumb className="
                 flex-1 
-                bg-red-500 
-                rounded-[10px] 
                 relative before:content-[''] 
+                bg-primary-500/50
+                rounded-[10px] 
+
                 before:absolute 
                 before:top-1/2 
                 before:left-1/2 

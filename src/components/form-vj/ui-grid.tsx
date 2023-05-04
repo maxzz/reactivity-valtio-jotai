@@ -5,7 +5,8 @@ import { dlgBottomButtonClasses } from "./ui-controls";
 import { IconAdd } from "../ui/icons";
 import { v4 } from "uuid";
 import { ItemsArray } from "./ui-grid-array";
-import { Scroller } from "../ui/UISemiScrollbar";
+//import { Scroller } from "../ui/UISemiScrollbar";
+import { Scroller2 } from "../section2-main/ui-display";
 
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
     const items = appUi.formVjInputs.items;
@@ -35,17 +36,67 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
 
 export function ItemsArrayWithAdd() {
     return (
-        <fieldset className="relative p-2 border-primary-500 border rounded">
+        <fieldset className="relative p-2 border-primary-500 border rounded max-h-[30vh]">
             <legend className="mx-0.5 px-2 select-none">Catalog Items</legend>
-            
+
             {/* <Scroller className="px-2 max-h-[40vh]">
                 <ItemsArray />
             </Scroller> */}
 
-            <div className="max-h-[40vh] overflow-auto">
+            {/* <div className="max-h-[40vh] overflow-auto">
                 <ItemsArray />
-            </div>
-            
+            </div> */}
+
+            <Scroller2>
+                {/* <div className="h-full"> */}
+                <ItemsArray />
+                {/* <div className="h-full overflow-auto">
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">11</div>
+                    <div className="">21</div>
+                </div> */}
+                {/* </div> */}
+            </Scroller2>
+
             <ButtonAdd className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-700" />
         </fieldset>
     );
