@@ -5,7 +5,7 @@ export function Display() {
     const snap = useSnapshot(appUi.formVjInputs);
     return (
         // <Scroller>
-            <div className="p-4 text-xs whitespace-pre">
+            <div className="p-4 text-xs whitespace-pre h-full overflow-auto">
                 {JSON.stringify(snap, null, 4)}
             </div>
         // </Scroller>
