@@ -36,7 +36,7 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
 
 export function ItemsArrayWithAdd() {
     return (
-        <fieldset className="relative p-2 border-primary-500 border rounded max-h-[30vh]">
+        <fieldset className="relative border-primary-500 border rounded max-h-[30vh]">
             <legend className="mx-0.5 px-2 select-none">Catalog Items</legend>
 
             {/* <Scroller className="px-2 max-h-[40vh]">

@@ -15,8 +15,8 @@ export function Scroller2({ children }: { children: ReactNode; }) {
                 className="
                 p-0.5 
 
-                bg-primary-800
-                hover:bg-primary-700/50
+                bg-red-800
+                hover:bg-green-700/50
                 transition-colors 
                 duration-[160ms] 
                 ease-out 
@@ -43,8 +43,8 @@ export function Scroller2({ children }: { children: ReactNode; }) {
                 before:-translate-y-1/2 
                 before:w-full 
                 before:h-full 
-                before:min-w-[44px] 
-                before:min-h-[44px]
+                before:min-w-[24px] 
+                before:min-h-[24px]
                 "
                 />
             </ScrollArea.Scrollbar>
