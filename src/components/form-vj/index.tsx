@@ -1,17 +1,24 @@
 // import { useState } from "react";
 // import { atomWithProxy } from "jotai-valtio";
-// import { appUi } from "@/store";
 import { ItemsArrayWithAdd } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
+import { appUi, useSnapshot } from "@/store";
+
+
+function NameInput() {
+    const snap = useSnapshot(appUi.formVjInputs);
+    return (
+        <label className="inline-block">
+            Name
+            <Input value={snap.name} onChange={(e) => appUi.formVjInputs.name = e.target.value} />
+        </label>
+    );
+}
 
 function Body() {
     return (
         <div className="p-4 space-y-4">
-            <label className="inline-block">
-                Name
-                <Input />
-            </label>
-
+            <NameInput />
             <ItemsArrayWithAdd />
         </div>
     );
