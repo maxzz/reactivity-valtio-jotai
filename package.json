@@ -12,6 +12,7 @@
         "deploy": "gh-pages -d dist"
     },
     "dependencies": {
+        "@radix-ui/react-scroll-area": "^1.0.3",
         "jotai": "^2.0.4",
         "jotai-valtio": "^0.3.0",
         "react": "^18.2.0",
