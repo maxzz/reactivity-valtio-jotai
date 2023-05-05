@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { classNames } from "@/utils";
-import { IconArrowUp, IconArrowDown, IconTrash, IconClose, IconMenu } from "../ui/icons";
+import { IconArrowUp, IconArrowDown, IconTrash, IconClose, IconMenu } from "../ui";
 import { useClickAway } from "react-use";
 
 export type MenuState = {

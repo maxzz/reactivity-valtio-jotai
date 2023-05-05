@@ -1,6 +1,4 @@
-// import { useState } from "react";
-// import { atomWithProxy } from "jotai-valtio";
-import { ItemsArrayWithAdd } from "./ui-grid";
+import { ItemsGridWithAdd } from "./ui-grid-container";
 import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
 
@@ -19,13 +17,12 @@ function Body() {
     return (
         <div className="p-4 h-full grid grid-rows-[auto_1fr] gap-4">
             <NameInput />
-            <ItemsArrayWithAdd />
+            <ItemsGridWithAdd />
         </div>
     );
 }
 
 export function FormValtioJotai() {
-    //const [showDlg, setShowDlg] = useState(atomWithProxy(appUi));
     return (
         <div className="self-center border-slate-600 border rounded debug1">
             <div className="min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]">

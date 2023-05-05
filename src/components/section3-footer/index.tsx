@@ -1,6 +1,5 @@
 import { appUi, useSnapshot } from "@/store";
-import { DarkLightSwitch } from "../ui";
-import { IconFieldPassword, IconFieldText, IconSunnyvale } from "../ui/icons";
+import { DarkLightSwitch, IconFieldPassword, IconFieldText, IconSunnyvale } from "../ui";
 
 function ShowVjButton() {
     const { pageVjDlgOpen } = useSnapshot(appUi.uiState);
