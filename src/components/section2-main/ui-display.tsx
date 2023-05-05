@@ -1,9 +1,8 @@
 import { ReactNode } from "react";
 import { appUi, useSnapshot } from "@/store";
-import { Scroller } from "../ui/UISemiScrollbar";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 
-const scrollbarVClasses = `
+const scrollbarClasses = `
     p-0.5
 
     bg-primary1-800
@@ -47,11 +46,11 @@ export function Scroller2({ children }: { children: ReactNode; }) {
                 {children}
             </ScrollArea.Viewport>
 
-            <ScrollArea.Scrollbar orientation="vertical" className={scrollbarVClasses}>
+            <ScrollArea.Scrollbar orientation="vertical" className={scrollbarClasses}>
                 <ScrollArea.Thumb className={scrollbarThumbClasses} />
             </ScrollArea.Scrollbar>
 
-            <ScrollArea.Scrollbar orientation="horizontal" className={scrollbarVClasses}>
+            <ScrollArea.Scrollbar orientation="horizontal" className={scrollbarClasses}>
                 <ScrollArea.Thumb className={scrollbarThumbClasses} />
             </ScrollArea.Scrollbar>
 
