@@ -11,7 +11,7 @@ export type MenuState = {
     hasDn: boolean;
 };
 
-const containerClasses = "animate-row-menu-left absolute -right-[9px] -top-[5px] px-2 py-1 bg-primary-900 border-gray-500/50 border shadow rounded flex";
+const containerClasses = "animate-row-menu-left absolute -right-[5px] -top-[5px] px-1 py-1 bg-primary-900 border-gray-500/50 border shadow rounded flex";
 export const openButtonClasses = "p-1 w-5 h-5 hover:text-white hover:bg-primary-500 rounded";
 const buttonClasses = "p-1 w-5 h-5 hover:text-primary-200 hover:bg-primary-500 rounded cursor-pointer";
 

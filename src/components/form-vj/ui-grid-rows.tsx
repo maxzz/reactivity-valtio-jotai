@@ -71,7 +71,7 @@ export function GridRows() {
     const items = appUi.formVjInputs.items;
     const snap = useSnapshot(items);
     return (
-        <div className="@container px-2 text-xs grid gap-y-1">
+        <div className="@container pl-2 pr-[10px] text-xs grid gap-y-1">
             <TableHeader />
             {snap.map((item, idx) => {
                 const menuState: MenuState = {
