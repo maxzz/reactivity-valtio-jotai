@@ -1,6 +1,7 @@
 import { GridRowsWithAddButton } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
+import { SelectDemo } from "./ui-control-select";
 
 
 function NameInput() {
@@ -28,6 +29,7 @@ export function FormValtioJotai() {
             <div className="min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]">
                 <Caption />
                 <Body />
+                <SelectDemo />
 
                 <div className="p-4 flex items-center justify-end gap-x-2">
                     <BottomButton>OK</BottomButton>
