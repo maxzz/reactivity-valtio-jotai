@@ -3,6 +3,43 @@ import { appUi, useSnapshot } from "@/store";
 import { Scroller } from "../ui/UISemiScrollbar";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 
+const scrollbarVClasses = `
+    p-0.5
+
+    bg-primary1-800
+    hover:bg-primary-700/50
+    transition-colors
+    duration-[160ms]
+    ease-out
+
+    data-[orientation=vertical]:w-2
+    data-[orientation=horizontal]:flex-col
+    data-[orientation=horizontal]:h-2
+
+    select-none
+    touch-none
+    flex
+`;
+
+const scrollbarThumbClasses = `
+    flex-1
+    relative
+    before:content-['']
+    
+    bg-primary-500/50
+    rounded-[10px]
+
+    before:absolute
+    before:top-1/2
+    before:left-1/2
+    before:-translate-x-1/2
+    before:-translate-y-1/2
+    before:w-full
+    before:h-full
+    before:min-w-[14px]
+    before:min-h-[14px]
+`;
+
 export function Scroller2({ children }: { children: ReactNode; }) {
     return (
         <ScrollArea.Root className="qq h-full overflow-hidden">
@@ -10,45 +47,12 @@ export function Scroller2({ children }: { children: ReactNode; }) {
                 {children}
             </ScrollArea.Viewport>
 
-            <ScrollArea.Scrollbar
-                orientation="vertical"
-                className="
-                p-0.5
+            <ScrollArea.Scrollbar orientation="vertical" className={scrollbarVClasses}>
+                <ScrollArea.Thumb className={scrollbarThumbClasses} />
+            </ScrollArea.Scrollbar>
 
-                bg-primary1-800
-                hover:bg-primary-700/50
-                transition-colors
-                duration-[160ms]
-                ease-out
-
-                data-[orientation=vertical]:w-2
-                data-[orientation=horizontal]:flex-col
-                data-[orientation=horizontal]:h-2
-
-                select-none
-                touch-none
-                flex
-                "
-            >
-                <ScrollArea.Thumb className="
-                flex-1
-                relative
-                before:content-['']
-                
-                bg-primary-500/50
-                rounded-[10px]
-
-                before:absolute
-                before:top-1/2
-                before:left-1/2
-                before:-translate-x-1/2
-                before:-translate-y-1/2
-                before:w-full
-                before:h-full
-                before:min-w-[14px]
-                before:min-h-[14px]
-                "
-                />
+            <ScrollArea.Scrollbar orientation="horizontal" className={scrollbarVClasses}>
+                <ScrollArea.Thumb className={scrollbarThumbClasses} />
             </ScrollArea.Scrollbar>
 
             <ScrollArea.Corner />
