@@ -1,4 +1,4 @@
-import { ItemsGridWithAdd } from "./ui-grid-container";
+import { GridRowsWithAddButton } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
 
@@ -17,7 +17,7 @@ function Body() {
     return (
         <div className="p-4 h-full grid grid-rows-[auto_1fr] gap-4">
             <NameInput />
-            <ItemsGridWithAdd />
+            <GridRowsWithAddButton />
         </div>
     );
 }
