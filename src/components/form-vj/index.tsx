@@ -2,7 +2,7 @@ import { GridRowsWithAddButton } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
 import { SelectDemo } from "./ui-control-demo-select";
-
+import { DropdownMenuDemo } from "./ui-control-demo-dropdown";
 
 function NameInput() {
     const snap = useSnapshot(appUi.formVjInputs);
@@ -30,6 +30,7 @@ export function FormValtioJotai() {
                 <Caption />
                 <Body />
                 <SelectDemo />
+                <DropdownMenuDemo />
 
                 <div className="p-4 flex items-center justify-end gap-x-2">
                     <BottomButton>OK</BottomButton>

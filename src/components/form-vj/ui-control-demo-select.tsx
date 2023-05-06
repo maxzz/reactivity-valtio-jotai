@@ -103,7 +103,7 @@ export function SelectDemo() {
                 </Select.Icon>
             </Select.Trigger>
 
-            <Select.Portal>
+            <Select.Portal container={document.getElementById('portal')}>
                 <Select.Content className={selectContentClasses}>
 
                     <Select.ScrollUpButton className={selectScrollUpButtonClasses}>
