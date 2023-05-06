@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentPropsWithoutRef, ElementRef } from 'react';
 import * as Select from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { classNames } from '@/utils';
@@ -18,7 +18,7 @@ data-[highlighted]:outline-none \
 data-[highlighted]:bg-violet9 \
 data-[highlighted]:text-violet1";
 
-const SelectItem = React.forwardRef<HTMLDivElement, Select.SelectItemProps>(({ children, className, ...props }, forwardedRef) => {
+const SelectItem = React.forwardRef<ElementRef<typeof Select.Item>, ComponentPropsWithoutRef<typeof Select.Item>>(({ children, className, ...props }, forwardedRef) => {
     return (
         <Select.Item className={classNames(selectItemClasses, className)} {...props} ref={forwardedRef}>
             <Select.ItemText>{children}</Select.ItemText>

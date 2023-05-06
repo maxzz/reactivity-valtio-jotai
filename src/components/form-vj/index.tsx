@@ -1,7 +1,7 @@
 import { GridRowsWithAddButton } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
-import { SelectDemo } from "./ui-control-select";
+import { SelectDemo } from "./ui-control-demo-select";
 
 
 function NameInput() {
