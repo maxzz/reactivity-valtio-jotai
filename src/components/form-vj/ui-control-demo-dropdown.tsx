@@ -1,30 +1,16 @@
 import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import {
-    HamburgerMenuIcon,
-    DotFilledIcon,
-    CheckIcon,
-    ChevronRightIcon,
-} from '@radix-ui/react-icons';
+import { HamburgerMenuIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 
-const menuTriggerClasses = `${
-    "\
-    w-[35px] \
-    h-[35px] \
-    rounded-full \
-    \
-    inline-flex items-center justify-center \
-    \
-    text-primary-800 \
-    bg-white \
-    hover:bg-primary-400 \
-    focus:shadow-[0_0_0_2px] \
-    focus:shadow-black \
-    shadow-[0_2px_10px] \
-    shadow-primary-950 \
-    outline-none \
-    "
-}`;
+const menuTriggerClasses = "\
+m-4 w-8 h-8 rounded \
+\
+text-primary-800 bg-white hover:bg-primary-400 \
+focus:shadow-[0_0_0_2px] focus:shadow-black \
+shadow-[0_2px_10px] shadow-primary-950 \
+\
+outline-none inline-flex items-center justify-center \
+";
 
 const dropdownContentClasses = "\
 p-[5px] \
@@ -71,7 +57,6 @@ data-[highlighted]:data-[state=open]:bg-primary-800 \
 data-[state=open]:text-primary-800 \
 data-[state=open]:bg-primary-300 \
 "}`;
-
 
 export const DropdownMenuDemo = () => {
     const [bookmarksChecked, setBookmarksChecked] = React.useState(true);
