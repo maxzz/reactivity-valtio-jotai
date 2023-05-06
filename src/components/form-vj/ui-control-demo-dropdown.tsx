@@ -20,10 +20,10 @@ data-[side=bottom]:animate-slideUpAndFade \
 data-[side=left]:animate-slideRightAndFade \
 ";
 
-const itemTextClasses = "\
+const menuitemClasses = "\
 text-[13px] \
 leading-none \
-text-violet11 \
+text-red-800 \
 rounded-[3px] \
 flex \
 items-center \
@@ -33,48 +33,37 @@ relative \
 pl-[25px] \
 select-none \
 outline-none \
-\
-data-[disabled]:text-mauve8 \
-data-[disabled]:pointer-events-none \
-data-[highlighted]:bg-violet9 \
-data-[highlighted]:text-violet1 \
 ";
+
+const itemTextClasses = `${menuitemClasses} ${"\
+data-[disabled]:text-primary-600 \
+data-[disabled]:pointer-events-none \
+data-[highlighted]:bg-primary-800 \
+data-[highlighted]:text-primary-100 \
+"}`;
 
 const itemTextShortcutClasses = `group ${itemTextClasses}`;
 
 const shortcutClasses = "\
 ml-auto \
 pl-[20px] \
-text-mauve11 \
+text-primary-800 \
 group-data-[highlighted]:text-white \
-group-data-[disabled]:text-mauve8 \
+group-data-[disabled]:text-primary-600 \
 ";
 
 const separatorClasses = "\
-h-[1px] \
-bg-violet6 \
+h-[1.2px] \
+bg-primary-300 \
 m-[5px] \
 ";
 
-const checkboxClasses = "\
-text-[13px] \
-leading-none \
-text-violet11 \
-rounded-[3px] \
-flex \
-items-center \
-h-[25px] \
-px-[5px] \
-relative \
-pl-[25px] \
-select-none \
-outline-none \
-\
-data-[disabled]:text-mauve8 \
+const checkboxClasses = `${menuitemClasses} ${"\
+data-[disabled]:text-primary-600 \
 data-[disabled]:pointer-events-none \
-data-[highlighted]:bg-violet9 \
-data-[highlighted]:text-violet1 \
-";
+data-[highlighted]:bg-primary-800 \
+data-[highlighted]:text-primary-100 \
+"}`;
 
 const menuIndicatorClasses = "\
 absolute \
@@ -85,56 +74,44 @@ items-center \
 justify-center \
 ";
 
-const menuTriggerClasses = "\
-rounded-full \
-w-[35px] \
-h-[35px] \
-\
-inline-flex \
-items-center \
-justify-center \
-\
-text-violet11 \
-bg-white \
-shadow-[0_2px_10px] \
-shadow-blackA7 \
-outline-none \
-hover:bg-violet3 \
-focus:shadow-[0_0_0_2px] \
-focus:shadow-black \
-";
+const menuTriggerClasses = `${
+    "\
+    rounded-full \
+    w-[35px] \
+    h-[35px] \
+    \
+    inline-flex \
+    items-center \
+    justify-center \
+    \
+    text-red-800 \
+    bg-white \
+    shadow-[0_2px_10px] \
+    shadow-primary-950 \
+    outline-none \
+    hover:bg-primary-400 \
+    focus:shadow-[0_0_0_2px] \
+    focus:shadow-black \
+    "
+}`;
 
-const menuTriggerSubClasses = "\
+const menuTriggerSubClasses = `${menuitemClasses} ${"\
 group \
-\
-text-[13px] \
-leading-none \
-text-violet11 \
-rounded-[3px] \
-flex \
-items-center \
-h-[25px] \
-px-[5px] \
-relative \
-pl-[25px] \
-select-none \
-outline-none \
-\
-data-[state=open]:bg-violet4 \
-data-[state=open]:text-violet11 \
-data-[disabled]:text-mauve8 \
+data-[state=open]:bg-primary-400 \
+data-[state=open]:text-red-800 \
+data-[disabled]:text-primary-600 \
 data-[disabled]:pointer-events-none \
-data-[highlighted]:bg-violet9 \
-data-[highlighted]:text-violet1 \
-data-[highlighted]:data-[state=open]:bg-violet9 \
-data-[highlighted]:data-[state=open]:text-violet1 \
-";
+data-[highlighted]:bg-primary-800 \
+data-[highlighted]:text-primary-100 \
+data-[highlighted]:data-[state=open]:bg-primary-800 \
+data-[highlighted]:data-[state=open]:text-primary-100 \
+"}`;
 
 const itemLabelClasses = "\
 pl-[25px] \
 text-xs \
 leading-[25px] \
-text-mauve11 \
+text-primary-800 \
 ";
 
 export const DropdownMenuDemo = () => {
