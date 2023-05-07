@@ -9,7 +9,8 @@ const triggerClasses = "\
 px-[15px] h-[35px] text-[13px] leading-none \
 \
 text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
-hover:bg-primary-300 data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
+hover:text-primary-800 dark:hover:text-primary-300 hover:bg-primary-300 dark:hover:bg-primary-600 \
+data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
 shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
 \
 rounded inline-flex items-center justify-center gap-[5px] \
@@ -19,7 +20,8 @@ const scrollUpDnButtonClasses = "\
 px-[15px] h-[35px] text-[13px] leading-none \
 \
 text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
-hover:bg-primary-300 data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
+hover:text-primary-800 dark:hover:text-primary-300 hover:bg-primary-300 dark:hover:bg-primary-600 \
+data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
 shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
 \
 rounded inline-flex items-center justify-center gap-[5px] \

@@ -8,7 +8,7 @@ const menuTriggerClasses = "\
 w-8 h-8 rounded \
 \
 text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
-hover:bg-primary-400 \
+hover:text-primary-800 dark:hover:text-primary-300 hover:bg-primary-300 dark:hover:bg-primary-600 \
 outline-none inline-flex items-center justify-center \
 "; //shadow-[0_2px_10px] shadow-primary-950 focus:shadow-[0_0_0_2px] focus:shadow-black \
 
