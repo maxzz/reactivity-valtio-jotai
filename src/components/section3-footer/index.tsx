@@ -12,8 +12,15 @@ function ShowVjButton() {
 
 function ColorModeSwitch() {
     const { darkMode } = useSnapshot(appUi.uiState);
+
+    function changeMode() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.toggle('dark');
+        appUi.uiState.darkMode = body.classList.contains('dark');
+    }
+
     return (
-        <DarkLightSwitch className="absolute right-3 w-4 h-4 cursor-pointer" isDark={darkMode} onClick={() => { appUi.uiState.darkMode = !darkMode; }} />
+        <DarkLightSwitch className="absolute right-3 w-4 h-4 cursor-pointer" isDark={darkMode} onClick={changeMode} />
     );
 }
 

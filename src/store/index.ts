@@ -70,3 +70,11 @@ subscribe(appUi.formVjInputs, () => {
 
     localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify({ [STORAGE_DATA_VER]: appUi.formVjInputs }));
 });
+
+//
+
+setInitialDarkMode();
+
+function setInitialDarkMode() {
+    document.getElementsByTagName('body')[0].classList[appUi.uiState.darkMode ? 'add': 'remove']('dark');
+}
