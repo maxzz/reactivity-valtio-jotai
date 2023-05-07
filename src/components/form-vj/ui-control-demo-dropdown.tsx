@@ -1,7 +1,7 @@
 import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { HamburgerMenuIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
-import { IconCheck, IconDot } from '../ui';
+import { IconCheck, IconChevronRight, IconDot, IconHamburger } from '../ui';
 
 const menuTriggerClasses = "\
 w-8 h-8 rounded \
@@ -67,7 +67,8 @@ export const DropdownMenuDemo = () => {
         <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
                 <button className={menuTriggerClasses} aria-label="Customise options">
-                    <HamburgerMenuIcon />
+                    {/* <HamburgerMenuIcon /> */}
+                    <IconHamburger className="w-5 h-5" />
                 </button>
             </DropdownMenu.Trigger>
 
@@ -81,7 +82,8 @@ export const DropdownMenuDemo = () => {
                         <DropdownMenu.SubTrigger className={menuTriggerSubClasses}>
                             More Tools
                             <div className={shortcutClasses}>
-                                <ChevronRightIcon />
+                                {/* <ChevronRightIcon /> */}
+                                <IconChevronRight className="w-[14px] h-[14px]" />
                             </div>
                         </DropdownMenu.SubTrigger>
 
