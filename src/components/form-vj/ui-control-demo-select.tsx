@@ -2,6 +2,7 @@ import React, { ComponentPropsWithoutRef, ElementRef } from 'react';
 import * as Select from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { classNames } from '@/utils';
+import { inputFocusClasses } from './ui-controls';
 
 const triggerClasses = "\
 px-[15px] h-[35px] text-[13px] leading-none \
@@ -10,8 +11,7 @@ text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
 hover:bg-primary-300 data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
 shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
 \
-rounded outline-none \
-inline-flex items-center justify-center gap-[5px] \
+rounded inline-flex items-center justify-center gap-[5px] \
 ";
 
 const scrollUpDnButtonClasses = "\
@@ -21,12 +21,11 @@ text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
 hover:bg-primary-300 data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
 shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
 \
-rounded outline-none \
-inline-flex items-center justify-center gap-[5px] \
+rounded inline-flex items-center justify-center gap-[5px] \
 ";
 
 const contentClasses = "\
-text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-800 \
+text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
 rounded-md \
 overflow-hidden \
 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]";
@@ -63,7 +62,7 @@ const SelectItem = React.forwardRef<ElementRef<typeof Select.Item>, ComponentPro
 export function SelectDemo() {
     return (
         <Select.Root>
-            <Select.Trigger className={triggerClasses} aria-label="Food">
+            <Select.Trigger className={`${triggerClasses} ${inputFocusClasses}`} aria-label="Food">
                 <Select.Value placeholder="Select a fruit…" />
 
                 <Select.Icon className="text-primary-900">
