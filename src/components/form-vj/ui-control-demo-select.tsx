@@ -66,8 +66,8 @@ export function SelectDemo() {
             <Select.Trigger className={`${triggerClasses} ${inputFocusClasses}`} aria-label="Food">
                 <Select.Value placeholder="Select a fruit…" />
 
-                <Select.Icon className="text-primary-900">
-                    <IconChevronDown className="w-3 h-3"/>
+                <Select.Icon>
+                    <IconChevronDown className="w-3 h-3 text-primary-900 dark:text-primary-400"/>
                     {/* <ChevronDownIcon /> */}
                 </Select.Icon>
             </Select.Trigger>
