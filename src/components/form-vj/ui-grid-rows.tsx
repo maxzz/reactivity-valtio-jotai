@@ -36,7 +36,7 @@ function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: String
     const snap = useSnapshot(item, { sync: true });
     return (
         <input
-            className={classNames("px-2 py-1 w-full text-primary-300 bg-primary-700 rounded-sm col-span-full @[300px]:col-span-1", inputFocusClasses)}
+            className={classNames("px-2 py-1 w-full text-primary-800 bg-primary-50 dark:text-primary-300 dark:bg-primary-700 rounded-sm col-span-full @[300px]:col-span-1", inputFocusClasses)}
             {...turnOffAutoComplete}
             {...rest}
             value={snap[name]}
