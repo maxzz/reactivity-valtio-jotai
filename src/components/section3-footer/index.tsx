@@ -4,8 +4,8 @@ import { DarkLightSwitch, IconFieldPassword, IconFieldText, IconSunnyvale } from
 function ShowVjButton() {
     const { pageVjDlgOpen } = useSnapshot(appUi.uiState);
     return (
-        <button className="px-2 py-0.5 text-xs border-primary-600 border rounded" onClick={() => { appUi.uiState.pageVjDlgOpen = !pageVjDlgOpen; }}>
-            {pageVjDlgOpen ? 'Close' : 'Open'}
+        <button className="absolute left-3 px-2 py-1 text-xs border-primary-600 border rounded" onClick={() => { appUi.uiState.pageVjDlgOpen = !pageVjDlgOpen; }}>
+            {pageVjDlgOpen ? 'Close' : 'Open'} Dialog
         </button>
     );
 }
@@ -26,12 +26,15 @@ function ColorModeSwitch() {
 
 export function Section3_Footer() {
     return (
-        <div className="px-2 py-2 text-primary-500 bg-primary-900 select-none flex items-center justify-center space-x-2 relative">
+        <div className="px-2 py-2 text-primary-700 dark:text-primary-500 bg-primary-300/50 dark:bg-primary-900 select-none flex items-center justify-center space-x-2 relative">
             <ShowVjButton />
-            <IconSunnyvale className="w-4 h-4 text-primary-600" />
 
-            <IconFieldText className="w-6 h-6 text-red-500" />
-            <IconFieldPassword className="w-6 h-6 text-red-500" />
+            <a href="https://github.com/maxzz/reactivity-valtio-jotai" target="_blank" >
+                <IconSunnyvale className="w-4 h-4 text-primary-500 dark:text-primary-600" />
+            </a>
+
+            {/* <IconFieldText className="w-6 h-6 text-red-500" /> */}
+            {/* <IconFieldPassword className="w-6 h-6 text-red-500" /> */}
 
             <ColorModeSwitch />
         </div>
