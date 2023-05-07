@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { classNames, uuid as uuidShort } from "@/utils";
-import { dlgBottomButtonClasses } from "./ui-controls";
+import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { v4 } from "uuid";
 import { GridRows } from "./ui-grid-rows";
 import { IconAdd, Scroller } from "../ui";
@@ -11,7 +11,7 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
     const snap = useSnapshot(items);
     return (
         <button
-            className={classNames(dlgBottomButtonClasses, className)}
+            className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)}
             onClick={() => items.push(generateNewItem(snap.length))}
             {...rest}
         >
