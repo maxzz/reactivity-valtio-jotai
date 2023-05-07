@@ -69,7 +69,6 @@ function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuSta
             scrollToRef.current = null;
         }
     }, [scrollToRef]);
-
     return (
         <div ref={newItem ? scrollToRef : null} className={gridRowClasses}>
             <RowItemType item={item} />
@@ -84,7 +83,7 @@ export function GridRows() {
     const items = appUi.formVjInputs.items;
     const snap = useSnapshot(items);
     return (
-        <div className="@container pl-2 pr-[10px] text-xs grid gap-y-1">
+        <div className="@container pl-2 pr-[10px] pb-1 text-xs grid gap-y-1">
             <TableHeader />
 
             {snap.map((item, idx) => {
