@@ -2,21 +2,21 @@ import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { HamburgerMenuIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import { IconCheck, IconChevronRight, IconDot, IconHamburger } from '../ui';
+import { inputFocusClasses } from './ui-controls';
 
 const menuTriggerClasses = "\
 w-8 h-8 rounded \
 \
-text-primary-800 bg-white hover:bg-primary-400 \
-shadow-[0_2px_10px] shadow-primary-950 focus:shadow-[0_0_0_2px] focus:shadow-black \
-\
+text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
+hover:bg-primary-400 \
 outline-none inline-flex items-center justify-center \
-";
+"; //shadow-[0_2px_10px] shadow-primary-950 focus:shadow-[0_0_0_2px] focus:shadow-black \
 
 const dropdownContentClasses = "\
 p-[5px] \
 min-w-[220px] \
 rounded-md \
-bg-white \
+text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] \
 will-change-[opacity,transform] \
 data-[side=top]:animate-slideDownAndFade \
@@ -32,7 +32,7 @@ pl-[25px] pr-[5px] h-[25px] \
 \
 text-[13px] leading-none \
 \
-text-primary-800 \
+text-primary-900 dark:text-primary-400 \
 rounded-[3px] \
 flex items-center select-none outline-none";
 
@@ -52,10 +52,10 @@ const separatorClasses = "m-[5px] h-[1.2px] bg-primary-300";
 const menuIndicatorClasses = "absolute left-0 w-[25px] inline-flex items-center justify-center";
 
 const menuTriggerSubClasses = `${itemTextClasses} ${"\
-data-[highlighted]:data-[state=open]:text-primary-100 \
-data-[highlighted]:data-[state=open]:bg-primary-800 \
-data-[state=open]:text-primary-800 \
-data-[state=open]:bg-primary-300 \
+data-[highlighted]:data-[state=open]:text-primary-100 dark:data-[highlighted]:data-[state=open]:text-primary-200 \
+data-[highlighted]:data-[state=open]:bg-primary-800 dark:data-[highlighted]:data-[state=open]:bg-primary-800 \
+data-[state=open]:text-primary-800 dark:data-[state=open]:text-primary-300 \
+data-[state=open]:bg-primary-300 dark:data-[state=open]:bg-primary-500 \
 "}`;
 
 export const DropdownMenuDemo = () => {
@@ -66,7 +66,7 @@ export const DropdownMenuDemo = () => {
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
-                <button className={menuTriggerClasses} aria-label="Customise options">
+                <button className={`${menuTriggerClasses} ${inputFocusClasses}`} aria-label="Customise options">
                     {/* <HamburgerMenuIcon /> */}
                     <IconHamburger className="w-5 h-5" />
                 </button>
