@@ -3,6 +3,7 @@ import * as Select from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { classNames } from '@/utils';
 import { inputFocusClasses } from './ui-controls';
+import { IconCheck, IconChevronDown, IconChevronUp } from '../ui';
 
 const triggerClasses = "\
 px-[15px] h-[35px] text-[13px] leading-none \
@@ -53,7 +54,7 @@ const SelectItem = React.forwardRef<ElementRef<typeof Select.Item>, ComponentPro
         <Select.Item className={classNames(rowClasses, className)} {...props} ref={forwardedRef}>
             <Select.ItemText>{children}</Select.ItemText>
             <Select.ItemIndicator className="absolute left-0 w-[25px] inline-flex items-center justify-center">
-                <CheckIcon />
+                <IconCheck className="w-3 h-3"/>
             </Select.ItemIndicator>
         </Select.Item>
     );
@@ -66,7 +67,8 @@ export function SelectDemo() {
                 <Select.Value placeholder="Select a fruit…" />
 
                 <Select.Icon className="text-primary-900">
-                    <ChevronDownIcon />
+                    <IconChevronDown className="w-3 h-3"/>
+                    {/* <ChevronDownIcon /> */}
                 </Select.Icon>
             </Select.Trigger>
 
@@ -74,14 +76,13 @@ export function SelectDemo() {
                 <Select.Content className={contentClasses}>
 
                     <Select.ScrollUpButton className={scrollUpDnButtonClasses}>
-                        <ChevronUpIcon />
+                        <IconChevronUp className="w-3 h-3"/>
+                        {/* <ChevronUpIcon /> */}
                     </Select.ScrollUpButton>
 
                     <Select.Viewport className="p-[5px]">
                         <Select.Group>
-                            <Select.Label className={selectLabelClasses}>
-                                Fruits
-                            </Select.Label>
+                            <Select.Label className={selectLabelClasses}>Fruits</Select.Label>
 
                             <SelectItem value="apple">Apple</SelectItem>
                             <SelectItem value="banana">Banana</SelectItem>
@@ -117,7 +118,8 @@ export function SelectDemo() {
                     </Select.Viewport>
 
                     <Select.ScrollDownButton className={scrollUpDnButtonClasses}>
-                        <ChevronDownIcon />
+                        <IconChevronDown className="w-3 h-3"/>
+                        {/* <ChevronDownIcon /> */}
                     </Select.ScrollDownButton>
 
                 </Select.Content>
