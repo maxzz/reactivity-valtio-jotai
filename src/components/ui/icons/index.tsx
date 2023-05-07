@@ -66,6 +66,19 @@ export function IconAdd({ className, title, ...rest }: HTMLAttributes<SVGSVGElem
     );
 }
 
+{/* <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+    <circle cx="12.1" cy="12.1" r="1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </svg> */}
+
+export function IconDot({ className, title, ...rest }: HTMLAttributes<SVGSVGElement>) {
+    return (
+        <svg className={classNames("stroke-current stroke-[1.5]", className)} viewBox="0 0 24 24" {...rest}>
+            {title && <title>{title}</title>}
+            <circle cx="12.1" cy="12.1" r="1" />
+        </svg>
+    );
+}
+
 export function IconCheck({ className, title, ...rest }: HTMLAttributes<SVGSVGElement>) {
     return (
         <svg className={classNames("fill-none stroke-current stroke-[1.5]", className)} viewBox="0 0 24 24" {...rest}>
@@ -89,6 +102,15 @@ export function IconChevronDown({ className, title, ...rest }: HTMLAttributes<SV
         <svg className={classNames("fill-none stroke-current stroke-[1.5]", className)} viewBox="0 0 24 24" {...rest}>
             {title && <title>{title}</title>}
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+    );
+}
+
+export function IconChevronRight({ className, title, ...rest }: HTMLAttributes<SVGSVGElement>) {
+    return (
+        <svg className={classNames("fill-none stroke-current stroke-[1.5]", className)} viewBox="0 0 24 24" {...rest}>
+            {title && <title>{title}</title>}
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
     );
 }

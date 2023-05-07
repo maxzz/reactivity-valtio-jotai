@@ -1,6 +1,7 @@
 import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { HamburgerMenuIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import { IconCheck, IconDot } from '../ui';
 
 const menuTriggerClasses = "\
 w-8 h-8 rounded \
@@ -100,13 +101,15 @@ export const DropdownMenuDemo = () => {
                     <DropdownMenu.Separator className={separatorClasses} />
 
                     <DropdownMenu.CheckboxItem className={itemTextClasses} checked={bookmarksChecked} onCheckedChange={setBookmarksChecked}>
-                        <DropdownMenu.ItemIndicator className={menuIndicatorClasses}><CheckIcon /></DropdownMenu.ItemIndicator>
+                        {/* <DropdownMenu.ItemIndicator className={menuIndicatorClasses}><CheckIcon /></DropdownMenu.ItemIndicator> */}
+                        <DropdownMenu.ItemIndicator className={menuIndicatorClasses}><IconCheck className="w-3 h-3" /></DropdownMenu.ItemIndicator>
                         Show Bookmarks{' '}
                         <div className={shortcutClasses}>⌘+B</div>
                     </DropdownMenu.CheckboxItem>
 
                     <DropdownMenu.CheckboxItem className={itemTextClasses} checked={urlsChecked} onCheckedChange={setUrlsChecked}>
-                        <DropdownMenu.ItemIndicator className={menuIndicatorClasses}><CheckIcon /></DropdownMenu.ItemIndicator>
+                        {/* <DropdownMenu.ItemIndicator className={menuIndicatorClasses}><CheckIcon /></DropdownMenu.ItemIndicator> */}
+                        <DropdownMenu.ItemIndicator className={menuIndicatorClasses}><IconCheck className="w-3 h-3" /></DropdownMenu.ItemIndicator>
                         Show Full URLs
                     </DropdownMenu.CheckboxItem>
 
@@ -115,12 +118,14 @@ export const DropdownMenuDemo = () => {
 
                     <DropdownMenu.RadioGroup value={person} onValueChange={setPerson}>
                         <DropdownMenu.RadioItem className={itemTextClasses} value="twain">
-                            <DropdownMenu.ItemIndicator className={menuIndicatorClasses}> <DotFilledIcon /> </DropdownMenu.ItemIndicator>
+                            {/* <DropdownMenu.ItemIndicator className={menuIndicatorClasses}> <DotFilledIcon /> </DropdownMenu.ItemIndicator> */}
+                            <DropdownMenu.ItemIndicator className={menuIndicatorClasses}> <IconDot className="stroke-[3] fill-current" /> </DropdownMenu.ItemIndicator>
                             Mark Twain
                         </DropdownMenu.RadioItem>
 
                         <DropdownMenu.RadioItem className={itemTextClasses} value="knopfler">
-                            <DropdownMenu.ItemIndicator className={menuIndicatorClasses}> <DotFilledIcon /> </DropdownMenu.ItemIndicator>
+                            {/* <DropdownMenu.ItemIndicator className={menuIndicatorClasses}> <DotFilledIcon /> </DropdownMenu.ItemIndicator> */}
+                            <DropdownMenu.ItemIndicator className={menuIndicatorClasses}> <IconDot className="stroke-[3] fill-current" /> </DropdownMenu.ItemIndicator>
                             Mark Knopfler
                         </DropdownMenu.RadioItem>
                     </DropdownMenu.RadioGroup>
