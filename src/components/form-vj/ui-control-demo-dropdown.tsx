@@ -3,7 +3,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { HamburgerMenuIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 
 const menuTriggerClasses = "\
-m-4 w-8 h-8 rounded \
+w-8 h-8 rounded \
 \
 text-primary-800 bg-white hover:bg-primary-400 \
 shadow-[0_2px_10px] shadow-primary-950 focus:shadow-[0_0_0_2px] focus:shadow-black \

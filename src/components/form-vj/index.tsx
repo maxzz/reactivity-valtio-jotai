@@ -29,8 +29,14 @@ export function FormValtioJotai() {
             <div className="min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]">
                 <Caption />
                 <Body />
-                <SelectDemo />
-                <DropdownMenuDemo />
+
+                <div className="px-4">
+                    <SelectDemo />
+                </div>
+
+                <div className="mt-4 px-4">
+                    <DropdownMenuDemo />
+                </div>
 
                 <div className="p-4 flex items-center justify-end gap-x-2">
                     <BottomButton>OK</BottomButton>

@@ -3,16 +3,11 @@ import * as Select from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { classNames } from '@/utils';
 
-const contentClasses = "\
-bg-white \
-rounded-md \
-overflow-hidden \
-shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]";
-
 const triggerClasses = "\
 px-[15px] h-[35px] text-[13px] leading-none \
 \
-text-primary-900 bg-white hover:bg-primary-300 data-[placeholder]:text-primary-700 \
+text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
+hover:bg-primary-300 data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
 shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
 \
 rounded outline-none \
@@ -22,18 +17,23 @@ inline-flex items-center justify-center gap-[5px] \
 const scrollUpDnButtonClasses = "\
 px-[15px] h-[35px] text-[13px] leading-none \
 \
-text-primary-900 bg-white hover:bg-primary-300 data-[placeholder]:text-primary-700 \
+text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
+hover:bg-primary-300 data-[placeholder]:text-primary-700 dark:data-[placeholder]:text-primary-400 \
 shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
 \
 rounded outline-none \
 inline-flex items-center justify-center gap-[5px] \
 ";
 
+const contentClasses = "\
+text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-800 \
+rounded-md \
+overflow-hidden \
+shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]";
+
 const rowClasses = "\
 relative \
 pr-[35px] pl-[25px] h-[25px] text-[13px] leading-none \
-\
-text-primary-900 \
 \
 data-[highlighted]:text-primary-100 \
 data-[highlighted]:bg-primary-900 \
@@ -46,8 +46,8 @@ select-none \
 flex items-center \
 ";
 
-const selectSeparatorClasses = "mx-[5px] my-0.5 h-[1.2px] bg-primary-300";
-const selectLabelClasses = "px-[25px] text-xs leading-[25px] text-primary-800";
+const selectSeparatorClasses = "mx-[5px] my-0.5 h-[1.2px] bg-primary-300 dark:bg-primary-700";
+const selectLabelClasses = "px-[25px] h-[25px] text-[.65rem] leading-[25px] text-primary-800 dark:text-primary-500 border-current border rounded";
 
 const SelectItem = React.forwardRef<ElementRef<typeof Select.Item>, ComponentPropsWithoutRef<typeof Select.Item>>(({ children, className, ...props }, forwardedRef) => {
     return (
