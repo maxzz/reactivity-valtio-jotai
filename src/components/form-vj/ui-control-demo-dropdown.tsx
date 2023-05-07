@@ -13,11 +13,12 @@ outline-none inline-flex items-center justify-center \
 "; //shadow-[0_2px_10px] shadow-primary-950 focus:shadow-[0_0_0_2px] focus:shadow-black \
 
 const dropdownContentClasses = "\
-p-[5px] \
+mx-4 p-[5px] \
 min-w-[220px] \
 rounded-md \
 text-primary-900 bg-white dark:text-primary-400 dark:bg-primary-700 \
 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)] \
+dark:border-primary-500 dark:border \
 will-change-[opacity,transform] \
 data-[side=top]:animate-slideDownAndFade \
 data-[side=right]:animate-slideLeftAndFade \
@@ -73,7 +74,7 @@ export const DropdownMenuDemo = () => {
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Portal container={document.getElementById('portal')}>
-                <DropdownMenu.Content className={dropdownContentClasses} sideOffset={5}>
+                <DropdownMenu.Content className={dropdownContentClasses} sideOffset={5} >
                     <DropdownMenu.Item className={itemTextClasses}>New Tab{' '}<div className={shortcutClasses}>⌘+T</div></DropdownMenu.Item>
                     <DropdownMenu.Item className={itemTextClasses}>New Window{' '}<div className={shortcutClasses}>⌘+N</div></DropdownMenu.Item>
                     <DropdownMenu.Item className={itemTextClasses} disabled>New Private Window{' '}<div className={shortcutClasses}>⇧+⌘+N</div></DropdownMenu.Item>
@@ -132,7 +133,8 @@ export const DropdownMenuDemo = () => {
                         </DropdownMenu.RadioItem>
                     </DropdownMenu.RadioGroup>
 
-                    <DropdownMenu.Arrow className="fill-white" />
+                    {/* <DropdownMenu.Arrow className="fill-white dark:fill-primary-700 stroke-current stroke-[3]" /> */} {/* We can do asChild */}
+                    <DropdownMenu.Arrow className="fill-white dark:fill-primary-700 stroke-current dark:stroke-primary-500 stroke-[3]" />
 
                 </DropdownMenu.Content>
             </DropdownMenu.Portal>
