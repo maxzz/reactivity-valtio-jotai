@@ -2,9 +2,9 @@ import { InputHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { classNames, turnOffAutoComplete } from "@/utils";
 import { IconClose } from "../ui";
 
-export const inputClasses = "px-2 py-1.5 w-full text-primary-300 bg-primary-700 rounded";
+export const inputClasses = "px-2 py-1.5 w-full text-primary-800 bg-white dark:text-primary-300 dark:bg-primary-700 rounded";
 export const inputFocusClasses = "focus:outline-none focus:ring-1 focus:ring-primary-400 focus:ring-offset-1 focus:ring-offset-primary-800";
-export const dlgBottomButtonClasses = "hover:bg-primary-700 border-primary-500 active:scale-[.97] border rounded select-none disabled:opacity-25";
+export const dlgBottomButtonClasses = "hover:bg-primary-300 dark:hover:bg-primary-700 border-primary-500 active:scale-[.97] border rounded select-none disabled:opacity-25";
 
 export function Caption() {
     return (
