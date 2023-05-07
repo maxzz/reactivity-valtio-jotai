@@ -6,8 +6,7 @@ const menuTriggerClasses = "\
 m-4 w-8 h-8 rounded \
 \
 text-primary-800 bg-white hover:bg-primary-400 \
-focus:shadow-[0_0_0_2px] focus:shadow-black \
-shadow-[0_2px_10px] shadow-primary-950 \
+shadow-[0_2px_10px] shadow-primary-950 focus:shadow-[0_0_0_2px] focus:shadow-black \
 \
 outline-none inline-flex items-center justify-center \
 ";

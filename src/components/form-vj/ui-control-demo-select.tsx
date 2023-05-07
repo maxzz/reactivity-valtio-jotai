@@ -3,24 +3,55 @@ import * as Select from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { classNames } from '@/utils';
 
-const selectItemClasses = "\
+const contentClasses = "\
+bg-white \
+rounded-md \
+overflow-hidden \
+shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]";
+
+const triggerClasses = "\
+px-[15px] h-[35px] text-[13px] leading-none \
+\
+text-primary-900 bg-white hover:bg-primary-300 data-[placeholder]:text-primary-700 \
+shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
+\
+rounded outline-none \
+inline-flex items-center justify-center gap-[5px] \
+";
+
+const scrollUpDnButtonClasses = "\
+px-[15px] h-[35px] text-[13px] leading-none \
+\
+text-primary-900 bg-white hover:bg-primary-300 data-[placeholder]:text-primary-700 \
+shadow-[0_2px_10px] shadow-black/10 focus:shadow-[0_0_0_2px] focus:shadow-black \
+\
+rounded outline-none \
+inline-flex items-center justify-center gap-[5px] \
+";
+
+const rowClasses = "\
 relative \
-h-[25px] pr-[35px] pl-[25px] \
-text-[13px] \
-leading-none \
+pr-[35px] pl-[25px] h-[25px] text-[13px] leading-none \
+\
+text-primary-900 \
+\
+data-[highlighted]:text-primary-100 \
+data-[highlighted]:bg-primary-900 \
+data-[highlighted]:outline-none \
+data-[disabled]:opacity-40 \
+data-[disabled]:pointer-events-none \
+\
 rounded-[3px] \
 select-none \
-text-violet11 \
 flex items-center \
-data-[disabled]:text-mauve8 \
-data-[disabled]:pointer-events-none \
-data-[highlighted]:outline-none \
-data-[highlighted]:bg-violet9 \
-data-[highlighted]:text-violet1";
+";
+
+const selectSeparatorClasses = "mx-[5px] my-0.5 h-[1.2px] bg-primary-300";
+const selectLabelClasses = "px-[25px] text-xs leading-[25px] text-primary-800";
 
 const SelectItem = React.forwardRef<ElementRef<typeof Select.Item>, ComponentPropsWithoutRef<typeof Select.Item>>(({ children, className, ...props }, forwardedRef) => {
     return (
-        <Select.Item className={classNames(selectItemClasses, className)} {...props} ref={forwardedRef}>
+        <Select.Item className={classNames(rowClasses, className)} {...props} ref={forwardedRef}>
             <Select.ItemText>{children}</Select.ItemText>
             <Select.ItemIndicator className="absolute left-0 w-[25px] inline-flex items-center justify-center">
                 <CheckIcon />
@@ -29,84 +60,21 @@ const SelectItem = React.forwardRef<ElementRef<typeof Select.Item>, ComponentPro
     );
 });
 
-const selectTriggerClasses = "\
-h-[35px] \
-px-[15px] \
-text-[13px] \
-leading-none \
-\
-bg-white \
-text-violet11 \
-shadow-[0_2px_10px] \
-shadow-black/10 \
-hover:bg-mauve3 \
-focus:shadow-[0_0_0_2px] \
-focus:shadow-black \
-data-[placeholder]:text-violet9 \
-\
-rounded \
-outline-none \
-inline-flex \
-items-center \
-justify-center \
-gap-[5px] \
-";
-
-const selectScrollUpButtonClasses = "\
-px-[15px] \
-text-[13px] \
-leading-none \
-h-[35px] \
-\
-rounded \
-outline-none \
-inline-flex \
-items-center \
-justify-center \
-gap-[5px] \
-\
-bg-white \
-text-violet11 \
-shadow-[0_2px_10px] \
-shadow-black/10 \
-hover:bg-mauve3 \
-focus:shadow-[0_0_0_2px] \
-focus:shadow-black \
-data-[placeholder]:text-violet9 \
-";
-
-const selectContentClasses = "\
-bg-white \
-rounded-md \
-overflow-hidden \
-shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]";
-
-const selectSeparatorClasses = "\
-m-[5px] \
-h-[1px] \
-bg-violet6";
-
-const selectLabelClasses = "\
-px-[25px] \
-text-xs \
-leading-[25px] \
-text-mauve11";
-
 export function SelectDemo() {
     return (
         <Select.Root>
-            <Select.Trigger className={selectTriggerClasses} aria-label="Food">
+            <Select.Trigger className={triggerClasses} aria-label="Food">
                 <Select.Value placeholder="Select a fruit…" />
 
-                <Select.Icon className="text-violet11">
+                <Select.Icon className="text-primary-900">
                     <ChevronDownIcon />
                 </Select.Icon>
             </Select.Trigger>
 
             <Select.Portal container={document.getElementById('portal')}>
-                <Select.Content className={selectContentClasses}>
+                <Select.Content className={contentClasses}>
 
-                    <Select.ScrollUpButton className={selectScrollUpButtonClasses}>
+                    <Select.ScrollUpButton className={scrollUpDnButtonClasses}>
                         <ChevronUpIcon />
                     </Select.ScrollUpButton>
 
@@ -126,9 +94,7 @@ export function SelectDemo() {
                         <Select.Separator className={selectSeparatorClasses} />
 
                         <Select.Group>
-                            <Select.Label className={selectLabelClasses}>
-                                Vegetables
-                            </Select.Label>
+                            <Select.Label className={selectLabelClasses}>Vegetables</Select.Label>
 
                             <SelectItem value="aubergine">Aubergine</SelectItem>
                             <SelectItem value="broccoli">Broccoli</SelectItem>
@@ -142,9 +108,7 @@ export function SelectDemo() {
                         <Select.Separator className={selectSeparatorClasses} />
 
                         <Select.Group>
-                            <Select.Label className={selectLabelClasses}>
-                                Meat
-                            </Select.Label>
+                            <Select.Label className={selectLabelClasses}>Meat</Select.Label>
 
                             <SelectItem value="beef">Beef</SelectItem>
                             <SelectItem value="chicken">Chicken</SelectItem>
@@ -153,7 +117,7 @@ export function SelectDemo() {
                         </Select.Group>
                     </Select.Viewport>
 
-                    <Select.ScrollDownButton className={selectScrollUpButtonClasses}>
+                    <Select.ScrollDownButton className={scrollUpDnButtonClasses}>
                         <ChevronDownIcon />
                     </Select.ScrollDownButton>
 
