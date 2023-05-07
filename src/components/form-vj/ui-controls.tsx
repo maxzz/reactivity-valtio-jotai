@@ -8,11 +8,12 @@ export const dlgBottomButtonClasses = "hover:bg-primary-300 dark:hover:bg-primar
 
 export function Caption() {
     return (
-        <div className="pl-4 pr-2 py-3 flex items-center justify-between bg-primary-900/40">
+        <div className="pl-4 pr-2 py-3 flex items-center justify-between bg-primary-300 dark:bg-primary-900/40">
             <div className="text-xl">
                 State with valtio<span className="inline-block scale-50 saturate-0 opacity-50">🤝</span>jotai
             </div>
-            <button className="p-1 w-7 h-7 hover:bg-primary-700 active:scale-[.97] rounded">
+
+            <button className="p-1 w-7 h-7 hover:text-primary-800 hover:dark:text-primary-100 hover:bg-primary-400/50 dark:hover:bg-primary-700 active:scale-[.97] rounded">
                 <IconClose />
             </button>
         </div>

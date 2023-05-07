@@ -34,8 +34,8 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
 
 export function GridRowsWithAddButton() {
     return (
-        <fieldset className="relative border-primary-500 border rounded max-h-[30vh]">
-            <legend className="mx-0.5 px-2 select-none">Catalog Items</legend>
+        <fieldset className="pt-1 pb-2 relative border-primary-500 border rounded max-h-[30vh]">
+            <legend className="mx-2 px-1 select-none">Catalog Items</legend>
 
             <Scroller>
                 <GridRows />

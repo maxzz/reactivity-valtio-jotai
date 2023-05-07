@@ -25,7 +25,7 @@ function Body() {
 
 export function FormValtioJotai() {
     return (
-        <div className="self-center border-slate-600 border rounded debug1">
+        <div className="self-center border-slate-600 border rounded overflow-hidden debug1">
             <div className="min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]">
                 <Caption />
                 <Body />
