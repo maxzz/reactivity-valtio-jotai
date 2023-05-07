@@ -1,4 +1,4 @@
-import { Fragment, InputHTMLAttributes } from "react";
+import { Fragment, InputHTMLAttributes, useEffect, useRef } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
 import { classNames, swap, turnOffAutoComplete, uuid as uuidShort } from "@/utils";
@@ -37,6 +37,7 @@ function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: String
     return (
         <input
             className={classNames("px-2 py-1 w-full text-primary-800 bg-primary-50 dark:text-primary-300 dark:bg-primary-700 rounded-sm col-span-full @[300px]:col-span-1", inputFocusClasses)}
+            name={name}
             {...turnOffAutoComplete}
             {...rest}
             value={snap[name]}
@@ -57,8 +58,20 @@ function RowItemType({ item }: { item: CatalogItem; }) {
 }
 
 function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
+    const { newItem } = useSnapshot(item);
+    const scrollToRef = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+        if (scrollToRef.current) {
+            const rowEl = scrollToRef.current;
+            rowEl.querySelector<HTMLElement>('input[name="dispname"]')?.focus();
+            rowEl.scrollIntoView({ behavior: "smooth", block: "center" });
+            delete item.newItem;
+            scrollToRef.current = null;
+        }
+    }, [scrollToRef]);
+
     return (
-        <div className={gridRowClasses}>
+        <div ref={newItem ? scrollToRef : null} className={gridRowClasses}>
             <RowItemType item={item} />
             <RowItemInput item={item} name="dispname" />
             <RowItemInput item={item} name="dbname" />
@@ -73,6 +86,7 @@ export function GridRows() {
     return (
         <div className="@container pl-2 pr-[10px] text-xs grid gap-y-1">
             <TableHeader />
+
             {snap.map((item, idx) => {
                 const menuState: MenuState = {
                     onDelete: () => { items.splice(idx, 1); },

@@ -5,6 +5,7 @@ import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
 import { v4 } from "uuid";
 import { GridRows } from "./ui-grid-rows";
 import { IconAdd, Scroller } from "../ui";
+import { CatalogItem } from "@/store/form-vj-types";
 
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
     const items = appUi.formVjInputs.items;
@@ -19,7 +20,7 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
         </button>
     );
 
-    function generateNewItem(index: number) {
+    function generateNewItem(index: number): CatalogItem {
         const guid = v4();
         const now = uuidShort.asRelativeNumber();
         return {
@@ -28,6 +29,7 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
             index,
             uuid: now,
             mru: now,
+            newItem: true,
         };
     }
 }
