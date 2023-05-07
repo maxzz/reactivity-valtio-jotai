@@ -1,8 +1,8 @@
 import { GridRowsWithAddButton } from "./ui-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
-import { SelectDemo } from "./ui-control-demo-select";
-import { DropdownMenuDemo } from "./ui-control-demo-dropdown";
+import { SelectDemo } from "./demos/ui-control-demo-select";
+import { DropdownMenuDemo } from "./demos/ui-control-demo-dropdown";
 
 function NameInput() {
     const snap = useSnapshot(appUi.formVjInputs);

@@ -30,6 +30,16 @@ function TableHeader() {
     );
 }
 
+function RowItemType({ item }: { item: CatalogItem; }) {
+    const { password: isPsw = false } = useSnapshot(item);
+    const title = `${isPsw ? "Password" : "Text"}. Click to change`;
+    return (
+        <div className="w-6 h-6 text-[0.65rem] cursor-pointer" onClick={() => isPsw ? delete item.password : item.password = true}>
+            {isPsw ? <IconFieldPassword title={title} /> : <IconFieldText title={title} />}
+        </div>
+    );
+}
+
 type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
 
 function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
@@ -44,17 +54,6 @@ function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: String
             onChange={(e) => { item[name] = e.target.value; }}
         />
     );
-}
-
-function RowItemType({ item }: { item: CatalogItem; }) {
-    const { password: isPsw = false } = useSnapshot(item);
-    const title = `${isPsw ? "Password" : "Text"}. Click to change`;
-    return (
-        <div className="w-6 h-6 text-[0.65rem] cursor-pointer" onClick={() => isPsw ? delete item.password : item.password = true}>
-            {isPsw ? <IconFieldPassword title={title} /> : <IconFieldText title={title} />}
-        </div>
-    );
-
 }
 
 function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
