@@ -5,15 +5,6 @@ import { FieldValue } from "./control";
 import { useEffect, useState } from "react";
 import { proxy, snapshot, subscribe } from "valtio";
 
-// function catalogItemToManiField(item: CatalogItem) {
-//     const field: Mani.Field = {
-//         type: item.password ? 'edit': 'edit',
-//         askalways,
-//         onetvalue,
-//         value
-//     }
-// }
-
 export function FieldValueInput({ proxyItem }: { proxyItem: CatalogItem; }) {
     const useIt = true;
     const choosevalue = undefined;
