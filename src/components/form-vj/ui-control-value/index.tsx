@@ -10,14 +10,14 @@ export function FieldValueInput({ proxyItem }: { proxyItem: CatalogItem; }) {
     const choosevalue = undefined;
 
     const valueLifeProxy = useState(proxy(TransformValue.valueLife4Catalog(proxyItem)))[0];
-    const valueLifeAtom = useState(atomWithProxy(valueLifeProxy))[0];
+    const valueLifeAtom = useState(atomWithProxy(valueLifeProxy, {sync: true}))[0];
 
     useEffect(() => {
         console.log('valueLife subscribe');
         const unsub = subscribe(valueLifeProxy, () => {
             console.log('valueLife update', snapshot(valueLifeProxy));
             TransformValue.valueLife2Mani(snapshot(valueLifeProxy), proxyItem);
-        }, true);
+        });
         return unsub;
     }, [valueLifeProxy]);
 
