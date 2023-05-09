@@ -17,7 +17,7 @@ export function FieldValueInput({ proxyItem }: { proxyItem: CatalogItem; }) {
         const unsub = subscribe(valueLifeProxy, () => {
             console.log('valueLife update', snapshot(valueLifeProxy));
             TransformValue.valueLife2Mani(snapshot(valueLifeProxy), proxyItem);
-        });
+        }, true);
         return unsub;
     }, [valueLifeProxy]);
 
