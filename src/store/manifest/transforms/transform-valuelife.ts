@@ -57,11 +57,7 @@ export namespace TransformValue {
         vl.value && (rv.value = `${vl.isRef ? (vl.value[0] === '@' ? '@@' : '@') : ''}${vl.value}`);
     }
 
-    export function valueLife2Mani(vl: ValueLife, rv: Mani.Field): void {
-        valueLife2ManiLogic(vl, rv);
-    }
-
-    export function valueLife2Catalog(vl: ValueLife, rv: CatalogItem): void {
+    export function valueLife2Mani(vl: ValueLife, rv: Mani.Field | CatalogItem): void {
         valueLife2ManiLogic(vl, rv);
     }
 
