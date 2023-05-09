@@ -5,6 +5,7 @@ import { classNames, swap, turnOffAutoComplete, uuid as uuidShort } from "@/util
 import { inputFocusClasses } from "./ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconFieldPassword, IconFieldText } from "../ui";
+import { FieldValueInput } from "./ui-control-value";
 
 const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
 const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-400 dark:border-primary-500 border-b hidden @[300px]:block";
@@ -72,7 +73,8 @@ function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuSta
         <div ref={newItem ? scrollToRef : null} className={gridRowClasses}>
             <RowItemType item={item} />
             <RowItemInput item={item} name="dispname" />
-            <RowItemInput item={item} name="dbname" />
+            {/* <RowItemInput item={item} name="dbname" /> */}
+            <FieldValueInput proxyItem={item} />
             <RowPopupMenu menuState={menuState} />
         </div>
     );

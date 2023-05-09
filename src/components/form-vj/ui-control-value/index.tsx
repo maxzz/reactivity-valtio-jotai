@@ -1,8 +1,9 @@
 import { PrimitiveAtom } from "jotai";
 import { atomWithProxy } from "jotai-valtio";
-import { CatalogItem, FieldTyp, Mani, ValueAs, ValueLife, fieldTyp4Str } from "@/store/manifest";
+import { CatalogItem, FieldTyp, Mani, TransformValue, ValueAs, ValueLife, fieldTyp4Str } from "@/store/manifest";
 import { FieldValue } from "./control";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { proxy, snapshot, subscribe } from "valtio";
 
 // function catalogItemToManiField(item: CatalogItem) {
 //     const field: Mani.Field = {
@@ -16,11 +17,20 @@ import { useState } from "react";
 export function FieldValueInput({ proxyItem }: { proxyItem: CatalogItem; }) {
     const useIt = true;
     const choosevalue = undefined;
-    const valueLifeAtom = useState<PrimitiveAtom<CatalogItem>>(atomWithProxy<CatalogItem>(proxyItem))[0];
 
-    return (
-        <>
-            {/* <FieldValue useIt={useIt} valueLifeAtom={valueLifeAtom} choosevalue={choosevalue} /> */}
-        </>
-    );
+    const valueLifeProxy = useState(proxy(TransformValue.valueLife4Catalog(proxyItem)))[0];
+    const valueLifeAtom = useState(atomWithProxy(valueLifeProxy))[0];
+
+    useEffect(() => {
+        console.log('valueLife subscribe');
+        const unsub = subscribe(valueLifeProxy, () => {
+            console.log('valueLife update', snapshot(valueLifeProxy));
+            TransformValue.valueLife2Mani(snapshot(valueLifeProxy), proxyItem);
+        });
+        return unsub;
+    }, [valueLifeProxy]);
+
+    return (<>
+        <FieldValue useIt={useIt} valueLifeAtom={valueLifeAtom} choosevalue={choosevalue} />
+    </>);
 }
