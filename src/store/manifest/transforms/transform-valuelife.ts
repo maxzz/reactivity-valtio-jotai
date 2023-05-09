@@ -1,8 +1,16 @@
-import { FieldTyp, Mani, ValueAs, ValueLife, fieldTyp4Str } from "../mani-types";
+import { CatalogItem, FieldTyp, Mani, ValueAs, ValueLife, fieldTyp4Str } from "../mani-types";
 
 export namespace TransformValue {
 
-    export function valueLife4ManiLogic({ askalways, onetvalue, value, password, fType }: { askalways?: boolean, onetvalue?: boolean, value?: string; password?: boolean, fType: FieldTyp; }): ValueLife {
+    type valueLife4ManiLogicParams = {
+        askalways?: boolean;
+        onetvalue?: boolean;
+        value?: string;
+        password?: boolean;
+        fType: FieldTyp;
+    };
+
+    export function valueLife4ManiLogic({ askalways, onetvalue, value, password, fType }: valueLife4ManiLogicParams): ValueLife {
         const vl: ValueLife = {
             valueAs:
                 (!onetvalue && !askalways)
@@ -27,6 +35,12 @@ export namespace TransformValue {
         return valueLife4ManiLogic({ askalways, onetvalue, value, password, fType: fieldTyp4Str(field) });
     }
 
+    export function valueLife4Catalog(item: CatalogItem): ValueLife {
+        const { askalways, onetvalue, value, password } = item;
+        const fType = item.password ? FieldTyp.psw : FieldTyp.edit;
+        return valueLife4ManiLogic({ askalways, onetvalue, value, password, fType });
+    }
+    
     export type valueLife2ManiLogicReturn = {
         onetvalue?: boolean;
         askalways?: boolean;
@@ -47,5 +61,10 @@ export namespace TransformValue {
         valueLife2ManiLogic(vl, rv);
     }
 
-    //TODO: skip recording of '=== undefined' values
+    export function valueLife2Catalog(vl: ValueLife, rv: CatalogItem): void {
+        valueLife2ManiLogic(vl, rv);
+    }
+
 } //namespace TransformValue
+
+//TODO: skip recording of '=== undefined' values
