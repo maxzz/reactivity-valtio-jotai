@@ -54,7 +54,7 @@ export namespace TransformValue {
             : va === ValueAs.askConfirm
                 ? (rv.onetvalue = undefined, rv.askalways = true)
                 : (rv.onetvalue = true, rv.askalways = true);
-        vl.value ? (rv.value = `${vl.isRef ? (vl.value.charAt(0) === '@' ? '@@' : '@') : ''}${vl.value}`) : (delete rv.value);
+        vl.value ? (rv.value = `${vl.isRef ? '@' : (vl.value.charAt(0) === '@' ? '@@' : '')}${vl.value}`) : (delete rv.value);
     }
 
     export function valueLife2Mani(vl: ValueLife, rv: Mani.Field | CatalogItem): void {
