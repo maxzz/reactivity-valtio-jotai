@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes } from "react";
 import { PrimitiveAtom as PA, useAtom, useAtomValue } from "jotai";
 import { ValueAs, ValueLife } from "@/store/manifest";
 import { getValueUiState, mapIndexToValueLife } from "./select-uitils";
-import { Dropdown, isKeyToClearDefault } from "./dropdown";
+import { Dropdown, isKeyToClearDefault } from "./fieldvalue-dropdown";
 import { classNames } from "@/utils";
 
 const inputParentClasses = "\
@@ -17,7 +17,7 @@ type FieldValueProps = {
     choosevalue: string | undefined;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export function FieldValue({ useIt, valueLifeAtom, choosevalue, className, ...rest }: FieldValueProps) {
+export function FieldValueUi({ useIt, valueLifeAtom, choosevalue, className, ...rest }: FieldValueProps) {
     const [valueLife, setValueLife] = useAtom(valueLifeAtom);
 
     const {
