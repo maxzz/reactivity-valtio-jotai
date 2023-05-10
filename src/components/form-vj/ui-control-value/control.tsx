@@ -54,7 +54,7 @@ export function FieldValue({ useIt, valueLifeAtom, choosevalue, className, ...re
         <div className={classNames(inputParentClasses, !useIt && "opacity-30 cursor-pointer", className)} {...rest}>
             <input
                 className={classNames(
-                    "px-2 py-1 !bg-primary-700 !text-primary-200 outline-none",
+                    "px-2 py-1 !text-primary-700 dark:!text-primary-200 !bg-primary-50 dark:!bg-primary-700 outline-none",
                     showAsRef && !valueLife.isNon && "text-[0.6rem] !text-blue-400 cursor-default",
                     disabled && "pointer-events-none",
                 )}
