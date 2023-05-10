@@ -60,13 +60,13 @@ function loadStorageAppUi(): AppUi {
 }
 
 subscribe(appUi.uiState, () => {
-    console.log('store ui  ', appUi.uiState);
+    //console.log('store ui  ', appUi.uiState);
 
     localStorage.setItem(STORAGE_UI_KEY, JSON.stringify({ [STORAGE_UI_VER]: appUi.uiState }));
 });
 
 subscribe(appUi.formVjInputs, () => {
-    console.log('store data', appUi.formVjInputs);
+    //console.log('store data', appUi.formVjInputs);
 
     localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify({ [STORAGE_DATA_VER]: appUi.formVjInputs }));
 });

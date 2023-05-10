@@ -23,7 +23,7 @@ export namespace TransformValue {
             fType: fType,
         };
         if (value) {
-            vl.isRef = value?.[0] === '@'; // TODO: use charAt
+            vl.isRef = value?.charAt(0) === '@';
             vl.value = value?.replace(/^@/, '');
             vl.isRef = vl.isRef && !!vl.value && vl.value.charAt(0) !== '@'; // case for '@@'
         }
