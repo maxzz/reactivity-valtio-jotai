@@ -12,8 +12,8 @@ export function Dropdown({ items, selectedIndex, onSetIndex }: { items: string[]
     return (
         <menu.Root>
             <menu.Trigger asChild>
-                <button className="px-2 border-l border-primary-800 outline-none group">
-                    <IconChevronDown className="w-4 h-4 border-primary-500 rounded group-focus-within:border" />
+                <button className="px-1 border-l border-primary-800 outline-none group">
+                    <IconChevronDown className="p-1 w-5 h-5 border-primary-500 rounded group-focus-within:border" />
                 </button>
             </menu.Trigger>
 
