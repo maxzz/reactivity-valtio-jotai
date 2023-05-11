@@ -16,7 +16,7 @@ function ColorModeSwitch() {
     function changeMode() {
         const body = document.getElementsByTagName('body')[0];
         body.classList.toggle('dark');
-        appUi.uiState.darkMode = body.classList.contains('dark');
+        appUi.uiState.darkMode = !darkMode;
     }
 
     return (

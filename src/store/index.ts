@@ -2,6 +2,9 @@ import { proxy, subscribe } from 'valtio';
 export { useSnapshot } from 'valtio';
 import { mergeDefaultAndLoaded } from '@/utils';
 import { FormVjInputs, formVjDefaultValues } from './form-vj-types';
+import { setInitialDarkMode } from './app-initial-state';
+
+export * from './app-initial-state';
 
 const STORAGE_UI_KEY = 'reactivity-valtio-jotai:ui';
 const STORAGE_DATA_KEY = 'reactivity-valtio-jotai:data';
@@ -34,6 +37,8 @@ const initialAppUi: AppUi = {
 };
 
 export const appUi = proxy<AppUi>(loadStorageAppUi());
+
+setInitialDarkMode(appUi.uiState.darkMode);
 
 // Local storage
 
@@ -70,11 +75,3 @@ subscribe(appUi.formVjInputs, () => {
 
     localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify({ [STORAGE_DATA_VER]: appUi.formVjInputs }));
 });
-
-//
-
-setInitialDarkMode();
-
-function setInitialDarkMode() {
-    document.getElementsByTagName('body')[0].classList[appUi.uiState.darkMode ? 'add': 'remove']('dark');
-}
