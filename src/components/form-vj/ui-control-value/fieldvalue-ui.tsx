@@ -5,8 +5,8 @@ import { getValueUiState, mapIndexToValueLife } from "./select-uitils";
 import { Dropdown, isKeyToClearDefault } from "./fieldvalue-dropdown";
 import { classNames } from "@/utils";
 
-const inputParentClasses = "\
-grid grid-cols-[minmax(0,1fr)_auto] rounded overflow-hidden \
+const containerClasses = "\
+grid grid-cols-[minmax(0,1fr)_auto] rounded-sm overflow-hidden \
 bg-primary-700 \
 ring-primary-600 focus-within:ring-offset-primary-800 focus-within:ring-primary-400 \
 focus-within:ring-1 focus-within:ring-offset-1";
@@ -51,7 +51,7 @@ export function FieldValueUi({ useIt, valueLifeAtom, choosevalue, className, ...
     }
 
     return (
-        <div className={classNames(inputParentClasses, !useIt && "opacity-30 cursor-pointer", className)} {...rest}>
+        <div className={classNames(containerClasses, !useIt && "opacity-30 cursor-pointer", className)} {...rest}>
             <input
                 className={classNames(
                     "px-2 py-1 !text-primary-700 dark:!text-primary-200 !bg-primary-50 dark:!bg-primary-700 outline-none",
