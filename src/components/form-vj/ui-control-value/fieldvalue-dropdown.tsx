@@ -7,10 +7,10 @@ export function isKeyToClearDefault(key: string) {
 }
 
 const contentClasses = classNames(
-    "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
-    "px-1.5 py-1 grid grid-cols-1 rounded-lg shadow-md",
+    "px-1.5 py-1 max-h-[50vh] grid grid-cols-1 rounded-lg shadow-md",
     "bg-primary-100 dark:bg-gray-800",
-    "overflow-auto max-h-[50vh] smallscroll smallscroll-light" //TODO: maybe have a separate popop for big list and add search; or simplescroll; more fields.. put on top?; scroll to view;
+    "overflow-auto smallscroll smallscroll-light", //TODO: maybe have a separate popop for big list and add search; or simplescroll; more fields.. put on top?; scroll to view;
+    "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
 );
 
 const rowClasses = classNames(
@@ -22,8 +22,8 @@ export function Dropdown({ items, selectedIndex, onSetIndex }: { items: string[]
     return (
         <menu.Root>
             <menu.Trigger asChild>
-                <button className="px-1 border-l border-primary-800 outline-none group">
-                    <IconChevronDown className="p-1 w-5 h-5 border-primary-500 rounded group-focus-within:border" />
+                <button className="px-1 bg-primary-50 dark:bg-primary-700 border-primary-300 dark:border-primary-800 border-l outline-none group">
+                    <IconChevronDown className="p-1 w-5 h-5 border-primary-300 dark:border-primary-500 rounded group-focus-within:border" />
                 </button>
             </menu.Trigger>
 
