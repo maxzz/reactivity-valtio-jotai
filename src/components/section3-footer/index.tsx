@@ -1,5 +1,5 @@
-import { appUi, useSnapshot } from "@/store";
-import { DarkLightSwitch, IconFieldPassword, IconFieldText, IconSunnyvale } from "../ui";
+import { appUi, setAppDarkMode, useSnapshot } from "@/store";
+import { DarkLightSwitch, IconSunnyvale } from "@/components/ui";
 
 function ShowVjButton() {
     const { pageVjDlgOpen } = useSnapshot(appUi.uiState);
@@ -14,9 +14,8 @@ function ColorModeSwitch() {
     const { darkMode } = useSnapshot(appUi.uiState);
 
     function changeMode() {
-        const body = document.getElementsByTagName('body')[0];
-        body.classList.toggle('dark');
         appUi.uiState.darkMode = !darkMode;
+        setAppDarkMode(!darkMode);
     }
 
     return (
