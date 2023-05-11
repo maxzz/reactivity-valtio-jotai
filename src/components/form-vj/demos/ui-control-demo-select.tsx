@@ -2,7 +2,7 @@ import React, { ComponentPropsWithoutRef, ElementRef } from 'react';
 import * as Select from '@radix-ui/react-select';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { classNames } from '@/utils';
-import { inputFocusClasses } from '../ui-controls';
+import { inputFocusClasses } from '../dlg-controls';
 import { IconCheck, IconChevronDown, IconChevronUp } from '../../ui';
 
 const triggerClasses = "\

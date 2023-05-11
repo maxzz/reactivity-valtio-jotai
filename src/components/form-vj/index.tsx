@@ -1,6 +1,6 @@
-import { GridRowsWithAddButton } from "./ui-control-grid";
-import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
+import { GridRowsWithAddButton } from "./ui-control-grid";
+import { BottomButton, Caption, Input } from "./dlg-controls";
 import { SelectDemo } from "./demos/ui-control-demo-select";
 import { DropdownMenuDemo } from "./demos/ui-control-demo-dropdown";
 

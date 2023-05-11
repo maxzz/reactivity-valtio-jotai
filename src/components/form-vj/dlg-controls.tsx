@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, ButtonHTMLAttributes } from "react";
 import { classNames, turnOffAutoComplete } from "@/utils";
-import { IconClose } from "../ui";
+import { IconClose } from "@/components/ui";
 
 export const inputClasses = "px-2 py-1.5 w-full text-primary-800 dark:text-primary-300 bg-primary-100 dark:bg-primary-700 rounded";
 export const inputFocusClasses = "focus:outline-none focus:ring-1 focus:ring-primary-800 dark:focus:ring-primary-400 focus:ring-offset-1 focus:ring-offset-primary-200 dark:focus:ring-offset-primary-800";
