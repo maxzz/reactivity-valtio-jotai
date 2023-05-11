@@ -35,7 +35,7 @@ function RowItemType({ item }: { item: CatalogItem; }) {
     const { password: isPsw = false } = useSnapshot(item);
     const title = `${isPsw ? "Password" : "Text"}. Click to change`;
     return (
-        <div className="w-6 h-6 text-[0.65rem] cursor-pointer" onClick={() => isPsw ? delete item.password : item.password = true}>
+        <div className="w-6 h-6 text-[0.65rem] text-primary-500 cursor-pointer" onClick={() => isPsw ? delete item.password : item.password = true}>
             {isPsw ? <IconFieldPassword title={title} /> : <IconFieldText title={title} />}
         </div>
     );

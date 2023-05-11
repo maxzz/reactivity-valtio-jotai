@@ -8,11 +8,11 @@ import { dlgBottomButtonClasses, inputFocusClasses } from "../dlg-controls";
 
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
     const items = appUi.formVjInputs.items;
-    const snap = useSnapshot(items);
+    const { length } = useSnapshot(items);
     return (
         <button
             className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)}
-            onClick={() => items.push(generateNewItem(snap.length))}
+            onClick={() => items.push(generateNewItem(length))}
             {...rest}
         >
             <IconAdd />

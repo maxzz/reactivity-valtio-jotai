@@ -46,3 +46,11 @@ export function FormValtioJotai() {
         </div>
     );
 }
+
+//TODO: add button add txt or psw
+//TODO: add row indices
+//TODO: update mru
+//TODO: text MRU button w/ popup menu
+//TODO: buttons up/down at top/buttom list edges
+//TODO: move grid title row labels out of scroll
+//TODO: where is blue highlight for constant values?
