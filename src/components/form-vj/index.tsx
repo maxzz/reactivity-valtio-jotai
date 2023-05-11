@@ -1,4 +1,4 @@
-import { GridRowsWithAddButton } from "./ui-grid";
+import { GridRowsWithAddButton } from "./ui-control-grid";
 import { BottomButton, Caption, Input } from "./ui-controls";
 import { appUi, useSnapshot } from "@/store";
 import { SelectDemo } from "./demos/ui-control-demo-select";

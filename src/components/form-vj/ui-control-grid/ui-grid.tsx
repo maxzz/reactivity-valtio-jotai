@@ -1,10 +1,10 @@
 import { ButtonHTMLAttributes } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { classNames, uuid as uuidShort } from "@/utils";
-import { dlgBottomButtonClasses, inputFocusClasses } from "./ui-controls";
+import { dlgBottomButtonClasses, inputFocusClasses } from "../ui-controls";
 import { v4 } from "uuid";
 import { GridRows } from "./ui-grid-rows";
-import { IconAdd, Scroller } from "../ui";
+import { IconAdd, Scroller } from "../../ui";
 import { CatalogItem } from "@/store/form-vj-types";
 
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {

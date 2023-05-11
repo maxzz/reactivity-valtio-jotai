@@ -2,10 +2,10 @@ import { Fragment, InputHTMLAttributes, useEffect, useRef } from "react";
 import { appUi, useSnapshot } from "@/store";
 import { CatalogItem } from "@/store/form-vj-types";
 import { classNames, swap, turnOffAutoComplete, uuid as uuidShort } from "@/utils";
-import { inputFocusClasses } from "./ui-controls";
+import { inputFocusClasses } from "../ui-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
-import { IconFieldPassword, IconFieldText } from "../ui";
-import { FieldValueInput } from "./ui-control-value";
+import { IconFieldPassword, IconFieldText } from "../../ui";
+import { FieldValueInput } from "../ui-control-value";
 
 const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
 const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-400 dark:border-primary-500 border-b hidden @[300px]:block";

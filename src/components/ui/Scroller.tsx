@@ -4,7 +4,8 @@ import * as ScrollArea from "@radix-ui/react-scroll-area";
 const scrollbarClasses = `
     p-0.5
 
-    hover:bg-primary-700/50
+    hover:bg-primary-300/50
+    dark:hover:bg-primary-700/50
     transition-colors
     duration-[160ms]
     ease-out
