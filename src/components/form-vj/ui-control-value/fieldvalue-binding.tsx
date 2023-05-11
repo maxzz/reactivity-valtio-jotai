@@ -12,9 +12,7 @@ export function FieldValueBinding({ proxyItem }: { proxyItem: CatalogItem; }) {
     const valueLifeAtom = useState(atomWithProxy(valueLifeProxy, {sync: true}))[0];
 
     useEffect(() => {
-        const unsub = subscribe(valueLifeProxy, () => {
-            TransformValue.valueLife2Mani(snapshot(valueLifeProxy), proxyItem);
-        });
+        const unsub = subscribe(valueLifeProxy, () => TransformValue.valueLife2Mani(snapshot(valueLifeProxy), proxyItem));
         return unsub;
     }, [valueLifeProxy]);
 

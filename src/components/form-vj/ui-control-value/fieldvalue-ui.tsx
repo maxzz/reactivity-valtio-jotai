@@ -7,7 +7,7 @@ import { classNames } from "@/utils";
 
 const containerClasses = "\
 grid grid-cols-[minmax(0,1fr)_auto] rounded-sm overflow-hidden \
-ring-primary-600 focus-within:ring-offset-primary-800 focus-within:ring-primary-400 \
+ring-primary-600 focus-within:ring-primary-600 dark:focus-within:ring-primary-400 focus-within:ring-offset-primary-200 dark:focus-within:ring-offset-primary-800 \
 focus-within:ring-1 focus-within:ring-offset-1";
 
 type FieldValueProps = {
