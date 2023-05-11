@@ -8,14 +8,15 @@ export function isKeyToClearDefault(key: string) {
 
 const contentClasses = classNames(
     "px-1.5 py-1 max-h-[50vh] grid grid-cols-1 rounded-lg shadow-md",
-    "bg-primary-100 dark:bg-gray-800",
+    "bg-primary-100 dark:bg-primary-600",
     "overflow-auto smallscroll smallscroll-light", //TODO: maybe have a separate popop for big list and add search; or simplescroll; more fields.. put on top?; scroll to view;
     "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
 );
 
 const rowClasses = classNames(
     "relative pl-8 pr-4 py-2 text-xs flex items-center cursor-default select-none rounded-md outline-none",
-    "text-primary-700 data-highlighted:bg-primary-700 data-highlighted:text-primary-100",
+    "text-primary-700 data-highlighted:text-primary-100 data-highlighted:bg-primary-700",
+    "dark:text-primary-300 dark:data-highlighted:text-primary-100 dark:data-highlighted:bg-primary-700",
 );
 
 export function Dropdown({ items, selectedIndex, onSetIndex }: { items: string[], selectedIndex: number, onSetIndex: (idx: number) => void; }) {
@@ -33,14 +34,14 @@ export function Dropdown({ items, selectedIndex, onSetIndex }: { items: string[]
                         const isSelected = selectedIndex === idx;
                         const isSeparator = item === '-';
                         return isSeparator
-                            ? <menu.Separator className="my-1 h-px bg-gray-200 dark:bg-gray-700" key={idx} />
+                            ? <menu.Separator className="my-1 h-px bg-primary-200 dark:bg-primary-700" key={idx} />
                             :
                             <menu.Item
-                                className={classNames(rowClasses, isSelected && "bg-primary-300")}
+                                className={classNames(rowClasses, isSelected && "bg-primary-300 dark:bg-primary-500")}
                                 onSelect={() => onSetIndex(idx)}
                                 key={idx}
                             >
-                                {isSelected && <IconDot className="absolute left-2 w-5 h-5 fill-primary-700" />}
+                                {isSelected && <IconDot className="absolute left-2 w-5 h-5 fill-current stroke-[5]" />}
                                 <span className="flex-grow">{item}</span>
                             </menu.Item>;
                     })}
