@@ -1,8 +1,8 @@
 import { useState, useRef, HTMLAttributes, ButtonHTMLAttributes } from "react";
 import { useClickAway } from "react-use";
 import { classNames } from "@/utils";
-import { IconArrowUp, IconArrowDown, IconTrash, IconClose, IconMenu, IconAdd } from "@/components/ui";
-import { addCatalogItem, appUi, useSnapshot } from "@/store";
+import { IconAdd } from "@/components/ui";
+import { addCatalogItem } from "@/store";
 import { dlgBottomButtonClasses, inputFocusClasses } from "../dlg-controls";
 
 const openButtonClasses = "p-1 w-5 h-5 hover:text-primary-800 dark:hover:text-white hover:bg-primary-300 dark:hover:bg-primary-500 rounded";
@@ -12,17 +12,8 @@ const menuBtnClasses = "px-2 py-1 text-start hover:text-primary-800 dark:hover:t
 
 function Row({ children, ...rest }: HTMLAttributes<HTMLElement>) {
     return (
-        <div className={classNames(menuBtnClasses)} {...rest}>
+        <div className={menuBtnClasses} {...rest}>
             {children}
-        </div>
-    );
-}
-
-function MenuButtons({ onAdd }: { onAdd: ({ addPsw }: { addPsw: boolean; }) => void; }) {
-    return (
-        <div className={menuBoxClasses}>
-            <Row onClick={() => onAdd({ addPsw: false })}>Text field</Row>
-            <Row onClick={() => onAdd({ addPsw: true })}>Password field</Row>
         </div>
     );
 }
@@ -30,7 +21,7 @@ function MenuButtons({ onAdd }: { onAdd: ({ addPsw }: { addPsw: boolean; }) => v
 export function ButtonAdd2({ className, ...rest }: ButtonHTMLAttributes<HTMLElement>) {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const onAdd = ({ addPsw }: { addPsw: boolean; }) => {
+    const onAdd = (addPsw: boolean) => {
         addCatalogItem('name', addPsw);
         setMenuOpen(false);
     };
@@ -43,7 +34,10 @@ export function ButtonAdd2({ className, ...rest }: ButtonHTMLAttributes<HTMLElem
             <IconAdd onClick={() => setMenuOpen(v => !v)} />
 
             {menuOpen &&
-                <MenuButtons onAdd={onAdd} />
+                <div className={menuBoxClasses}>
+                    <Row onClick={() => onAdd(false)}>Text field</Row>
+                    <Row onClick={() => onAdd(true)}>Password field</Row>
+                </div>
             }
         </button>
     );
