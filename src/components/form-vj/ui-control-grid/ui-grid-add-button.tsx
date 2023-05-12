@@ -1,19 +1,35 @@
 import { ButtonHTMLAttributes } from "react";
-import { appUi, useSnapshot } from "@/store";
-import { CatalogItem } from "@/store/form-vj-types";
-import { classNames, uuid as uuidShort } from "@/utils";
-import { v4 } from "uuid";
+import { appUi, generateNewCatalogItem, useSnapshot } from "@/store";
+import { classNames } from "@/utils";
 import { IconAdd } from "@/components/ui";
 import { dlgBottomButtonClasses, inputFocusClasses } from "../dlg-controls";
 import { AddPopupMenu } from "./ui-grid-add-menu";
 
+export function ButtonAdd2({ className, ...rest }: ButtonHTMLAttributes<HTMLElement>) {
+    const items = appUi.formVjInputs.items;
+    const { length } = useSnapshot(items);
+    return (
+        <AddPopupMenu className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)} {...rest} />
+    );
+}
+
+{/* <button
+className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)}
+onClick={() => items.push(generateNewItem('name', length, false))}
+{...rest}
+>
+<IconAdd />
+
+</button> */}
+
+/**/
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
     const items = appUi.formVjInputs.items;
     const { length } = useSnapshot(items);
     return (
         <button
             className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)}
-            onClick={() => items.push(generateNewItem('name', length, false))}
+            onClick={() => items.push(generateNewCatalogItem('name', length, false))}
             {...rest}
         >
             <IconAdd />
@@ -21,35 +37,4 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
         </button>
     );
 }
-
-function generateNewItem(newName: string, newIndex: number, isPassword: boolean): CatalogItem {
-    const guid = v4();
-    const now = uuidShort.asRelativeNumber();
-    const rv: CatalogItem = {
-        dispname: newName,
-        dbname: `{${guid}}`,
-        index: newIndex,
-        uuid: now,
-        mru: now,
-        newItem: true,
-    };
-    isPassword && (rv.password = true);
-    return rv;
-}
-
-/* 
-export function ButtonAddWOPopup({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
-    const items = appUi.formVjInputs.items;
-    const { length } = useSnapshot(items);
-    return (
-        <button
-            className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)}
-            onClick={() => items.push(generateNewItem('name', length, false))}
-            {...rest}
-        >
-            <IconAdd />
-            <AddPopupMenu />
-        </button>
-    );
-}
- */
+/**/
