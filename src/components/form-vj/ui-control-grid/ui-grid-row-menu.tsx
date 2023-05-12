@@ -12,7 +12,7 @@ export type MenuState = {
 };
 
 const openButtonClasses = "p-1 w-5 h-5 hover:text-primary-800 dark:hover:text-white hover:bg-primary-300 dark:hover:bg-primary-500 rounded";
-const menuBoxClasses = "animate-row-menu-left absolute -right-[5px] -top-[5px] px-1 py-1 bg-primary-200 dark:bg-primary-900 border-gray-500/50 border shadow rounded flex";
+const menuBoxClasses = "absolute -right-[5px] -top-[5px] px-1 py-1 bg-primary-200 dark:bg-primary-900 border-gray-500/50 border shadow rounded flex animate-row-menu-left";
 const menuBtnClasses = "p-1 w-5 h-5 hover:text-primary-800 dark:hover:text-primary-200 hover:bg-primary-400/50 dark:hover:bg-primary-500 rounded cursor-pointer";
 
 function MenuButtons({ onClose, onDelete, onUp, onDn, hasUp, hasDn }: { onClose: (event: React.MouseEvent) => void; } & MenuState) {

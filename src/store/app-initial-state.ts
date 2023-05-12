@@ -11,7 +11,7 @@ export function setUiInitialState(initialUiState: UiState) {
     setAppDarkMode(initialUiState.darkMode);
 }
 
-export function generateNewCatalogItem(newName: string, newIndex: number, isPassword: boolean): CatalogItem {
+export function generateNewCatalogItem(newIndex: number, newName: string, isPassword: boolean): CatalogItem {
     const guid = v4();
     const now = uuidShort.asRelativeNumber();
     const rv: CatalogItem = {
