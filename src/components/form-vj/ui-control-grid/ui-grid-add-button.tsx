@@ -20,21 +20,21 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButto
             <AddPopupMenu />
         </button>
     );
+}
 
-    function generateNewItem(newName: string, newIndex: number, isPassword: boolean): CatalogItem {
-        const guid = v4();
-        const now = uuidShort.asRelativeNumber();
-        const rv: CatalogItem = {
-            dispname: 'name',
-            dbname: `{${guid}}`,
-            index: newIndex,
-            uuid: now,
-            mru: now,
-            newItem: true,
-        };
-        isPassword && (rv.password = true);
-        return rv;
-    }
+function generateNewItem(newName: string, newIndex: number, isPassword: boolean): CatalogItem {
+    const guid = v4();
+    const now = uuidShort.asRelativeNumber();
+    const rv: CatalogItem = {
+        dispname: newName,
+        dbname: `{${guid}}`,
+        index: newIndex,
+        uuid: now,
+        mru: now,
+        newItem: true,
+    };
+    isPassword && (rv.password = true);
+    return rv;
 }
 
 /* 
@@ -44,25 +44,12 @@ export function ButtonAddWOPopup({ className, ...rest }: ButtonHTMLAttributes<HT
     return (
         <button
             className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)}
-            onClick={() => items.push(generateNewItem(length))}
+            onClick={() => items.push(generateNewItem('name', length, false))}
             {...rest}
         >
             <IconAdd />
             <AddPopupMenu />
         </button>
     );
-
-    function generateNewItem(index: number): CatalogItem {
-        const guid = v4();
-        const now = uuidShort.asRelativeNumber();
-        return {
-            dispname: 'name',
-            dbname: `{${guid}}`,
-            index,
-            uuid: now,
-            mru: now,
-            newItem: true,
-        };
-    }
 }
  */
