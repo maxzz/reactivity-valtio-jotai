@@ -1,16 +1,14 @@
 import { ButtonHTMLAttributes } from "react";
-import { appUi, generateNewCatalogItem, useSnapshot } from "@/store";
-import { classNames } from "@/utils";
+import { addCatalogItem } from "@/store";
 import { IconAdd } from "@/components/ui";
+import { classNames } from "@/utils";
 import { dlgBottomButtonClasses, inputFocusClasses } from "../dlg-controls";
 
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLButtonElement>) {
-    const items = appUi.formVjInputs.items;
-    const { length } = useSnapshot(items);
     return (
         <button
             className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)}
-            onClick={() => items.push(generateNewCatalogItem(length, 'name', false))}
+            onClick={() => addCatalogItem('name', false)}
             {...rest}
         >
             <IconAdd />

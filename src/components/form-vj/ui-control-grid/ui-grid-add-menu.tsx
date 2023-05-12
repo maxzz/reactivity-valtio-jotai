@@ -29,12 +29,12 @@ function MenuButtons({ onAdd }: { onAdd: ({ addPsw }: { addPsw: boolean; }) => v
 
 export function ButtonAdd2({ className, ...rest }: ButtonHTMLAttributes<HTMLElement>) {
     const [menuOpen, setMenuOpen] = useState(false);
-    const onClose = () => setMenuOpen(v => !v);
+
     const onAdd = ({ addPsw }: { addPsw: boolean; }) => {
-        console.log('add', addPsw);
         addCatalogItem('name', addPsw);
-        onClose();
+        setMenuOpen(false);
     };
+
     const btnRef = useRef(null);
     useClickAway(btnRef, () => setMenuOpen(false));
     return (
