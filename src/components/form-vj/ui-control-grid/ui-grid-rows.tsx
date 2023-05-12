@@ -7,16 +7,17 @@ import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconFieldPassword, IconFieldText } from "@/components/ui";
 import { FieldValueInput } from "../ui-control-value";
 
-const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
+//const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
+const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_minmax(auto,130px)_20px] gap-0.5 items-center select-none @[300px]:gap-1";
 const gridHeaderClasses = "px-1 text-[.65rem] text-primary-500 border-primary-400 dark:border-primary-500 border-b hidden @[300px]:block";
 const gridHeaderFirstColumnClasses = " px-0 text-center";
 const gridHeaderLastColumnClasses = " border-b-0";
 
 const rowColumns = [
-    ['Type',                /**/ 'Type of field', gridHeaderFirstColumnClasses],
-    ['Label',               /**/ 'display name'],
-    ['Value',               /**/ 'id'],
-    ['',                    /**/ '', gridHeaderLastColumnClasses],
+    ['Type',  /**/ 'Type of field', gridHeaderFirstColumnClasses],
+    ['Label', /**/ 'display name'],
+    ['Value', /**/ 'id'],
+    ['',      /**/ '', gridHeaderLastColumnClasses],
 ];
 
 function TableHeader() {
@@ -31,11 +32,21 @@ function TableHeader() {
     );
 }
 
-function RowItemType({ item }: { item: CatalogItem; }) {
+function RowItemTypeWithToggleType({ item }: { item: CatalogItem; }) { // when item created we must prevent change of its type and guid.
     const { password: isPsw = false } = useSnapshot(item);
     const title = `${isPsw ? "Password" : "Text"}. Click to change`;
     return (
         <div className="w-6 h-6 text-[0.65rem] text-primary-500 cursor-pointer" onClick={() => isPsw ? delete item.password : item.password = true}>
+            {isPsw ? <IconFieldPassword title={title} /> : <IconFieldText title={title} />}
+        </div>
+    );
+}
+
+function RowItemType({ item }: { item: CatalogItem; }) {
+    const { password: isPsw = false } = useSnapshot(item);
+    const title = `${isPsw ? "Password" : "Text"}`;
+    return (
+        <div className="w-6 h-6 text-[0.65rem] text-primary-500">
             {isPsw ? <IconFieldPassword title={title} /> : <IconFieldText title={title} />}
         </div>
     );
@@ -74,7 +85,7 @@ function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuSta
             <RowItemType item={item} />
             <RowItemInput item={item} name="dispname" />
             {/* <RowItemInput item={item} name="dbname" /> */}
-            <FieldValueInput proxyItem={item} />
+            <FieldValueInput className="col-span-full @[300px]:col-span-1" proxyItem={item} />
             <RowPopupMenu menuState={menuState} />
         </div>
     );
