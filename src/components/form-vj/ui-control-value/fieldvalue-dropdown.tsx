@@ -6,18 +6,19 @@ export function isKeyToClearDefault(key: string) {
     return key === 'Backspace' || /^[a-z0-9]$/i.test(key);
 }
 
-const contentClasses = classNames(
+const contentClasses = [
     "px-1.5 py-1 max-h-[50vh] grid grid-cols-1 rounded-lg shadow-md",
     "bg-primary-100 dark:bg-primary-600",
+    "border-primary-300 dark:border-primary-600 border",
     "overflow-auto smallscroll smallscroll-light", //TODO: maybe have a separate popop for big list and add search; or simplescroll; more fields.. put on top?; scroll to view;
     "radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
-);
+].join(' ');
 
-const rowClasses = classNames(
+const rowClasses = [
     "relative pl-8 pr-4 py-2 text-xs flex items-center cursor-default select-none rounded-md outline-none",
-    "text-primary-700 data-highlighted:text-primary-100 data-highlighted:bg-primary-700",
-    "dark:text-primary-300 dark:data-highlighted:text-primary-100 dark:data-highlighted:bg-primary-700",
-);
+    "text-primary-700 dark:text-primary-300",
+    "data-highlighted:text-primary-100 dark:data-highlighted:text-primary-100 data-highlighted:bg-primary-600 dark:data-highlighted:bg-primary-700",
+].join(' ');;
 
 export function Dropdown({ items, selectedIndex, onSetIndex }: { items: string[], selectedIndex: number, onSetIndex: (idx: number) => void; }) {
     return (

@@ -56,7 +56,7 @@ export function FieldValueUi({ useIt, valueLifeAtom, choosevalue, className, ...
             <input
                 className={classNames(
                     "px-2 py-1 text-primary-700 dark:text-primary-200 bg-primary-50 dark:bg-primary-700 outline-none",
-                    showAsRef && !valueLife.isNon && "text-[0.6rem] font-semibold !text-blue-600 dark:!text-blue-400 cursor-default",
+                    showAsRef && !valueLife.isNon && "text-[0.65rem] tracking-tighter font-semibold dark:font-normal !text-blue-600 dark:!text-blue-400 cursor-default",
                     disabled && "pointer-events-none",
                 )}
                 value={showInputText ? '' : inputText}
