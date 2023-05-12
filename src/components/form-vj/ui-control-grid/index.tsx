@@ -1,7 +1,6 @@
 import { GridRows } from "./ui-grid-rows";
 import { Scroller } from "@/components/ui";
-import { ButtonAdd } from "./ui-grid-add-button";
-import { ButtonAdd2 } from "./ui-grid-add-menu";
+import { ButtonAdd } from "./ui-grid-add-menu";
 
 export function GridRowsWithAddButton() {
     return (
@@ -12,7 +11,7 @@ export function GridRowsWithAddButton() {
                 <GridRows />
             </Scroller>
 
-            <ButtonAdd2 className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-200 dark:bg-primary-700" />
+            <ButtonAdd className="absolute p-1 top-0 right-0 mx-2 -my-6 w-6 h-6 bg-primary-200 dark:bg-primary-700" />
         </fieldset>
     );
 }

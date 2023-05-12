@@ -8,7 +8,7 @@ import { dlgBottomButtonClasses, inputFocusClasses } from "../dlg-controls";
 const menuBoxClasses = "absolute right-0 top-full mt-0.5 px-1 py-1.5 bg-primary-200 dark:bg-primary-900 border-gray-500/50 border shadow rounded animate-row-menu-left";
 const menuBtnClasses = "px-2 py-1 text-start hover:text-primary-800 dark:hover:text-primary-200 hover:bg-primary-400/50 dark:hover:bg-primary-500 whitespace-nowrap rounded-sm cursor-pointer";
 
-export function ButtonAdd2({ className, ...rest }: ButtonHTMLAttributes<HTMLElement>) {
+export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLElement>) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const onAdd = (addPsw: boolean) => {
