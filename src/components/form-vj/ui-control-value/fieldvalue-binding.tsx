@@ -17,6 +17,6 @@ export function FieldValueBinding({ proxyItem }: { proxyItem: CatalogItem; }) {
     }, [valueLifeProxy]);
 
     return (<>
-        <FieldValueUi useIt={useIt} valueLifeAtom={valueLifeAtom} choosevalue={choosevalue} />
+        <FieldValueUi className="col-span-full @[300px]:col-span-1" useIt={useIt} valueLifeAtom={valueLifeAtom} choosevalue={choosevalue} />
     </>);
 }
