@@ -11,13 +11,10 @@ const menuBtnClasses = "px-2 py-1 text-start hover:text-primary-800 dark:hover:t
 export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLElement>) {
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const onAdd = (addPsw: boolean) => {
-        addCatalogItem('name', addPsw);
-        setMenuOpen(false);
-    };
-
     const btnRef = useRef(null);
     useClickAway(btnRef, () => setMenuOpen(false));
+
+    const onAdd = (addPsw: boolean) => { addCatalogItem(addPsw ? 'password' : 'name', addPsw); setMenuOpen(false); };
     return (
         <button ref={btnRef} className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)} {...rest}>
 

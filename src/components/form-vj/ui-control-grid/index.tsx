@@ -1,6 +1,6 @@
 import { GridRows } from "./ui-grid-rows";
 import { Scroller } from "@/components/ui";
-import { ButtonAdd } from "./ui-grid-add-menu";
+import { ButtonAdd } from "./ui-grid-add-button";
 
 export function GridRowsWithAddButton() {
     return (
