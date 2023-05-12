@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from "react";
-import { PrimitiveAtom as PA, useAtom, useAtomValue } from "jotai";
+import { PrimitiveAtom as PA, useAtom } from "jotai";
 import { ValueAs, ValueLife } from "@/store/manifest";
 import { getValueUiState, mapIndexToValueLife } from "./select-uitils";
 import { Dropdown, isKeyToClearDefault } from "./fieldvalue-dropdown";
@@ -49,12 +49,14 @@ export function FieldValueUi({ useIt, valueLifeAtom, choosevalue, className, ...
             setValueLife((v) => ({ ...v, value: '', isRef: false, valueAs: ValueAs.askReuse, isNon: false, }));
     }
 
+    console.log('valueLife.isNon', valueLife.isNon, 'showAsRef', showAsRef);
+
     return (
         <div className={classNames(containerClasses, !useIt && "opacity-30 cursor-pointer", className)} {...rest}>
             <input
                 className={classNames(
-                    "px-2 py-1 !text-primary-700 dark:!text-primary-200 !bg-primary-50 dark:!bg-primary-700 outline-none",
-                    showAsRef && !valueLife.isNon && "text-[0.6rem] !text-blue-400 cursor-default",
+                    "px-2 py-1 text-primary-700 dark:text-primary-200 bg-primary-50 dark:bg-primary-700 outline-none",
+                    showAsRef && !valueLife.isNon && "text-[0.6rem] font-semibold !text-blue-600 dark:!text-blue-400 cursor-default",
                     disabled && "pointer-events-none",
                 )}
                 value={showInputText ? '' : inputText}
