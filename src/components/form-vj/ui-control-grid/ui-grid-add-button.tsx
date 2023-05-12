@@ -14,7 +14,7 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLEleme
     const btnRef = useRef(null);
     useClickAway(btnRef, () => setMenuOpen(false));
 
-    const onAdd = (addPsw: boolean) => { addCatalogItem(addPsw ? 'password' : 'name', addPsw); setMenuOpen(false); };
+    const onAdd = (addPsw: boolean) => { addCatalogItem(addPsw); setMenuOpen(false); };
     return (
         <button ref={btnRef} className={classNames(dlgBottomButtonClasses, inputFocusClasses, className)} {...rest}>
 
