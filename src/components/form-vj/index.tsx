@@ -3,6 +3,7 @@ import { GridRowsWithAddButton } from "./ui-control-grid";
 import { BottomButton, Caption, Input } from "./dlg-controls";
 import { SelectDemo } from "./demos/ui-control-demo-select";
 import { DropdownMenuDemo } from "./demos/ui-control-demo-dropdown";
+import { MruTrigger } from "./ui-contol-mru";
 
 function NameInput() {
     const snap = useSnapshot(appUi.formVjInputs);
@@ -33,6 +34,7 @@ export function FormValtioJotai() {
                 <div className="px-4 flex items-center space-x-2">
                     <SelectDemo />
                     <DropdownMenuDemo />
+                    <MruTrigger />
                 </div>
 
                 <div className="p-4 flex items-center justify-end gap-x-2">
