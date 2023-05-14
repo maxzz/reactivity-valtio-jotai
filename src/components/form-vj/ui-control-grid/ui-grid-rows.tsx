@@ -5,7 +5,7 @@ import { classNames, swap, turnOffAutoComplete } from "@/utils";
 import { inputFocusClasses } from "../dlg-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
 import { IconFieldPassword, IconFieldText } from "@/components/ui";
-import { FieldValueInput } from "../ui-control-value";
+import { FieldValueInput } from "./ui-control-value";
 
 //const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
 const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_minmax(auto,130px)_20px] gap-0.5 items-center select-none @[300px]:gap-1";
