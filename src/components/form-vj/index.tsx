@@ -30,11 +30,8 @@ export function FormValtioJotai() {
                 <Caption />
                 <Body />
 
-                <div className="px-4">
+                <div className="px-4 flex items-center space-x-2">
                     <SelectDemo />
-                </div>
-
-                <div className="mt-4 px-4">
                     <DropdownMenuDemo />
                 </div>
 
