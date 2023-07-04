@@ -1,2 +1,1 @@
-export * from './mani-types';
-export * from './transforms';
+export * from 'pm-manifest';
