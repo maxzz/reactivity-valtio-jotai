@@ -1,5 +1,5 @@
 import { uuid } from "@/utils";
-import { Catalog, CatalogItem, nameInCatalogFileToFieldValue } from "./form-vj-types";
+import { CatalogFile, CatalogItem, catalogItemInFileToFieldValue } from "./form-vj-types";
 
 interface XmlName {
     dispname: string;
@@ -515,9 +515,9 @@ const fileNames: XmlName[] = [
 ];
 
 export const catalogTestNames = (
-    function convert(): Catalog.NameInCatalogFile[] {
+    function convert(): CatalogFile.ItemInFile[] {
         return fileNames.map((item) => {
-            const newItem: Catalog.NameInCatalogFile = {
+            const newItem: CatalogFile.ItemInFile = {
                 dispname: item.dispname,
                 dbname: item.dbname,
                 ...(item.value && { value: item.value }),
@@ -531,11 +531,11 @@ export const catalogTestNames = (
     }
 )();
 
-export function buildCatalogMetaFromNames(names: Catalog.NameInCatalogFile[] | undefined): CatalogItem[] {
+export function buildCatalogMetaFromNames(names: CatalogFile.ItemInFile[] | undefined): CatalogItem[] {
     const items = names?.map((item, idx) => {
         const now = uuid.asRelativeNumber();
         return {
-            ...nameInCatalogFileToFieldValue(item),
+            ...catalogItemInFileToFieldValue(item),
             index: idx,
             uuid: now,
             mru: now,
