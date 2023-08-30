@@ -1,5 +1,5 @@
 import { uuid } from "@/utils";
-import { Catalog, CatalogItem } from "./form-vj-types";
+import { Catalog, CatalogItem, nameInCatalogFileToFieldValue } from "./form-vj-types";
 
 interface XmlName {
     dispname: string;
@@ -46,7 +46,7 @@ const fileNames: XmlName[] = [
     //     dbname: "{ae2b3db3-d012-4e20-8e7a-d9085b982904}",
     // },
 
-    
+
     // {
     //     dispname: "Evolve PW",
     //     dbname: "{8c9aa0d0-6b4e-4047-a184-f48e23d3549e}",
@@ -514,25 +514,32 @@ const fileNames: XmlName[] = [
     // },
 ];
 
-export const catalogTestNames = (function convert(): Catalog.Name[] {
-    return fileNames.map((item) => {
-        const newItem: Catalog.Name = {
-            dispname: item.dispname,
-            dbname: item.dbname,
-            ...(item.value && { value: item.value }),
-            ...(item.ownernote && { ownernote: item.ownernote }),
-            ...(item.askalways && { askalways: !!item.askalways }),
-            ...(item.onetvalue && { onetvalue: !!item.onetvalue }),
-            ...(item.password && { password: !!item.password }),
-        };
-        return newItem;
-    });
-})();
+export const catalogTestNames = (
+    function convert(): Catalog.NameInCatalogFile[] {
+        return fileNames.map((item) => {
+            const newItem: Catalog.NameInCatalogFile = {
+                dispname: item.dispname,
+                dbname: item.dbname,
+                ...(item.value && { value: item.value }),
+                ...(item.ownernote && { ownernote: item.ownernote }),
+                ...(item.askalways && { askalways: !!item.askalways }),
+                ...(item.onetvalue && { onetvalue: !!item.onetvalue }),
+                ...(item.password && { password: !!item.password }),
+            };
+            return newItem;
+        });
+    }
+)();
 
-export function buildCatalogMetaFromNames(names: Catalog.Name[] | undefined): CatalogItem[] {
+export function buildCatalogMetaFromNames(names: Catalog.NameInCatalogFile[] | undefined): CatalogItem[] {
     const items = names?.map((item, idx) => {
         const now = uuid.asRelativeNumber();
-        return { ...item, index: idx, uuid: now, mru: now, };
+        return {
+            ...nameInCatalogFileToFieldValue(item),
+            index: idx,
+            uuid: now,
+            mru: now,
+        };
     }) || [];
     return items;
 }

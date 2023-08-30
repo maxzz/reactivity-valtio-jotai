@@ -52,7 +52,7 @@ function RowItemType({ item }: { item: CatalogItem; }) {
     );
 }
 
-type StringRowKey = keyof Pick<CatalogItem, 'dispname' | 'dbname'>;
+type StringRowKey = keyof Pick<CatalogItem, 'displayname' | 'dbname'>;
 
 function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
     const snap = useSnapshot(item, { sync: true });
@@ -83,7 +83,7 @@ function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuSta
     return (
         <div ref={newItem ? scrollToRef : null} className={gridRowClasses}>
             <RowItemType item={item} />
-            <RowItemInput item={item} name="dispname" />
+            <RowItemInput item={item} name="displayname" />
             {/* <RowItemInput item={item} name="dbname" /> */}
             <FieldValueInput className="col-span-full @[300px]:col-span-1" proxyItem={item} />
             <RowPopupMenu menuState={menuState} />

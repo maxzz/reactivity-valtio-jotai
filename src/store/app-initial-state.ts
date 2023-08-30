@@ -15,7 +15,7 @@ export function generateNewCatalogItem(newIndex: number, newName: string, isPass
     const guid = v4();
     const now = uuidShort.asRelativeNumber();
     const rv: CatalogItem = {
-        dispname: newName,
+        displayname: newName,
         dbname: `{${guid}}`,
         index: newIndex,
         uuid: now,
