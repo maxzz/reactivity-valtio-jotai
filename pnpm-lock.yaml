@@ -24,11 +24,11 @@ importers:
         specifier: 1.1.4
         version: 1.1.4(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       jotai:
-        specifier: 2.4.0
-        version: 2.4.0(@types/react@18.3.11)(react@18.3.1)
+        specifier: 2.10.0
+        version: 2.10.0(@types/react@18.3.11)(react@18.3.1)
       jotai-valtio:
-        specifier: ^0.3.0
-        version: 0.3.0(jotai@2.4.0(@types/react@18.3.11)(react@18.3.1))(valtio@1.11.2(@types/react@18.3.11)(react@18.3.1))
+        specifier: ^0.5.0
+        version: 0.5.0(jotai@2.10.0(@types/react@18.3.11)(react@18.3.1))(valtio@2.0.0(@types/react@18.3.11)(react@18.3.1))
       pm-manifest:
         specifier: latest
         version: 1.2.47
@@ -42,11 +42,11 @@ importers:
         specifier: ^17.4.0
         version: 17.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       uuid:
-        specifier: ^9.0.0
-        version: 9.0.1
+        specifier: ^10.0.0
+        version: 10.0.0
       valtio:
-        specifier: 1.11.2
-        version: 1.11.2(@types/react@18.3.11)(react@18.3.1)
+        specifier: 2.0.0
+        version: 2.0.0(@types/react@18.3.11)(react@18.3.1)
     devDependencies:
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
@@ -1118,14 +1118,14 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
-  jotai-valtio@0.3.0:
-    resolution: {integrity: sha512-fN8IaL3pVZoILk8plucDSLo4WkfD2edTpqoeFzDqVKrAjQ11wt1xaABK2tqchqA0cbPSvN/UBxYO0GnX21yv/g==}
+  jotai-valtio@0.5.0:
+    resolution: {integrity: sha512-4XVKGhPe3/XFkMwuYLGk8CkWISsog5KRnHtB3bSo0cr7+xb5wm0uJl142pe+Kbls7dQGrYXLt1eurYdibfalnQ==}
     peerDependencies:
-      jotai: '>=1.11.0'
-      valtio: '*'
+      jotai: '>=2.0.0'
+      valtio: '>=1.0.0'
 
-  jotai@2.4.0:
-    resolution: {integrity: sha512-NUHJdAJe3C8Prf0DD6EzezCATjkNvfCNI7pgkaX7bCPPsqE0oK8L9RzZsEhz/UxFoGRayXwacTvAli0VEYKkqQ==}
+  jotai@2.10.0:
+    resolution: {integrity: sha512-8W4u0aRlOIwGlLQ0sqfl/c6+eExl5D8lZgAUolirZLktyaj4WnxO/8a0HEPmtriQAB6X5LMhXzZVmw02X0P0qQ==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@types/react': '>=17.0.0'
@@ -1309,8 +1309,8 @@ packages:
     resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
-  proxy-compare@2.5.1:
-    resolution: {integrity: sha512-oyfc0Tx87Cpwva5ZXezSp5V9vht1c7dZBhvuV/y3ctkgMVUmiAGDVeeB0dKhGSyT0v1ZTEQYpe/RXlBVBNuCLA==}
+  proxy-compare@3.0.0:
+    resolution: {integrity: sha512-y44MCkgtZUCT9tZGuE278fB7PWVf7fRYy0vbRXAts2o5F0EfC4fIQrvQQGBJo1WJbFcVLXzApOscyJuZqHQc1w==}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -1561,11 +1561,6 @@ packages:
       '@types/react':
         optional: true
 
-  use-sync-external-store@1.2.0:
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
@@ -1573,16 +1568,12 @@ packages:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
     hasBin: true
 
-  uuid@9.0.1:
-    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
-    hasBin: true
-
-  valtio@1.11.2:
-    resolution: {integrity: sha512-1XfIxnUXzyswPAPXo1P3Pdx2mq/pIqZICkWN60Hby0d9Iqb+MEIpqgYVlbflvHdrp2YR/q3jyKWRPJJ100yxaw==}
+  valtio@2.0.0:
+    resolution: {integrity: sha512-SzUU5UUK/vBRfHWXihwkJE55YNj8zhOkzxPOexcz0xIIT6Oux5VLynCmzyME2bYuEWcktW2NTaaLbpUydEsHiw==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
-      '@types/react': '>=16.8'
-      react: '>=16.8'
+      '@types/react': '>=18.0.0'
+      react: '>=18.0.0'
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -2645,12 +2636,12 @@ snapshots:
 
   jiti@1.21.6: {}
 
-  jotai-valtio@0.3.0(jotai@2.4.0(@types/react@18.3.11)(react@18.3.1))(valtio@1.11.2(@types/react@18.3.11)(react@18.3.1)):
+  jotai-valtio@0.5.0(jotai@2.10.0(@types/react@18.3.11)(react@18.3.1))(valtio@2.0.0(@types/react@18.3.11)(react@18.3.1)):
     dependencies:
-      jotai: 2.4.0(@types/react@18.3.11)(react@18.3.1)
-      valtio: 1.11.2(@types/react@18.3.11)(react@18.3.1)
+      jotai: 2.10.0(@types/react@18.3.11)(react@18.3.1)
+      valtio: 2.0.0(@types/react@18.3.11)(react@18.3.1)
 
-  jotai@2.4.0(@types/react@18.3.11)(react@18.3.1):
+  jotai@2.10.0(@types/react@18.3.11)(react@18.3.1):
     optionalDependencies:
       '@types/react': 18.3.11
       react: 18.3.1
@@ -2797,7 +2788,7 @@ snapshots:
       picocolors: 1.1.0
       source-map-js: 1.2.1
 
-  proxy-compare@2.5.1: {}
+  proxy-compare@3.0.0: {}
 
   queue-microtask@1.2.3: {}
 
@@ -3074,20 +3065,13 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.11
 
-  use-sync-external-store@1.2.0(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-
   util-deprecate@1.0.2: {}
 
   uuid@10.0.0: {}
 
-  uuid@9.0.1: {}
-
-  valtio@1.11.2(@types/react@18.3.11)(react@18.3.1):
+  valtio@2.0.0(@types/react@18.3.11)(react@18.3.1):
     dependencies:
-      proxy-compare: 2.5.1
-      use-sync-external-store: 1.2.0(react@18.3.1)
+      proxy-compare: 3.0.0
     optionalDependencies:
       '@types/react': 18.3.11
       react: 18.3.1
