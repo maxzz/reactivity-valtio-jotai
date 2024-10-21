@@ -1,5 +1,7 @@
-import { buildCatalogMetaFromNames, catalogTestNames } from "./form-vj-initial-data";
-import { CatalogItem } from "./manifest";
+import { catalogTestNames } from "./form-vj-initial-data";
+import { buildCatalogMetaFromNames } from "./form-vj-to-editor";
+import { type CatalogItem } from "./manifest";
+
 export * from "./manifest";
 
 export type FormVjInputs = {
