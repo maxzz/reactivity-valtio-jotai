@@ -20,6 +20,7 @@ export function generateNewCatalogItem(newIndex: number, newName: string, isPass
         index: newIndex,
         uuid: now,
         mru: now,
+        selected: false,
         newItem: true,
     };
     isPassword && (rv.password = true);
