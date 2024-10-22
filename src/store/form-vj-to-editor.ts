@@ -9,7 +9,9 @@ export function buildCatalogMetaFromNames(names: CatalogFile.ItemInFile[] | unde
             index: idx,
             uuid: now,
             mru: now,
-            selected: false,
+            editor: {
+                selected: false,
+            },
         };
         return rv;
     }) || [];
