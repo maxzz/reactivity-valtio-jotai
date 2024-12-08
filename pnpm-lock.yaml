@@ -30,8 +30,8 @@ importers:
         specifier: ^0.5.0
         version: 0.5.0(jotai@2.10.3(@types/react@18.3.12)(react@18.3.1))(valtio@2.1.2(@types/react@18.3.12)(react@18.3.1))
       pm-manifest:
-        specifier: ^1.2.49
-        version: 1.2.49
+        specifier: ^1.2.59
+        version: 1.2.59
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -42,8 +42,8 @@ importers:
         specifier: ^17.5.1
         version: 17.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       uuid:
-        specifier: ^10.0.0
-        version: 10.0.0
+        specifier: ^11.0.3
+        version: 11.0.3
       valtio:
         specifier: 2.1.2
         version: 2.1.2(@types/react@18.3.12)(react@18.3.1)
@@ -1272,8 +1272,8 @@ packages:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
 
-  pm-manifest@1.2.49:
-    resolution: {integrity: sha512-igNapUpxExEHHAp9pOXxm8CAWesxemi/mNPO+ES5HHDa8GPpmv+NgNu9sZTx4YY65qXZQ545seijZll8FTCt8A==}
+  pm-manifest@1.2.59:
+    resolution: {integrity: sha512-nevWIB0voiqI1wDnguexkXAeklARf1xUTi1jRxtglFlTr9kRaPgT1DIc4JNRxd/BKo3/xQ1Mh/4/ol2PhmswpQ==}
 
   postcss-import@15.1.0:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
@@ -1568,6 +1568,10 @@ packages:
 
   uuid@10.0.0:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
+
+  uuid@11.0.3:
+    resolution: {integrity: sha512-d0z310fCWv5dJwnX1Y/MncBAqGMKEzlBb1AOf7z9K8ALnd0utBX/msg/fA0+sbyN1ihbMsLhrBlnl1ak7Wa0rg==}
     hasBin: true
 
   valtio@2.1.2:
@@ -2714,7 +2718,7 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  pm-manifest@1.2.49:
+  pm-manifest@1.2.59:
     dependencies:
       '@types/uuid': 10.0.0
       fast-xml-parser: 4.5.0
@@ -3042,6 +3046,8 @@ snapshots:
   util-deprecate@1.0.2: {}
 
   uuid@10.0.0: {}
+
+  uuid@11.0.3: {}
 
   valtio@2.1.2(@types/react@18.3.12)(react@18.3.1):
     dependencies:

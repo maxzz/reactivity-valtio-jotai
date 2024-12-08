@@ -8,7 +8,7 @@ export function buildCatalogMetaFromNames(names: CatalogFile.ItemInFile[] | unde
             ...catalogItemInFileToFieldValue(item),
             index: idx,
             uuid: now,
-            mru: now,
+            //mru: now,
             editor: {
                 selected: false,
             },

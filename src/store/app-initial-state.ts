@@ -19,7 +19,7 @@ export function generateNewCatalogItem(newIndex: number, newName: string, isPass
         dbname: `{${guid}}`,
         index: newIndex,
         uuid: now,
-        mru: now,
+        //mru: now,
         newItem: true,
         editor: {
             selected: false,
