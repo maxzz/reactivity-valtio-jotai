@@ -1,5 +1,5 @@
-import { type CatalogFile, fcItemInFileToFieldValue } from "./form-vj-types";
-import { type FceItem } from "./9-types";
+import { type CatalogFile, fcItemInFileToFieldValue } from ".";
+import { type FceItem } from "../9-types";
 import { uuid } from "@/utils";
 
 export function buildCatalogMetaFromNames(names: CatalogFile.ItemInFile[] | undefined): FceItem[] {

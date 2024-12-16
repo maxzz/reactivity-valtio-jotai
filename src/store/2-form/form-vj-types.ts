@@ -1,8 +1,8 @@
+import { type FceItem } from "../9-types";
 import { catalogTestNames } from "./form-vj-initial-data";
 import { buildCatalogMetaFromNames } from "./form-vj-to-editor";
-import { type FceItem } from "./9-types";
 
-export * from "./manifest";
+export * from "../8-manifest";
 
 export type FormVjInputs = {
     name: string,

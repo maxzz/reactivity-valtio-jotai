@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from "react";
 import { PrimitiveAtom as PA, useAtom } from "jotai";
-import { ValueAs, ValueLife } from "@/store/manifest";
+import { ValueAs, ValueLife } from "@/store/8-manifest";
 import { getValueUiState, mapIndexToValueLife } from "./select-uitils";
 import { Dropdown, isKeyToClearDefault } from "./fieldvalue-dropdown";
 import { classNames } from "@/utils";

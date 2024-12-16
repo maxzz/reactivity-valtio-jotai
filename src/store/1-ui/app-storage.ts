@@ -1,6 +1,6 @@
 import { proxy, subscribe } from 'valtio';
-import { setUiInitialState } from '.';
-import { FormVjInputs, formVjDefaultValues } from './form-vj-types';
+import { setUiInitialState } from '..';
+import { type FormVjInputs, formVjDefaultValues } from '../2-form';
 import { mergeDefaultAndLoaded } from '@/utils';
 
 const STORAGE_UI_KEY = 'reactivity-valtio-jotai:ui';

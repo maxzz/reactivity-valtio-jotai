@@ -1,4 +1,4 @@
-import { type CatalogFile } from "./form-vj-types";
+import { type CatalogFile } from ".";
 
 interface XmlName {
     dispname: string;

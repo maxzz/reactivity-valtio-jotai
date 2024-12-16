@@ -1,5 +1,5 @@
 import { type UiState } from "./app-storage";
-import { type FceItem } from "./9-types";
+import { type FceItem } from "../9-types";
 import { uuid as uuidShort } from "@/utils";
 import { v4 } from "uuid";
 

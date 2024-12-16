@@ -1,12 +1,12 @@
-import { appUi } from './app-storage';
-import { generateNewCatalogItem } from './app-initial-state';
+import { appUi } from './1-ui/app-storage';
+import { generateNewCatalogItem } from './1-ui/app-initial-state';
 
 export { useSnapshot } from 'valtio';
-export * from './app-storage';
-export * from './app-initial-state';
+export * from './1-ui/app-storage';
+export * from './1-ui/app-initial-state';
 
-export * from './form-vj-types';
-export * from './manifest';
+export * from './2-form';
+export * from './8-manifest';
 export * from './9-types';
 
 let lastTxtAutoNumber = 0;
