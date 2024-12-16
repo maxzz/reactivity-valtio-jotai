@@ -1,12 +1,12 @@
 import { catalogTestNames } from "./form-vj-initial-data";
 import { buildCatalogMetaFromNames } from "./form-vj-to-editor";
-import { type CatalogItem } from "./manifest";
+import { type FceItem } from "./9-types";
 
 export * from "./manifest";
 
 export type FormVjInputs = {
     name: string,
-    items: CatalogItem[];
+    items: FceItem[];
 };
 
 export const formVjDefaultValues: FormVjInputs = {

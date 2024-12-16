@@ -1,6 +1,5 @@
 import { Fragment, InputHTMLAttributes, useEffect, useRef } from "react";
-import { appUi, useSnapshot } from "@/store";
-import { CatalogItem } from "@/store/form-vj-types";
+import { appUi, useSnapshot, FceItem } from "@/store";
 import { classNames, swap, turnOffAutoComplete } from "@/utils";
 import { inputFocusClasses } from "../dlg-controls";
 import { MenuState, RowPopupMenu } from "./ui-grid-row-menu";
@@ -32,7 +31,7 @@ function TableHeader() {
     );
 }
 
-function RowItemTypeWithToggleType({ item }: { item: CatalogItem; }) { // when item created we must prevent change of its type and guid.
+function RowItemTypeWithToggleType({ item }: { item: FceItem; }) { // when item created we must prevent change of its type and guid.
     const { password: isPsw = false } = useSnapshot(item);
     const title = `${isPsw ? "Password" : "Text"}. Click to change`;
     return (
@@ -42,7 +41,7 @@ function RowItemTypeWithToggleType({ item }: { item: CatalogItem; }) { // when i
     );
 }
 
-function RowItemType({ item }: { item: CatalogItem; }) {
+function RowItemType({ item }: { item: FceItem; }) {
     const { password: isPsw = false } = useSnapshot(item);
     const title = `${isPsw ? "Password" : "Text"}`;
     return (
@@ -52,9 +51,9 @@ function RowItemType({ item }: { item: CatalogItem; }) {
     );
 }
 
-type StringRowKey = keyof Pick<CatalogItem, 'displayname' | 'dbname'>;
+type StringRowKey = keyof Pick<FceItem, 'displayname' | 'dbname'>;
 
-function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
+function RowItemInput({ item, name, ...rest }: { item: FceItem; name: StringRowKey; } & InputHTMLAttributes<HTMLInputElement>) {
     const snap = useSnapshot(item, { sync: true });
     return (
         <input
@@ -68,20 +67,20 @@ function RowItemInput({ item, name, ...rest }: { item: CatalogItem; name: String
     );
 }
 
-function Row({ item, idx, menuState }: { item: CatalogItem; idx: number; menuState: MenuState; }) {
-    const { newItem } = useSnapshot(item);
+function Row({ item, idx, menuState }: { item: FceItem; idx: number; menuState: MenuState; }) {
+    const { isNewItem } = useSnapshot(item);
     const scrollToRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         if (scrollToRef.current) {
             const rowEl = scrollToRef.current;
             rowEl.querySelector<HTMLElement>('input[name="dispname"]')?.focus();
             rowEl.scrollIntoView({ behavior: "smooth", block: "center" });
-            delete item.newItem;
+            delete item.isNewItem;
             scrollToRef.current = null;
         }
     }, [scrollToRef]);
     return (
-        <div ref={newItem ? scrollToRef : null} className={gridRowClasses}>
+        <div ref={isNewItem ? scrollToRef : null} className={gridRowClasses}>
             <RowItemType item={item} />
             <RowItemInput item={item} name="displayname" />
             {/* <RowItemInput item={item} name="dbname" /> */}
