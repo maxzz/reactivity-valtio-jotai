@@ -1,4 +1,4 @@
-import { FieldTyp, LIST_references, LIST_valueAskNames, ReferenceItem, ValueAs, ValueLife } from "@/store/8-manifest";
+import { FieldTyp, LIST_references, LIST_valueAskNames, type ReferenceItem, ValueAs, ValueLife } from "@/store/8-manifest";
 
 function pickRefsList(isPsw: boolean): Record<string, ReferenceItem> { //TODO: move out value <-> index mappers
     return LIST_references[isPsw ? 'psw' : 'txt'];

@@ -1,6 +1,6 @@
-import { useState, useRef, ButtonHTMLAttributes } from "react";
-import { addCatalogItem } from "@/store";
+import { useState, useRef, type ButtonHTMLAttributes } from "react";
 import { useClickAway } from "react-use";
+import { addCatalogItem } from '@/store';
 import { classNames } from "@/utils";
 import { IconAdd, IconFieldPassword, IconFieldText } from "@/components/ui";
 import { dlgBottomButtonClasses, inputFocusClasses } from "../dlg-controls";
@@ -22,14 +22,17 @@ export function ButtonAdd({ className, ...rest }: ButtonHTMLAttributes<HTMLEleme
 
             {menuOpen &&
                 <div className={menuBoxClasses}>
+
                     <div className={menuBtnClasses} onClick={() => onAdd(false)}>
                         <IconFieldText className="w-6 h-6 pt-0.5"/>
                         <span>Text field</span>
                     </div>
+
                     <div className={menuBtnClasses} onClick={() => onAdd(true)}>
                         <IconFieldPassword className="w-6 h-6 pt-0.5"/>
                         <span>Password field</span>
                     </div>
+
                 </div>
             }
         </button>

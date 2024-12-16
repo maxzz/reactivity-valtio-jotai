@@ -1,4 +1,4 @@
-import { type CatalogFile, fcItemInFileToFieldValue } from ".";
+import { type CatalogFile, fcItemInFileToFieldValue } from "../8-manifest";
 import { type FceItem } from "../9-types";
 import { uuid } from "@/utils";
 

@@ -1,4 +1,4 @@
-import { type CatalogFile } from ".";
+import { type CatalogFile } from "../8-manifest";
 
 interface XmlName {
     dispname: string;
