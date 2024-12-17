@@ -1,7 +1,7 @@
 import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { HamburgerMenuIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
-import { IconCheck, IconChevronRight, IconDot, IconHamburger } from '../../ui';
+import { IconCheck, IconChevronRight, IconDot, IconHamburger } from '../../../ui';
 import { inputFocusClasses } from '../dlg-controls';
 
 const menuTriggerClasses = "\

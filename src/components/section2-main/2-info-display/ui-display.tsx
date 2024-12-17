@@ -1,5 +1,5 @@
 import { appUi, useSnapshot } from "@/store";
-import { Scroller } from "../ui";
+import { Scroller } from "../../ui";
 
 export function Display() {
     const snap = useSnapshot(appUi.formVjInputs);

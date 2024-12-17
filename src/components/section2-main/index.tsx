@@ -1,6 +1,6 @@
 import { appUi, useSnapshot } from '@/store';
-import { FormValtioJotai } from '../form-vj';
-import { Display } from './ui-display';
+import { FormValtioJotai } from './1-form';
+import { Display } from './2-info-display/ui-display';
 
 export function Section2_Main() {
     const { pageVjDlgOpen } = useSnapshot(appUi.uiState);
