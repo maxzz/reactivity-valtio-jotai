@@ -1,5 +1,5 @@
 import { proxy, subscribe } from 'valtio';
-import { setUiInitialState } from '..';
+import { setUiInitialState } from './1-utils';
 import { type FormVjInputs, formVjDefaultValues } from '../2-form';
 import { mergeDefaultAndLoaded } from '@/utils';
 
@@ -36,7 +36,7 @@ const initialAppUi: AppUi = {
 
 export const appUi = proxy<AppUi>(loadUiInitialState());
 
-setUiInitialState(appUi.uiState);
+setUiInitialState({ darkMode: appUi.uiState.darkMode });
 
 // Local storage
 
@@ -63,13 +63,9 @@ function loadUiInitialState(): AppUi {
 }
 
 subscribe(appUi.uiState, () => {
-    //console.log('store ui  ', appUi.uiState);
-
     localStorage.setItem(STORAGE_UI_KEY, JSON.stringify({ [STORAGE_UI_VER]: appUi.uiState }));
 });
 
 subscribe(appUi.formVjInputs, () => {
-    //console.log('store data', appUi.formVjInputs);
-
     localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify({ [STORAGE_DATA_VER]: appUi.formVjInputs }));
 });
