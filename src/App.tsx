@@ -1,5 +1,5 @@
-import { Section2_Main } from "./components/section2-main";
-import { Section3_Footer } from "./components/section3-footer";
+import { Section2_Main } from "./components/2-main";
+import { Section3_Footer } from "./components/3-footer";
 
 export function App() {
     return (<>

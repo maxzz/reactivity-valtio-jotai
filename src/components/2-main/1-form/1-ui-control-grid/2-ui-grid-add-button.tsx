@@ -3,7 +3,7 @@ import { useClickAway } from "react-use";
 import { addCatalogItem } from '@/store';
 import { classNames } from "@/utils";
 import { IconAdd, IconFieldPassword, IconFieldText } from "@/components/ui";
-import { dlgBottomButtonClasses, inputFocusClasses } from "../dlg-controls";
+import { dlgBottomButtonClasses, inputFocusClasses } from "../3-dlg-controls";
 
 const menuBoxClasses = "absolute right-0 top-full mt-0.5 px-1 py-1.5 bg-primary-200 dark:bg-primary-900 border-gray-500/50 border rounded shadow animate-row-menu-left";
 const menuBtnClasses = "pl-1 pr-3 py-1 text-start hover:text-primary-800 dark:hover:text-primary-200 hover:bg-primary-400/50 dark:hover:bg-primary-500 flex items-center space-x-1 whitespace-nowrap rounded-sm cursor-pointer";

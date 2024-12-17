@@ -2,7 +2,7 @@ import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { HamburgerMenuIcon, DotFilledIcon, CheckIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import { IconCheck, IconChevronRight, IconDot, IconHamburger } from '../../../ui';
-import { inputFocusClasses } from '../dlg-controls';
+import { inputFocusClasses } from '../3-dlg-controls';
 
 const menuTriggerClasses = "\
 w-8 h-8 rounded \
