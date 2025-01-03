@@ -30,8 +30,8 @@ importers:
         specifier: ^0.5.0
         version: 0.5.0(jotai@2.10.3(@types/react@18.3.12)(react@18.3.1))(valtio@2.1.2(@types/react@18.3.12)(react@18.3.1))
       pm-manifest:
-        specifier: ^1.2.65
-        version: 1.2.65
+        specifier: ^1.2.72
+        version: 1.2.72
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -68,7 +68,7 @@ importers:
         version: 10.0.0
       '@vitejs/plugin-react':
         specifier: 4.3.4
-        version: 4.3.4(vite@6.0.3(@types/node@22.10.1)(jiti@2.4.1)(yaml@2.6.1))
+        version: 4.3.4(vite@6.0.3(@types/node@22.10.1)(jiti@2.4.2)(yaml@2.7.0))
       autoprefixer:
         specifier: 10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -86,7 +86,7 @@ importers:
         version: 5.7.2
       vite:
         specifier: 6.0.3
-        version: 6.0.3(@types/node@22.10.1)(jiti@2.4.1)(yaml@2.6.1)
+        version: 6.0.3(@types/node@22.10.1)(jiti@2.4.2)(yaml@2.7.0)
 
 packages:
 
@@ -1126,8 +1126,8 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
-  jiti@2.4.1:
-    resolution: {integrity: sha512-yPBThwecp1wS9DmoA4x4KR2h3QoslacnDR8ypuFM962kI4/456Iy1oHx2RAgh4jfZNdn0bctsdadceiBUgpU1g==}
+  jiti@2.4.2:
+    resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
 
   jotai-valtio@0.5.0:
@@ -1272,8 +1272,8 @@ packages:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
 
-  pm-manifest@1.2.65:
-    resolution: {integrity: sha512-28jiTol34GLr+/ubeJQGW6Ej6mmYJnCnYgytILgo0ogyG/mfZNwZxINWQwQiiXmSJkoapPXcz7UU8f/6o6ep1Q==}
+  pm-manifest@1.2.72:
+    resolution: {integrity: sha512-Z+M2zRHcHKEs09eguFXEyPftRfksRCaiUnh5q9B6iwKUPLOxAvLlI1oNuZq97tN9V1cCXr1EZfNbfk6685x3jQ==}
 
   postcss-import@15.1.0:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
@@ -1640,6 +1640,11 @@ packages:
 
   yaml@2.6.1:
     resolution: {integrity: sha512-7r0XPzioN/Q9kXBro/XPnA6kznR73DHq+GXh5ON7ZozRO6aMjbmiBuKste2wslTFkC5d1dw0GooOCepZXJ2SAg==}
+    engines: {node: '>= 14'}
+    hasBin: true
+
+  yaml@2.7.0:
+    resolution: {integrity: sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -2329,14 +2334,14 @@ snapshots:
 
   '@types/uuid@10.0.0': {}
 
-  '@vitejs/plugin-react@4.3.4(vite@6.0.3(@types/node@22.10.1)(jiti@2.4.1)(yaml@2.6.1))':
+  '@vitejs/plugin-react@4.3.4(vite@6.0.3(@types/node@22.10.1)(jiti@2.4.2)(yaml@2.7.0))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 6.0.3(@types/node@22.10.1)(jiti@2.4.1)(yaml@2.6.1)
+      vite: 6.0.3(@types/node@22.10.1)(jiti@2.4.2)(yaml@2.7.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -2608,7 +2613,7 @@ snapshots:
 
   jiti@1.21.6: {}
 
-  jiti@2.4.1:
+  jiti@2.4.2:
     optional: true
 
   jotai-valtio@0.5.0(jotai@2.10.3(@types/react@18.3.12)(react@18.3.1))(valtio@2.1.2(@types/react@18.3.12)(react@18.3.1)):
@@ -2714,7 +2719,7 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  pm-manifest@1.2.65:
+  pm-manifest@1.2.72:
     dependencies:
       '@types/uuid': 10.0.0
       fast-xml-parser: 4.5.0
@@ -3050,7 +3055,7 @@ snapshots:
       '@types/react': 18.3.12
       react: 18.3.1
 
-  vite@6.0.3(@types/node@22.10.1)(jiti@2.4.1)(yaml@2.6.1):
+  vite@6.0.3(@types/node@22.10.1)(jiti@2.4.2)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.0
       postcss: 8.4.49
@@ -3058,8 +3063,8 @@ snapshots:
     optionalDependencies:
       '@types/node': 22.10.1
       fsevents: 2.3.3
-      jiti: 2.4.1
-      yaml: 2.6.1
+      jiti: 2.4.2
+      yaml: 2.7.0
 
   which@2.0.2:
     dependencies:
@@ -3080,3 +3085,6 @@ snapshots:
   yallist@3.1.1: {}
 
   yaml@2.6.1: {}
+
+  yaml@2.7.0:
+    optional: true
