@@ -39,8 +39,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-use:
-        specifier: ^17.5.1
-        version: 17.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^17.6.0
+        version: 17.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       uuid:
         specifier: ^11.0.3
         version: 11.0.3
@@ -165,8 +165,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/runtime@7.25.7':
-    resolution: {integrity: sha512-FjoyLe754PMiYsFaN5C94ttGiOmBNYTf6pLr4xXHAT5uctHb092PBszndLDR5XA/jghQvn4n7JMHl7dmTgbm9w==}
+  '@babel/runtime@7.26.0':
+    resolution: {integrity: sha512-FDSOghenHTiToteC/QRlv2q3DhPZ/oOXTBoirfWNx1Cx3TMVcGWQtMMmQcSvb/JjpNeGzx8Pq/b4fKEJuWm1sw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.25.9':
@@ -1365,8 +1365,8 @@ packages:
       react: '*'
       tslib: '*'
 
-  react-use@17.5.1:
-    resolution: {integrity: sha512-LG/uPEVRflLWMwi3j/sZqR00nF6JGqTTDblkXK2nzXsIvij06hXl1V/MZIlwj1OKIQUtlh1l9jK8gLsRyCQxMg==}
+  react-use@17.6.0:
+    resolution: {integrity: sha512-OmedEScUMKFfzn1Ir8dBxiLLSOzhKe/dPZwVxcujweSj45aNM7BEGPb9BEVIgVEqEXx6f3/TsXzwIktNgUR02g==}
     peerDependencies:
       react: '*'
       react-dom: '*'
@@ -1524,9 +1524,6 @@ packages:
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
-
-  tslib@2.7.0:
-    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -1741,7 +1738,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-plugin-utils': 7.25.9
 
-  '@babel/runtime@7.25.7':
+  '@babel/runtime@7.26.0':
     dependencies:
       regenerator-runtime: 0.14.1
 
@@ -2798,12 +2795,12 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.12
 
-  react-universal-interface@0.6.2(react@18.3.1)(tslib@2.7.0):
+  react-universal-interface@0.6.2(react@18.3.1)(tslib@2.8.1):
     dependencies:
       react: 18.3.1
-      tslib: 2.7.0
+      tslib: 2.8.1
 
-  react-use@17.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-use@17.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@types/js-cookie': 2.2.7
       '@xobotyi/scrollbar-width': 1.9.5
@@ -2814,13 +2811,13 @@ snapshots:
       nano-css: 5.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-universal-interface: 0.6.2(react@18.3.1)(tslib@2.7.0)
+      react-universal-interface: 0.6.2(react@18.3.1)(tslib@2.8.1)
       resize-observer-polyfill: 1.5.1
       screenfull: 5.2.0
       set-harmonic-interval: 1.0.1
       throttle-debounce: 3.0.1
       ts-easing: 0.2.0
-      tslib: 2.7.0
+      tslib: 2.8.1
 
   react@18.3.1:
     dependencies:
@@ -2873,7 +2870,7 @@ snapshots:
 
   rtl-css-js@1.16.1:
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.26.0
 
   run-parallel@1.2.0:
     dependencies:
@@ -3006,8 +3003,6 @@ snapshots:
   ts-easing@0.2.0: {}
 
   ts-interface-checker@0.1.13: {}
-
-  tslib@2.7.0: {}
 
   tslib@2.8.1: {}
 
