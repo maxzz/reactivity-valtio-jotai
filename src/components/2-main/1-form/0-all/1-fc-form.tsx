@@ -4,10 +4,12 @@ import { BottomButton, Caption, Input } from "../3-dlg-controls";
 import { MruTrigger } from "../4-ui-contol-mru";
 import { DropdownMenuDemo, SelectDemo } from "../5-demos";
 
+const formBodyClasses = "min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]"
+
 export function MainForm() {
     return (
         <div className="self-center border-slate-600 border rounded overflow-hidden debug1">
-            <div className="min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]">
+            <div className={formBodyClasses}>
                 <Caption />
                 <EditorBody />
 
