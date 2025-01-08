@@ -1,7 +1,7 @@
-import { HTMLAttributes, useEffect, useState } from "react";
+import { type HTMLAttributes, useEffect, useState } from "react";
 import { proxy, snapshot, subscribe } from "valtio";
 import { atomWithProxy } from "jotai-valtio";
-import { FceItem, TransformValue } from "@/store";
+import { type FceItem, TransformValue } from "@/store";
 import { FieldValueUi } from "./fieldvalue-ui";
 
 export function FieldValueBinding({ proxyItem, ...rest }: { proxyItem: FceItem; } & HTMLAttributes<HTMLElement>) {

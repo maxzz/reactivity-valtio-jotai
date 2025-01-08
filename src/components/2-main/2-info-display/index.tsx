@@ -9,6 +9,7 @@ export function Display() {
         //     {JSON.stringify(snap, null, 4)}
         // </div>
         // // </Scroller>
+        
         <Scroller>
             <div className="p-4 text-xs whitespace-pre">
                 {JSON.stringify(snap, null, 4)}
