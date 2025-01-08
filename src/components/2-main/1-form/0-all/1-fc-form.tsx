@@ -4,37 +4,18 @@ import { BottomButton, Caption, Input } from "../3-dlg-controls";
 import { MruTrigger } from "../4-ui-contol-mru";
 import { DropdownMenuDemo, SelectDemo } from "../5-demos";
 
-function NameInput() {
-    const snap = useSnapshot(appUi.formVjInputs);
-    return (
-        <label className="inline-block">
-            Name
-            <Input value={snap.name} onChange={(e) => appUi.formVjInputs.name = e.target.value} />
-        </label>
-    );
-}
-
-function Body() {
-    return (
-        <div className="p-4 h-full grid grid-rows-[auto_1fr] gap-4">
-            <NameInput />
-            <GridRowsWithAddButton />
-        </div>
-    );
-}
-
-export function FormValtioJotai() {
+export function MainForm() {
     return (
         <div className="self-center border-slate-600 border rounded overflow-hidden debug1">
             <div className="min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]">
                 <Caption />
-                <Body />
+                <EditorBody />
 
-                <div className="px-4 flex items-center space-x-2">
+                {/* <div className="px-4 flex items-center space-x-2">
                     <SelectDemo />
                     <DropdownMenuDemo />
                     <MruTrigger />
-                </div>
+                </div> */}
 
                 <div className="p-4 flex items-center justify-end gap-x-2">
                     <BottomButton>OK</BottomButton>
@@ -42,6 +23,25 @@ export function FormValtioJotai() {
                 </div>
             </div>
         </div>
+    );
+}
+
+function EditorBody() {
+    return (
+        <div className="p-4 h-full grid grid-rows-[auto_1fr] gap-4">
+            <InputName />
+            <GridRowsWithAddButton />
+        </div>
+    );
+}
+
+function InputName() {
+    const snap = useSnapshot(appUi.formVjInputs);
+    return (
+        <label className="inline-block">
+            Name
+            <Input value={snap.name} onChange={(e) => appUi.formVjInputs.name = e.target.value} />
+        </label>
     );
 }
 
