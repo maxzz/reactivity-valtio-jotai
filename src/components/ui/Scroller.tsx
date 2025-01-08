@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import * as ScrollArea from "@radix-ui/react-scroll-area";
+import * as S from "@radix-ui/react-scroll-area";
 
 const scrollbarClasses = `
     p-0.5
@@ -40,20 +40,20 @@ const scrollbarThumbClasses = `
 
 export function Scroller({ children }: { children: ReactNode; }) {
     return (
-        <ScrollArea.Root className="h-full overflow-hidden">
-            <ScrollArea.Viewport className="w-full h-full">
+        <S.Root className="h-full overflow-hidden">
+            <S.Viewport className="w-full h-full">
                 {children}
-            </ScrollArea.Viewport>
+            </S.Viewport>
 
-            <ScrollArea.Scrollbar orientation="vertical" className={scrollbarClasses}>
-                <ScrollArea.Thumb className={scrollbarThumbClasses} />
-            </ScrollArea.Scrollbar>
+            <S.Scrollbar orientation="vertical" className={scrollbarClasses}>
+                <S.Thumb className={scrollbarThumbClasses} />
+            </S.Scrollbar>
 
-            <ScrollArea.Scrollbar orientation="horizontal" className={scrollbarClasses}>
-                <ScrollArea.Thumb className={scrollbarThumbClasses} />
-            </ScrollArea.Scrollbar>
+            <S.Scrollbar orientation="horizontal" className={scrollbarClasses}>
+                <S.Thumb className={scrollbarThumbClasses} />
+            </S.Scrollbar>
 
-            <ScrollArea.Corner />
-        </ScrollArea.Root>
+            <S.Corner />
+        </S.Root>
     );
 }
