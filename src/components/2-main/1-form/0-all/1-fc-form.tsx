@@ -4,25 +4,27 @@ import { BottomButton, Caption, Input } from "../3-dlg-controls";
 import { MruTrigger } from "../4-ui-contol-mru";
 import { DropdownMenuDemo, SelectDemo } from "../5-demos";
 
-const formBodyClasses = "min-h-[36rem] max-h-[56rem] grid grid-rows-[auto_1fr_auto]"
+const formBodyClasses = "\
+min-h-[36rem] max-h-[56rem] \
+grid grid-rows-[auto_1fr_auto] \
+border-slate-600 border \
+rounded overflow-hidden 1debug";
 
 export function MainForm() {
     return (
-        <div className="self-center border-slate-600 border rounded overflow-hidden debug1">
-            <div className={formBodyClasses}>
-                <Caption />
-                <EditorBody />
+        <div className={formBodyClasses}>
+            <Caption />
+            <EditorBody />
 
-                {/* <div className="px-4 flex items-center space-x-2">
+            {/* <div className="px-4 flex items-center space-x-2">
                     <SelectDemo />
                     <DropdownMenuDemo />
                     <MruTrigger />
                 </div> */}
 
-                <div className="p-4 flex items-center justify-end gap-x-2">
-                    <BottomButton>OK</BottomButton>
-                    <BottomButton>Cancel</BottomButton>
-                </div>
+            <div className="p-4 flex items-center justify-end gap-x-2">
+                <BottomButton>OK</BottomButton>
+                <BottomButton>Cancel</BottomButton>
             </div>
         </div>
     );
