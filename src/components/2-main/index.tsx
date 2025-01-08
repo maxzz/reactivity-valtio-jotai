@@ -12,9 +12,9 @@ export function Section2_Main() {
             <AnimatePresence>
                 {pageVjDlgOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 10, scaleX: 0, }}
+                        animate={{ opacity: 1, y: 0, scaleX: 1, }}
+                        exit={{ opacity: 0, y: 10, scaleX: 0, }}
                         transition={{ duration: 0.2 }}
                     >
                         <MainForm />
