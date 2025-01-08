@@ -4,7 +4,7 @@ import { BottomButton, Caption, Input } from "../3-dlg-controls";
 import { DropdownMenuDemo, MruTrigger, SelectDemo } from "../5-demos";
 
 const formBodyClasses = "\
-min-h-[36rem] max-h-[56rem] \
+1min-h-[36rem] 1max-h-[56rem] \
 grid grid-rows-[auto_1fr_auto] \
 border-slate-600 border \
 rounded overflow-hidden 1debug";
@@ -22,8 +22,8 @@ export function MainForm() {
                 <MruTrigger />
             </div>
             */}
-            
-            <div className="p-4 flex items-center justify-end gap-x-2">
+
+            <div className="p-4 pt-0 flex items-center justify-end gap-x-2">
                 <BottomButton>OK</BottomButton>
                 <BottomButton>Cancel</BottomButton>
             </div>
