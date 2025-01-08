@@ -1,8 +1,7 @@
 import { appUi, useSnapshot } from "@/store";
 import { GridRowsWithAddButton } from "../1-ui-control-grid";
 import { BottomButton, Caption, Input } from "../3-dlg-controls";
-import { MruTrigger } from "../4-ui-contol-mru";
-import { DropdownMenuDemo, SelectDemo } from "../5-demos";
+import { DropdownMenuDemo, MruTrigger, SelectDemo } from "../5-demos";
 
 const formBodyClasses = "\
 min-h-[36rem] max-h-[56rem] \
@@ -16,12 +15,14 @@ export function MainForm() {
             <Caption />
             <EditorBody />
 
-            {/* <div className="px-4 flex items-center space-x-2">
-                    <SelectDemo />
-                    <DropdownMenuDemo />
-                    <MruTrigger />
-                </div> */}
-
+            {/* 
+            <div className="px-4 flex items-center space-x-2">
+                <SelectDemo />
+                <DropdownMenuDemo />
+                <MruTrigger />
+            </div>
+            */}
+            
             <div className="p-4 flex items-center justify-end gap-x-2">
                 <BottomButton>OK</BottomButton>
                 <BottomButton>Cancel</BottomButton>
