@@ -15,7 +15,7 @@ export function Section2_Main() {
         <div className={topClasses}>
 
             <div className="overflow-hidden">
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                     {pageVjDlgOpen && (
                         <motion.div
                             initial={{ opacity: 0, y: 100, scaleX: 0.5, }}
@@ -29,9 +29,9 @@ export function Section2_Main() {
                 </AnimatePresence>
             </div>
 
-            <div className="col-start-2 border-slate-600 border rounded overflow-hidden">
+            <motion.div className="col-start-2 border-slate-600 border rounded overflow-hidden" layout>
                 <Display />
-            </div>
+            </motion.div>
 
         </div>
     );
