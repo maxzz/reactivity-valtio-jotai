@@ -1,10 +1,10 @@
 import { Fragment, InputHTMLAttributes, useEffect, useRef } from "react";
 import { appUi, useSnapshot, FceItem } from "@/store";
 import { classNames, swap, turnOffAutoComplete } from "@/utils";
-import { inputFocusClasses } from "../3-dlg-controls";
+import { inputFocusClasses } from "../0-all/3-dlg-controls";
 import { MenuState, RowPopupMenu } from "./3-ui-grid-row-menu";
 import { IconFieldPassword, IconFieldText } from "@/components/ui";
-import { FieldValueInput } from "../2-ui-control-value";
+import { FieldValueInput } from "../2-input-value";
 
 //const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_1fr_20px] gap-0.5 items-center select-none @[300px]:gap-1";
 const gridRowClasses = "grid grid-cols-2 @[300px]:grid-cols-[1.5rem_1fr_minmax(auto,130px)_20px] gap-0.5 items-center select-none @[300px]:gap-1";

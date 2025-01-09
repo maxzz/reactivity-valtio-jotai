@@ -1,7 +1,7 @@
 import { appUi, useSnapshot } from "@/store";
-import { GridRowsWithAddButton } from "../1-ui-control-grid";
-import { BottomButton, Caption, Input } from "../3-dlg-controls";
-import { DropdownMenuDemo, MruTrigger, SelectDemo } from "../5-demos";
+import { GridRowsWithAddButton } from "../1-grid";
+import { BottomButton, Caption, Input } from "./3-dlg-controls";
+// import { DropdownMenuDemo, MruTrigger, SelectDemo } from "../5-demos";
 import { IconStar } from "@/components/ui";
 
 const formBodyClasses = "\
