@@ -7,24 +7,8 @@ export * from './03-menu';
 export * from './04-trash';
 export * from './05-arrow-up';
 export * from './06-arrow-down';
-
-export function IconAdd({ className, title, ...rest }: SVGAttributes<SVGSVGElement> & { title?: string; }) {
-    return (
-        <svg className={classNames("fill-none stroke-current stroke-[1.5]", className)} viewBox="0 0 24 24" {...rest}>
-            {title && <title>{title}</title>}
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-        </svg>
-    );
-}
-
-export function IconHamburger({ className, title, ...rest }: SVGAttributes<SVGSVGElement> & { title?: string; }) {
-    return (
-        <svg className={classNames("fill-none stroke-current stroke-[1.5]", className)} viewBox="0 0 24 24" {...rest}>
-            {title && <title>{title}</title>}
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-    );
-}
+export * from './07-add';
+export * from './08-hamburger';
 
 {/* <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
     <circle cx="12.1" cy="12.1" r="1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
