@@ -16,9 +16,9 @@ export function Section2_Main() {
                 <AnimatePresence initial={false} mode="popLayout">
                     {pageVjDlgOpen && (
                         <motion.div
-                            initial={{ opacity: 0, y: 10, scaleX: 0.9, }}
+                            initial={{ opacity: 0, y: -100, scaleX: 0.3, }}
                             animate={{ opacity: 1, y: 0, scaleX: 1, }}
-                            exit={{ opacity: 0, y: -10, scaleX: 0.9, transition: { delay: 1.2 } }}
+                            exit={{ opacity: 0, y: -100, scaleX: 0.3 }}
                             transition={{ duration: 0.2 }}
                         >
                             <MainForm />
@@ -27,12 +27,20 @@ export function Section2_Main() {
                 </AnimatePresence>
             </div>
 
-            <motion.div
-                className="col-start-2 border-slate-600 border rounded overflow-hidden"
-                layout
-            >
-                <Display />
-            </motion.div>
+
+            <AnimatePresence initial={false} mode="popLayout">
+                <motion.div
+                    // initial={{ opacity: 0, y: 10, scaleX: 0.9, }}
+                    // animate={{ opacity: 1, y: 0, scaleX: 1, }}
+                    // exit={{ opacity: 0, y: -10, scaleX: 0.9, transition: { delay: 1.2 } }}
+                    exit={{ transition: { delay: 2.2 } }}
+                    // transition={{ delay: 0.2 }}
+                    className="col-start-2 border-slate-600 border rounded overflow-hidden"
+                    layout
+                >
+                    <Display />
+                </motion.div>
+            </AnimatePresence>
         </div>
     );
 }
