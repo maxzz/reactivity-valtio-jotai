@@ -1,5 +1,5 @@
-import { type SVGAttributes } from 'react';
-import { classNames } from '@/utils';
+import { type SVGAttributes } from "react";
+import { classNames } from "@/utils";
 
 export function IconClose({ className, title, ...rest }: SVGAttributes<SVGSVGElement> & { title?: string; }) {
     return (

@@ -1,6 +1,6 @@
 import * as menu from '@radix-ui/react-dropdown-menu';
 import { IconChevronDown, IconDot } from '@/components/ui';
-import { classNames } from '@/utils';
+import { classNames } from "@/utils";
 
 export function isKeyToClearDefault(key: string) {
     return key === 'Backspace' || /^[a-z0-9]$/i.test(key);
