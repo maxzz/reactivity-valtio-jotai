@@ -11,17 +11,15 @@ overflow-auto";
 export function Section2_Main() {
     const { pageVjDlgOpen } = useSnapshot(appUi.uiState);
     return (
-        // <div className="mx-auto p-4 max-w-7xl w-full h-full grid grid-cols-2 gap-x-4 overflow-auto">
         <div className={topClasses}>
-
             <div className="overflow-hidden">
-                <AnimatePresence initial={false}>
+                <AnimatePresence initial={false} mode="popLayout">
                     {pageVjDlgOpen && (
                         <motion.div
-                            initial={{ opacity: 0, y: 100, scaleX: 0.5, }}
+                            initial={{ opacity: 0, y: 10, scaleX: 0.9, }}
                             animate={{ opacity: 1, y: 0, scaleX: 1, }}
-                            exit={{ opacity: 0, y: -100, scaleX: 0.5, }}
-                            transition={{ duration: 1.2 }}
+                            exit={{ opacity: 0, y: -10, scaleX: 0.9, transition: { delay: 1.2 } }}
+                            transition={{ duration: 0.2 }}
                         >
                             <MainForm />
                         </motion.div>
@@ -29,10 +27,12 @@ export function Section2_Main() {
                 </AnimatePresence>
             </div>
 
-            <motion.div className="col-start-2 border-slate-600 border rounded overflow-hidden" layout>
+            <motion.div
+                className="col-start-2 border-slate-600 border rounded overflow-hidden"
+                layout
+            >
                 <Display />
             </motion.div>
-
         </div>
     );
 }
