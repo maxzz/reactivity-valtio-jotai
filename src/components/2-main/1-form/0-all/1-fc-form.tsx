@@ -2,6 +2,7 @@ import { appUi, useSnapshot } from "@/store";
 import { GridRowsWithAddButton } from "../1-ui-control-grid";
 import { BottomButton, Caption, Input } from "../3-dlg-controls";
 import { DropdownMenuDemo, MruTrigger, SelectDemo } from "../5-demos";
+import { IconStar } from "@/components/ui";
 
 const formBodyClasses = "\
 1min-h-[36rem] 1max-h-[56rem] \
@@ -24,6 +25,7 @@ export function MainForm() {
             */}
 
             <div className="p-4 pt-0 flex items-center justify-end gap-x-2">
+                <IconStar className="size-6 stroke-none fill-amber-600" />
                 <BottomButton>OK</BottomButton>
                 <BottomButton>Cancel</BottomButton>
             </div>
