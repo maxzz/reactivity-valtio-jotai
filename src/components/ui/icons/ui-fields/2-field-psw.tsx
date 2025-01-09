@@ -1,5 +1,4 @@
-import type { HTMLAttributes } from "react";
-
+import { type HTMLAttributes } from "react";
 
 export function IconFieldPassword({ className, title, ...rest }: HTMLAttributes<SVGSVGElement>) {
     return (
